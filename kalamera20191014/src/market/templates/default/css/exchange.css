@@ -1,0 +1,166 @@
+#cancel_goods{
+	border: 1px solid #e5e5e5;
+	background-color: #ffffff;
+	
+}
+.cancel_head{
+	line-height: 39px;
+	height: 39px;
+	border-bottom: 1px solid #e4e4e4;
+	font-size: 14px;
+	padding-left: 12px;
+	background-color: #f9f9f9;
+	color: #333333;
+}
+#cancel_info{
+	padding: 0 40px 50px 40px;
+	
+	
+	
+}
+#cancel_info>div:first-child{
+	font-size: 14px;
+	color: #333333;
+	margin: 40px 0 27px 0;
+}
+#manage div{
+	line-height: 14px;
+	float: left;
+	color: #333333;
+	
+}
+#manage>div:first-child,#reason>div:first-child,#describe>div:first-child{
+	margin-right: 10px;
+}
+#cancel_info>div{
+	overflow: hidden;
+}
+#retreat>div:first-child,#trade>div:first-child{
+	width:12px ;
+	border: 1px solid #d10706;
+	height:12px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+#retreat{
+	margin-right: 32px;
+}
+.r_checked{
+	background: url(../img/vipcore/checked_03.jpg) no-repeat center;
+}
+#reason>div{
+	float: left;
+	line-height: 30px;	
+	
+}
+
+#reason select{
+	width: 220px;
+	height:30px ;
+	border: 1px solid #bbbbbb;
+	color: #747474;
+}
+
+#manage{
+	margin-bottom: 20px;
+}
+#reason{
+	margin-bottom: 10px;
+}
+#reason>div:last-child{
+	color: #d32726;
+	
+}
+#describe>div{
+	float: left;
+
+	
+}
+#describe>div:first-child{
+	line-height: 92px;
+}
+#describe textarea{
+	width: 764px;
+	height:94px ;
+	padding: 13px 8px;
+	border: 1px solid #bbbbbb;
+	resize: none;
+}
+#cl_up:hover,#sub_return:hover{
+	cursor: pointer;
+
+	}
+		
+#upload_image>div:first-child{
+		color: #666666;
+	}
+
+#describe{
+	margin-bottom: 20px;
+}
+#upload_image{
+	margin:0 0 20px 60px;
+}
+#cancel_info>div:last-child{
+	margin-left: 60px;
+}
+#cl_up{
+	width: 78px;
+	height: 78px;
+	margin-top: 10px;
+	border-radius: 10px;
+	border: 1px dashed #c1b497 ;
+	background: #f5f1e9 url(../img/vipcore/szjj_07.jpg) no-repeat center;
+	
+}
+#read{
+	vertical-align: middle;
+	border: 1px solid #c1c1c1;
+}
+.read label{
+	
+	font-size: 12px;
+	color: #a1a1a1;
+}
+#sub_return{
+	width:88px ;
+	height:26px ;
+	border: 1px solid #a2967d;
+	text-align: center;
+	line-height: 26px;
+	background-color: #c1b497;
+	color: #ffffff;
+	margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

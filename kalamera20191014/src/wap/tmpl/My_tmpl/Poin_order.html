@@ -1,0 +1,640 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>确认订单</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_common.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_cart.css">
+<link rel="stylesheet" type="text/css" href="../../css/MyCss.css" />
+<style type="text/css">
+body{
+	background-color: #f5f5f5;
+	
+}	
+</style>
+
+
+</head>
+
+<body>
+<header id="header" class="fixed">
+  <div class="header-wrap">
+    <div class="header-l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+    <div class="header-title">
+      <h1>确认订单</h1>
+    </div>
+    <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="../../tmpl/search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="../../tmpl/member/member.html"><i class="member"></i>我的商城</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div id="container-fcode" class="hide">
+  <div class="fcode-bg">
+    <div class="con">
+      <h3>您正在购买“F码”商品</h3>
+      <h5>请输入所知的F码序列号并提交验证<br/>
+        系统效验后可继续完成下单</h5>
+      <input type="text" name="fcode" id="fcode" placeholder="" />
+      <p class="fcode_error_tip" style="display:none;color:red;"></p>
+      <a href="javascript:void(0);" class="submit">提交验证</a> </div>
+  </div>
+</div>
+
+
+
+<div class="nctouch-main-layout mb20" id="or">
+  <div class="nctouch-cart-block"> 
+    <!--正在使用的默认地址Begin-->
+    <div class="nctouch-cart-add-default"><a href="javascript:void(0);" id="list-address-valve"><i class="icon-add"></i>
+      <dl>
+        <dt>收货人：<span id="true_name">某某某</span><span id="mob_phone">15600000000</span></dt>
+        <dd><span id="address">广东 广州市 天河区棠下村</span></dd>
+      </dl>
+      <i class="icon-arrow"></i></a></div>
+    <!--正在使用的默认地址End--> 
+  </div>
+  <!--选择收货地址Begin-->
+  <div id="list-address-wrapper" class="nctouch-full-mask hide">
+    <div class="nctouch-full-mask-bg"></div>
+    <div class="nctouch-full-mask-block">
+      <div class="header">
+        <div class="header-wrap">
+          <div class="header-l"> <a href="javascript:void(0);"> <i class="back"></i> </a> </div>
+          <div class="header-title">
+            <h1>收货地址</h1>
+          </div>
+        </div>
+      </div>
+      <div class="nctouch-main-layout" id="list-address-scroll">
+        <ul class="nctouch-cart-add-list" id="list-address-add-list-ul">
+        		<div id="get_address">
+        			<div class="get_info">陈小明</div>
+        			<div class="get_info">15622222222</div>
+        			<div class="get_info">广东省广州市海珠区广州海珠区敦和路189号海珠科技园</div>
+        			<div id="add_btn">
+        				<div class="add-address-valve bj_btn" >编辑地址</div>
+        				<div class="add-address-valve">选择地址</div>
+        			</div>
+        		</div>
+        	
+        </ul>
+        <div id="addresslist" class="mt10"> <a href="javascript:void(0);" class="btn-l" id="new-address-valve">新增收货地址</a> </div>
+      </div>
+    </div>
+  </div>
+  <!--选择收货地址End--> 
+  
+  
+  		<div id="new-address-wrapper" class="nctouch-full-mask hide">
+    <div class="nctouch-full-mask-bg"></div>
+    <div class="nctouch-full-mask-block">
+      <div class="header">
+        <div class="header-wrap">
+          <div class="header-l"> <a href="javascript:void(0);"> <i class="back"></i> </a> </div>
+          <div class="header-title">
+            <h1>新增收货地址</h1>
+          </div>
+        </div>
+      </div>
+      <div class="nctouch-main-layout" id="new-address-scroll">
+        <div class="nctouch-inp-con">
+          <form id="add_address_form">
+            <ul class="form-box">
+              <li class="form-item">
+                <h4>收货人姓名:</h4>
+                <div class="input-box">
+                  <input type="text" class="inp" name="true_name" id="vtrue_name" autocomplete="off" oninput="writeClear($(this));"/>
+                  <span class="input-del"></span> </div>
+              </li>
+              <li class="form-item">
+                <h4>联系手机:</h4>
+                <div class="input-box">
+                  <input type="tel" class="inp" placeholder="例如:15900000000" name="mob_phone" id="vmob_phone" autocomplete="off" oninput="writeClear($(this));"/>
+                  <span class="input-del"></span> </div>
+              </li>
+              <li class="form-item">
+                <h4>地区选择:</h4>
+                <div class="input-box set_sel">
+                  <!--<input name="area_info" type="text" class="inp" id="varea_info" autocomplete="off" onchange="btn_check($('form'));" readonly/>-->
+                  	<div>
+                  		<select>
+                  				<option value="">--请选择省份--</option>	
+                  		</select>
+                  	</div>
+                  	<div>
+                  		<select>
+                  				<option value="">--请选择城市--</option>	
+                  		</select>
+                  	</div>
+										<div>
+                  		<select>
+                  				<option value="">--请选择地区--</option>	
+                  		</select>
+                  	</div>
+
+	
+                  
+                </div>
+              </li>
+              <li class="form-item">
+                <h4>详细地址:</h4>
+                <div class="input-box">
+                  <input type="text" class="inp" name="vaddress" id="vaddress" autocomplete="off" oninput="writeClear($(this));"/>
+                  <span class="input-del"></span> </div>
+              </li>
+              <li class="form-item">
+                <h4>邮政编号 :</h4>
+                <div class="input-box">
+                  <input type="text" placeholder="例如:528400"  class="inp" name="vaddress" id="mail_number" autocomplete="off" oninput="writeClear($(this));"/>
+                  <span class="input-del"></span> </div>
+              </li>
+              <li>
+              	<div class="Set_mo">
+            		<div>
+            			<input type="checkbox" id="S_mo" />
+            			<label>设置为默认收货地址</label>
+            		</div>
+            	</div>
+              </li>
+             
+            </ul>
+            	 <!--<div class="error-tips"></div>
+            <div class="form-btn"><a href="javascript:void(0);" class="btn">保存地址</a></div>
+            -->
+            
+            <div class="sub_add">
+            	<input type="button" value="提交" />
+            </div>
+            
+          </form>
+           
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  
+  
+  <!--新增收货地址Begin-->
+  <div id="add-new-address-wrapper" class="nctouch-full-mask hide">
+    <div class="nctouch-full-mask-bg"></div>
+    <div class="nctouch-full-mask-block">
+      <div class="header">
+        <div class="header-wrap">
+          <div class="header-l"> <a href="javascript:void(0);"> <i class="back"></i> </a> </div>
+          <div class="header-title">
+            <h1>新增收货地址</h1>
+          </div>
+        </div>
+      </div>
+      <div class="nctouch-main-layout" id="addnew-address-scroll">
+        <div class="nctouch-inp-con">
+          <form id="add_address_form">
+            <ul class="form-box">
+              <li class="form-item">
+                <h4>收货人姓名:</h4>
+                <div class="input-box">
+                  <input type="text" class="inp" name="true_name" id="addvtrue_name" value="陈小明" autocomplete="off" oninput="writeClear($(this));"/>
+                  <span class="input-del"></span> </div>
+              </li>
+              <li class="form-item">
+                <h4>联系手机:</h4>
+                <div class="input-box">
+                  <input type="tel" class="inp" placeholder="例如:15900000000" value="15900000000" name="mob_phone" id="addvmob_phone" autocomplete="off" oninput="writeClear($(this));"/>
+                  <span class="input-del"></span> </div>
+              </li>
+              <li class="form-item">
+                <h4>地区选择:</h4>
+                <div class="input-box set_sel">
+                  <!--<input name="area_info" type="text" class="inp" id="varea_info" autocomplete="off" onchange="btn_check($('form'));" readonly/>-->
+                  	<div>
+                  		<select>
+                  				<option value="">广东省</option>	
+                  		</select>
+                  	</div>
+                  	<div>
+                  		<select>
+                  				<option value="">广州市</option>	
+                  		</select>
+                  	</div>
+										<div>
+                  		<select>
+                  				<option value="">海珠区</option>	
+                  		</select>
+                  	</div>
+
+	
+                  
+                </div>
+              </li>
+              <li class="form-item">
+                <h4>详细地址:</h4>
+                <div class="input-box">
+                  <input type="text" class="inp" value="广州海珠区敦和路189号海珠科技园" name="vaddress" id="addvaddress" autocomplete="off" oninput="writeClear($(this));"/>
+                  <span class="input-del"></span> </div>
+              </li>
+              <li class="form-item">
+                <h4>邮政编号 :</h4>
+                <div class="input-box">
+                  <input type="text" placeholder="例如:528400"  value="510000" class="inp" name="vaddress" id="addmail_number" autocomplete="off" oninput="writeClear($(this));"/>
+                  <span class="input-del"></span> </div>
+              </li>
+              <li>
+              	<div class="Set_mo">
+            		<div>
+            			<input type="checkbox" class="S_mo" />
+            			<label>设置为默认收货地址</label>
+            		</div>
+            	</div>
+              </li>
+             
+            </ul>
+            	 <!--<div class="error-tips"></div>
+            <div class="form-btn"><a href="javascript:void(0);" class="btn">保存地址</a></div>
+            -->
+            
+            <div class="sub_add" id="add_xg">
+            	<div>删除</div>
+            	<div>保存</div>
+            </div>
+            
+          </form>
+           
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  <!--新增收货地址End--> 
+  
+  <!--付款方式Begin-->
+  <div class="nctouch-cart-block mt5"> <a href="javascript:void(0);" class="posr" id="select-payment-valve">
+    <h3><i class="pay"></i>配送及支付：</h3>
+    <div class="current-con"><span class="sent_style">酒具专用快递</span>,<span>积分支付</span></div>
+    <i class="icon-arrow"></i> </a> </div>
+  <!--付款方式End--> 
+  
+  <!--选择付款方式Begin-->
+  <div id="select-payment-wrapper" class="nctouch-full-mask hide">
+    <div class="nctouch-full-mask-bg"></div>
+    <div class="nctouch-full-mask-block">
+      <div class="header">
+        <div class="header-wrap">
+          <div class="header-l"> <a href="javascript:void(0);"> <i class="back"></i> </a> </div>
+          <div class="header-title">
+            <h1>支付及配送方式</h1>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="nctouch-main-layout" id="Pay_">
+      		<div class="nctouch-sel-box" id="W_style">
+          <h4 class="tit">选择配送方式</h4>
+          <div class="sel-con" id="pay_send"> <a href="javascript:void(0);" class="sel" id="">葡萄酒专用快递</a> <a href="javascript:void(0);"  id="">酒具专用快递</a> <a href="javascript:void(0);"  id="">酒柜专用物流</a> </div> 
+        </div>
+      	
+      	
+        <div class="nctouch-sel-box" id="P_style">
+          <h4 class="tit">选择支付方式</h4>
+          <div class="sel-con"> <a href="javascript:void(0);" class="sel" id="">积分支付</a> </div>
+        </div>
+        <div id="sub_enter">
+        	 确定
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+    </div>
+  </div>
+  <!--选择付款方式End--> 
+  
+  
+  
+  
+  
+  <!--使用优惠劵-->
+   <!--<div class="nctouch-cart-block mt5" id="Use_juan"> <a href="javascript:void(0);" class="posr" id="invoice-Jun">
+    <h3><i class="invoice" id="jun_i"></i>使用优惠券：</h3>
+    <div class="current-con">
+      <p id="invJUn">选择优惠券</p>
+    </div>
+    <i class="icon-arrow"></i> </a> </div>-->
+    
+  
+  
+  
+  	 <!--商品信息-->
+  	 
+  	 <div id="Bgoods_info">
+  	 		<div id="Bgoods_head">
+  	 			商品信息:
+  	 		</div>
+  	 		<div id="Bgoods_">
+  	 				<div>
+								<img src="../../images/hjimage/small1_03.jpg" />  	 					
+  	 				</div>
+  	 				<div id="Bgoods_des">
+  	 					<div>
+  	 							意大利进口起泡酒 阿斯蒂 莫斯卡托甜白起泡葡萄酒 修道院佳酿气泡酒
+  	 					</div>
+  	 					<div class="Bgoods_price">
+  	 							<div><span>1000</span>积分</div>
+  	 							<div>x1</div>
+  	 					</div>
+  	 				</div>
+  	 		</div>
+  	 		<div id="goods_Bottom">
+  	 			<div>
+  	 			<div class="B_row">
+  	 					<div>积分</div>
+  	 					<div>0</div>
+  	 			</div>
+  	 			
+  	 			<div class="B_row">
+  	 					<div>物流配送</div>
+  	 					<div>运费 &yen;0.00</div>
+  	 			</div>
+  	 			
+  	 			<div class="B_row">
+  	 					<div>活动优惠</div>
+  	 					<div>&yen;0.00</div>
+  	 			</div>
+  	 			</div>
+  	 			
+  	 			
+  	 			<div class="Liu_">
+  	 				
+  	 					<input type="text" placeholder="店铺订单留言:"/>
+  	 				
+  	 				
+  	 			</div>
+  	 			
+  	 			<div id="Goods_price_total">
+  	 				<div>
+  	 				商品合计<span>1000</span>积分
+  	 				</div>
+  	 			</div>
+  	 			
+  	 			
+  	 			
+  	 			
+  	 		</div>
+  	 		
+  	 		
+  	 	
+  	 	
+  	 	
+  	 </div>
+  
+  
+  
+  
+  
+  
+   <!--使用优惠劵begin-->
+  
+  
+    <div id="Jun-wrapper" class="nctouch-full-mask hide">
+    <div class="nctouch-full-mask-bg"></div>
+    <div class="nctouch-full-mask-block">
+      <div class="header">
+        <div class="header-wrap">
+          <div class="header-l"> <a href="javascript:void(0);"> <i class="back"></i> </a> </div>
+          <div class="header-title">
+            <h1>使用优惠券</h1>
+          </div>
+        </div>
+      </div>
+      <div class="nctouch-main-layout user_juan">
+      		<div id="user_head">
+      			使用优惠券抵消部分总额
+      		</div>
+	      	
+	      	<div id="jian_des">
+	      		以下是此订单可用的优惠券。您可以<a href="#">查看所有优惠券</a>了解使用限制。
+	      	</div>
+      	
+      		<div id="juan_info">
+      				<!--没有优惠劵下显示-->
+      			<div style="display: none;">
+      				没有符合该订单使用的优惠券
+      			</div>
+      					<!--有优惠劵下显示-->
+				<div id="juan_kind"  >
+					<div> 
+						<input type="radio" name="juan" id="juan1" /><label for="juan1"><span>&yen;1000元某某优惠券</span></label>
+					</div>
+					<div> 
+						<input type="radio" name="juan" id="juan2" /><label for="juan2"><span>&yen;1000元某某优惠券</span></label>
+					</div>
+					<div> 
+						<input type="radio" name="juan"id="juan3" /><label for="juan3"><span>&yen;1000元某某优惠券</span></label>
+					</div>
+					
+				</div>      	
+				
+      		</div>
+      		<div class="juan_b">共使用了 <span>0</span> 张优惠券</div>
+      			<div class="juan_b">可优惠 <span>0.00</span> 元</div>
+      		<div id="juan_btn">
+				确定	      			
+      		</div>
+      		
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!--使用优惠劵end-->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!--管理发票信息Begin-->
+  <div id="invoice-wrapper" class="nctouch-full-mask hide">
+    <div class="nctouch-full-mask-bg"></div>
+    <div class="nctouch-full-mask-block">
+      <div class="header">
+        <div class="header-wrap">
+          <div class="header-l"> <a href="javascript:void(0);"> <i class="back"></i> </a> </div>
+          <div class="header-title">
+            <h1>发票信息</h1>
+          </div>
+        </div>
+      </div>
+      <div class="nctouch-main-layout">
+        <div class="nctouch-sel-box">
+          <h4 class="tit">类型和抬头</h4>
+          <div class="head_tip">
+							温馨提示：发票的开票金额不包括使用优惠券支付部分          	
+          </div>
+          <div class="sel-con" id="check_sty">
+          		<div class="style-title">开具方式</div>
+          	<a href="javascript:void(0);" class="sel" id="invoice-noneed">不需要发票</a> <a href="javascript:void(0);" id="invoice-need">普通发票（纸质）</a></div>
+        </div>
+        <div id="invoice-div" class="">
+          <!--<ul id="invoice-list" class="nctouch-sel-list">
+          </ul>-->
+          <div class="nctouch-inp-con" id="invoice_add" style="display: none;">
+            <ul class="form-box">
+              <li class="form-item">
+                <h4>发票类型</h4>
+                <div class="input-box btn-style" id="ch">
+                  <label class="checked">
+                    <input type="radio" checked="checked" name="inv_title_select" value="person" id="person" >
+                    个人 </label>
+                  <label>
+                    <input type="radio" name="inv_title_select" value="company" id="company">
+                    单位 </label>
+                </div>
+              </li>
+              <li class="form-item" id="inv-title-li" style="display: none;">
+                <h4>发票抬头</h4>
+                <div class="input-box">
+                  <input type="text" class="inp" name="inv_title" >
+                  <span class="input-del"></span> </div>
+                  
+                  
+                  
+                  <h4>纳税人识别号</h4>
+                <div class="input-box">
+                  <input type="text" class="inp" name="inv_title" >
+                  <span class="input-del"></span> </div>
+              </li>
+              
+              
+            </ul>
+          </div>
+          <a href="javascript:void(0);" class="btn-l mt10">确定</a> </div>
+      </div>
+    </div>
+  </div>
+  <!--管理发票信息End--> 
+  
+  <!--商品列表Begin-->
+  <div id="goodslist_before" class="mt5">
+    <div id="deposit"> </div>
+  </div>
+  <!--商品列表End--> 
+  
+  <!--红包使用Begin-->
+  <!--<div id="rptVessel" class="nctouch-cart-block mt5">
+    <div class="input-box">
+      <label>
+        <input type="checkbox" class="checkbox" id="useRPT"/>
+        平台红包 <span class="power"><i></i></span> </label>
+      <p id="rptInfo"></p>
+    </div>
+  </div>-->
+  <!--红包使用End--> 
+  
+  <!--底部总金额固定层Begin-->
+  <div class="nctouch-cart-bottom">
+    <div class="total"><span id="online-total-wrapper"></span>
+      <dl class="total-money">
+        <dt>合计总金额：</dt>
+        <dd><em id="totalPrice">1000积分</em></dd>
+      </dl>
+    </div>
+    <div class="check-out"><a href="javascript:void(0);" id="ToBuyStep2">提交订单</a></div>
+  </div>
+  <!--底部总金额固定层End-->
+</div>
+
+
+
+
+<footer id="footer"></footer>
+
+
+
+
+<script type="text/javascript" src="../../js/config.js"></script> 
+<script type="text/javascript" src="../../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../../js/template.js"></script> 
+<script type="text/javascript" src="../../js/common.js"></script> 
+<script type="text/javascript" src="../../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../../js/tmpl/order_payment_common.js"></script>
+<script type="text/javascript" src="../../js/tmpl/Point_order.js"></script>
+<script type="text/javascript">
+		$(function(){
+					
+//					$(".nctouch-full-mask").height($("#invoice-wrapper").height())
+
+			$("html").css("background-color","#ffffff");
+		
+					
+					
+			
+			$(".nctouch-cart-block").click(function(){
+					if($(".nctouch-full-mask").hasClass("left")){
+					$("#Bgoods_info").hide();
+					$(".nctouch-cart-bottom").hide();
+				}
+			})
+			
+			
+			
+			$(".header-l").click(function(){
+				setTimeout(function(){
+				if(!$(".nctouch-full-mask").hasClass("left")){
+					$("#Bgoods_info").show();
+					$(".nctouch-cart-bottom").show();
+				}
+				},500)
+				
+			})
+		})
+	
+	
+	
+	
+	
+	
+	
+</script>
+
+
+</body>
+</html>

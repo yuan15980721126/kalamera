@@ -1,0 +1,20 @@
+.brand{
+	width: 1200px;
+	margin: 0 auto 50px;
+}
+.brand_title{
+	height: 40px;
+	padding-top: 15px;
+	
+}
+.brand_img li{
+	height: 320px;
+	margin-bottom: 2px;
+	overflow: hidden;
+}
+#brand_image{
+	text-align: center;
+}
+#bran_bg{
+	background-color: #fafafa;
+}

@@ -1,0 +1,342 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>红酒柜_维诺卡夫/Vinocave官方商城</title>
+<meta name="keywords" content="红酒柜_恒温酒柜_维诺卡夫_维诺卡夫售后_官网_Vincoave" />
+<meta name="description" content="维诺卡夫官方商城直属厂家，销售红酒柜,电子酒柜,葡萄酒,葡萄酒美食、葡萄酒酒具等产品的一站式商购物平台,受理产品售后售后、品牌咨询等相关问题，全国服务热线:400-8658-330" />
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="apple-touch-icon" href="images/touch-icon-iphone.png"/>
+</head>
+<body>
+<div class="nctouch-home-top fixed-Width">
+  <div id="head_top">
+  		<div class="left_logo">
+  			<img src="images/images/tlogo_03.jpg">
+  		</div>
+  		<div class="right_al">
+  			<a class="ra1" href="tmpl/search.html"></a>
+  			<a class="ra2" href="tmpl/member/member.html"></a>
+  			<a  class="ra3" href="tmpl/cart_list.html"></a>
+
+  		</div>
+
+
+  </div>
+  <div class="cohesive"></div>
+  <div class="adv_list" id="main-container1"></div>
+</div>
+<div class="nctouch-home-nav fixed-Width">
+  <ul>
+    <!-- <li><a href="tmpl/product_first_categroy.html"><span><i></i></span>
+      <p>分类</p>
+      </a></li>
+    <li><a href="tmpl/cart_list.html"><span><i></i></span>
+      <p>购物车</p>
+      </a></li>
+    <li><a href="shop.html"><span><i></i></span>
+      <p>店铺街</p>
+      </a></li>
+    <li><a href="tmpl/member/signin.html"><span><i></i></span>
+      <p>每日签到</p>
+      </a></li>
+     <li><a href="tmpl/member/member.html"><span><i></i></span>
+      <p>我的商城</p>
+      </a></li>
+    <li><a href="tmpl/member/order_list.html"><span><i></i></span>
+      <p>我的订单</p>
+      </a></li>
+    <li><a href="tmpl/member/member_asset.html"><span><i></i></span>
+      <p>我的财产</p>
+      </a></li>
+    <li><a href="tmpl/member/views_list.html"><span><i></i></span>
+      <p>我的足迹</p>
+      </a></li> -->
+
+	<li><a href="tmpl/member/brand.html?article_id=47"><span><i></i></span>
+      <p>品牌文化</p>
+      </a></li>
+
+	<li><a href="tmpl/product_first_categroy.html"><span><i></i></span>
+      <p>产品分类</p>
+      </a></li>
+     <li><a href="tmpl/member/League.html?ac_id=48"><span><i></i></span>
+      <p>招商加盟</p>
+      </a></li>
+
+      <li><a href="tmpl/article_list.html?ac_id=2"><span><i></i></span>
+      <p>服务与支持</p>
+      </a></li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="nctouch-home-layout" id="main-container2"></div>
+<div class="fix-block-r"> <a href="javascript:void(0);" class="gotop-btn gotop hide" id="goTopBtn"><i></i></a> </div>
+<footer id="footer"></footer>
+<script type="text/html" id="adv_list">
+		<div class="swipe-wrap">
+		<% for (var i in item) { %>
+			<div class="item">
+				<a href="<%= item[i].url %>">
+					<img src="<%= item[i].image %>" alt="">
+				</a>
+			</div>
+		<% } %>
+		</div>
+</script> 
+<script type="text/html" id="home1">
+	<div class="nctouch-home-block">
+	<% if (title) { %>
+		<div class="tit-bar"><%= title %></div>
+	<% } %>
+		<div class="item-pic">
+			<a href="<%= url %>">
+				<img src="<%= image %>" alt="">
+			</a>
+		</div>
+	</div>
+</script> 
+<script type="text/html" id="home2">
+	<div class="nctouch-home-block">
+	<% if (title) { %>
+		<div class="tit-bar"><%= title %></div>
+	<% } %>
+		<ul class="item-pic-l1-r2">
+			<li>
+				<a href="<%= square_url %>"><img src="<%= square_image %>" alt=""></a>
+			</li>
+			<li>
+				<a href="<%= rectangle1_url %>"><img src="<%= rectangle1_image %>" alt=""></a>
+			</li>
+			<li>
+				<a href="<%= rectangle2_url %>"><img src="<%= rectangle2_image %>" alt=""></a>
+			</li>
+		</ul>
+	</div>
+</script> 
+<script type="text/html" id="home3">
+	<div class="nctouch-home-block">
+	<% if (title) { %>
+		<div class="tit-bar"><%= title %></div>
+	<% } %>
+		<ul class="item-pic-list">
+		<% for (var i in item) { %>
+			<li>
+				<a href="<%= item[i].url %>"><img src="<%= item[i].image %>" alt=""></a>
+			</li>
+		<% } %>
+		</ul>
+	</div>
+</script> 
+<script type="text/html" id="home4">
+	<div class="nctouch-home-block">
+	<% if (title) { %>
+		
+	<% } %>
+		<ul class="item-pic-l2-r1">
+			<li>
+				<a href="<%= rectangle1_url %>"><img src="<%= rectangle1_image %>" alt=""></a>
+			</li>
+			<li>
+				<a href="<%= rectangle2_url %>"><img src="<%= rectangle2_image %>" alt=""></a>
+			</li>
+			<li>
+				<a href="<%= square_url %>"><img src="<%= square_image %>" alt=""></a>
+			</li>
+		</ul>
+	</div>
+</script> 
+<script type="text/html" id="goods">
+	<div class="nctouch-home-block item-goods">
+	<% if (title) { %>
+		
+	<% } %>
+	<div class="imgbar_1">
+	
+		<% if(title == '酒柜') { %>
+			<a href="tmpl/product_list.html?keyword=%E9%85%92%E6%9F%9C">
+	  		<img src="images/images/1_02.jpg" />
+	  		</a>
+	  	<% }else if (title == '葡萄酒'){ %>
+		  	<a href="tmpl/product_list.html?gc_id=1">
+		  		<img src="images/images/1_04.jpg" />
+		  	</a>
+	  	<% }else if (title == '酒具'){ %>
+		  	<a href="tmpl/product_list.html?gc_id=200">
+		  		<img src="images/images/1_06.jpg" />
+		  	</a>
+	  	<% } %>
+	  
+	</div>
+		<ul class="goods-list">
+		<% for (var i in item) { %>
+			<li>
+				<% if(item[i].promotion_type !== '') { %>
+				<i>
+					<div>
+						<% if(item[i].promotion_type == 'xianshi') { %>
+						折扣
+						<% }else if (item[i].promotion_type == 'groupbuy'){ %>
+						抢购
+						<% } %>
+					</div>
+				</i>
+				<% } %>
+				<a href="tmpl/product_detail.html?goods_id=<%= item[i].goods_id %>">
+					<div class="goods-pic"><img src="<%= item[i].goods_image %>" alt=""></div>
+					<dl class="goods-info">
+						<dt class="goods-name"><%= item[i].goods_name %></dt>
+						<dd class="goods-price">￥<em><%= item[i].goods_promotion_price %></em></dd>
+					</dl>
+				</a>
+			</li>
+		<% } %>
+		</ul>
+	</div>
+</script> 
+<script type="text/html" id="goods1">
+	<div class="nctouch-home-block item-goods">
+	<% if (title) { %>
+		
+	<% } %>
+	<div class="imgbar_1">
+	
+		<% if(title == '酒柜') { %>
+			<a href="tmpl/product_list.html?keyword=%E9%85%92%E6%9F%9C">
+	  		<img src="images/images/1_02.jpg" />
+	  		</a>
+	  	<% }else if (title == '葡萄酒'){ %>
+		  	<a href="tmpl/product_list.html?gc_id=1">
+		  		<img src="images/images/1_04.jpg" />
+		  	</a>
+	  	<% }else if (title == '酒具'){ %>
+		  	<a href="tmpl/product_list.html?gc_id=200">
+		  		<img src="images/images/1_06.jpg" />
+		  	</a>
+	  	<% } %>
+	  
+	</div>
+		<ul class="goods-list">
+		<% for (var i in item) { %>
+			<li>
+				<% if(item[i].promotion_type !== '') { %>
+				<i>
+					<div>
+						<% if(item[i].promotion_type == 'xianshi') { %>
+						折扣
+						<% }else if (item[i].promotion_type == 'groupbuy'){ %>
+						抢购
+						<% } %>
+					</div>
+				</i>
+				<% } %>
+			<!--<i><div>打折</div></i>-->
+			<a href="tmpl/product_detail.html?goods_id=<%= item[i].goods_id %>">
+			<div class="goods-pic"><img src="<%= item[i].goods_image %>" alt=""></div>
+					<dl class="goods-info">
+						<dt class="goods-name"><%= item[i].goods_name %></dt>
+						<dd class="goods-price">￥<em><%= item[i].goods_promotion_price %></em><i class="list-price">￥<%= item[i].goods_price %></i></dd>
+					</dl>
+			</a>
+				</li>
+			
+		<% } %>
+		</ul>
+	</div>
+</script> 
+<script type="text/html" id="goods2">
+<div id="qang">
+	<div id="xiang_">
+		限时抢购
+	</div>
+	<input type="hidden" id="starttime" value="<%= start %>">
+	<input type="hidden" id="endtime" value="<%= end %>">
+	<div id="f_time">
+		<div id="f_wen">
+			距结束
+		</div>
+
+		<div id="f_rang">
+			<div id="t_hour">01</div>
+			<span>:</span>
+			<div id="t_min">01</div>
+			<span>:</span>
+			<div id="t_sec">01</div>
+			
+		</div>
+		
+
+
+
+	</div>
+	<div id="moer_a">
+		<a href="tmpl/product_list.html">更多产品等你来</a>
+	</div>
+
+
+</div>
+	<div class="nctouch-home-block item-goods">
+	<% if (title) { %>
+		<div class="tit-bar"><%= title %></div>
+	<% } %>
+		<ul class="goods-list">
+		<% for (var i in item) { %>
+			<li>
+				<% if(item[i].promotion_type !== '') { %>
+				<i>
+					<div>
+						<% if(item[i].promotion_type == 'xianshi') { %>
+						折扣
+						<% }else if (item[i].promotion_type == 'groupbuy'){ %>
+						抢购
+						<% } %>
+					</div>
+				</i>
+				<% } %>
+			<a href="tmpl/product_detail.html?goods_id=<%= item[i].goods_id %>">
+			<div class="goods-pic"><img src="<%= item[i].goods_image %>" alt=""></div>
+					<dl class="goods-info">
+						<dt class="goods-name"><%= item[i].goods_name %></dt>
+						<dd class="goods-price">￥<em><%= item[i].goods_promotion_price %></em><i class="list-price">￥<%= item[i].goods_price %></i></dd>
+					</dl>
+			</a>
+				</li>
+			
+		<% } %>
+		</ul>
+	</div>
+</script>
+<script type="text/javascript" src="js/config.js"></script> 
+<script type="text/javascript" src="js/zepto.min.js"></script> 
+<script type="text/javascript" src="js/template.js"></script> 
+<script type="text/javascript" src="js/common.js"></script> 
+<script type="text/javascript" src="js/swipe.js"></script> 
+<script type="text/javascript" src="js/index.js"></script> 
+<script type="text/javascript" src="js/tmpl/footer.js"></script> 
+<script type="text/javascript" src="js/addtohomescreen.js"></script> 
+<script>
+	// addToHomescreen({
+	// 	message:'如要把应用程式加至主屏幕,请点击%icon, 然后<strong>加至主屏幕</strong>'
+	// });
+</script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+#In_Store{
+	width: 1200px;
+	margin:  0 auto;
+
+}
+#goods_list,#Store_goods{
+	overflow: hidden;
+	
+}
+#In_Store{
+	padding-top: 15px;
+}
+#goods_head{
+	
+	height: 65px;
+	overflow: hidden;
+	line-height: 65px;
+	
+border-bottom: 1px solid #cccccc;
+}
+
+#head_left{
+	float: left;
+}
+#head_left>span:first-child{
+	display: inline-block;	
+	padding-left: 35px;
+	height: 24px;
+	line-height: 24px;
+	background: url(../img/brand/qi_03.jpg) no-repeat left center;
+	font-size:18px ;
+	color: #999999;
+	
+	
+}
+#head_left>span:nth-of-type(2){
+	font-size: 24px;
+	color: #d00100;
+	margin-right: 37px;
+}
+#head_left>a{
+	font-size: 14px;
+	color: #1d94d1;
+}
+#head_right{
+	float: right;
+}
+#head_right>div:first-child{
+	margin-right: 13px;
+	float: left;
+	
+}
+#head_right>div:first-child span{
+	
+	color: #c1b497;
+}
+#page_btn{
+	border: 1px solid #e3e3e3;
+	overflow: hidden;
+	float: right;
+	margin-top: 20px;
+	
+}
+#page_btn>div:hover{
+	cursor: pointer;
+}
+#page_btn>div{
+	float: left;
+	width: 46px;
+	height: 23px;
+	background-color: #ffffff;
+
+}
+#page_btn>div:first-child{
+	border-right: 1px solid #e3e3e3;
+	background: url(../img/brand/leftb.jpg) no-repeat center;
+}
+#page_btn>div:last-child{
+	background: url(../img/brand/rightb.jpg) no-repeat center;
+}
+#goods_list li{
+	width:263px ;
+	height: 356px;
+	float: left;
+	background-color: #f7f7f7;
+	margin:0  20px 20px 0;
+	
+	padding: 10px;
+}
+#goods_list ul{
+	overflow: hidden;
+
+}
+#goods_list li>div:first-child{
+	text-align: center;
+}
+
+
+.goods_>div:first-child {
+	font-size: 16px;
+	color: #666666;
+	line-height: 39px;
+	overflow: hidden; /*自动隐藏文字*/
+	text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+	white-space: nowrap;/*强制不换行*/
+}
+
+.goods_info>div{
+	font-size: 16px;
+	color: #333333;
+	float: left;
+}
+
+.goods_info>div>div:first-child del{
+	
+	font-size: 16px;
+	color: #999999;
+}
+.goods_info>div:first-child{
+	line-height: 22px;
+}
+
+.goods_info span{
+	font-size: 16px;
+	color: #d00100;
+}
+.goods_info .once_get{
+	display: block;
+	float: right;
+	width: 106px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	background-color: #c1b497;
+	font-size: 16px;
+	color: #ffffff;
+	margin-top: 6px;
+	
+}
+
+.p_page{
+	margin: 30px 0 100px 0;
+	float: right;
+	
+}
+.p_page a{
+	display: inline-block;
+	padding: 10px 12px;
+	border: 1px solid #e3e3e3;
+	background-color: #ffffff;		
+}
+.p_page a.pg_cur{
+	background-color: #c1b497;
+	color: #ffffff;
+}
+
+
+
+
+
+
+

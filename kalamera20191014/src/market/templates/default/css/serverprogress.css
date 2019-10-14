@@ -1,0 +1,151 @@
+#server{
+	border: 1px solid #e4e4e4;
+	background-color: #ffffff;
+	padding: 20px;
+}
+#server_title{
+	height: 28px;
+	border-bottom: 1px solid #c1b497;
+	font: 16px "微软雅黑";
+	color: #666666;
+}
+#wait_pay{
+	
+	width: 465px;
+	height: 55px;
+	margin:50px auto;
+}
+#wait_pay >ul>li{
+	float: left;
+	margin-right: 54px;
+}
+.audit{
+	background: url(../img/vipcore/san_07.jpg) no-repeat center;
+}
+.shipments{
+	background: url(../img/vipcore/si_09.jpg) no-repeat center;
+}
+.collect{
+	background: url(../img/vipcore/wu_11.jpg) no-repeat center;
+}
+.sub{
+	margin-left: -8px;
+}
+#wait_pay >ul>li>div:first-child{
+	position: relative;
+	width:30px;
+	height: 30px;
+	background-color: #dcdcdc;
+	margin-bottom: 10px;
+	border-radius: 50%;
+}
+#wait_pay li:last-child{
+	margin-right: 0px;
+}
+.suc .wait_stus{
+	background: url(../img/vipcore/guo_03.jpg) no-repeat center;
+}
+.suc .pay_pro{
+	width: 115px;
+	height: 5px;
+	position: absolute;
+	top: 50%;
+	background-color: #1aca37;
+	transform: translateY(-50%);
+	left: 24px;
+	z-index: 100;
+}
+#tail_c>div:first-child{
+	border-bottom: 1px dashed #e4e4e4;
+}
+.wait_stus{
+		z-index: 1000;
+	position: absolute;
+	width:20px;
+	height:20px;
+	border-radius: 50%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	}
+.to .wait_stus{
+	z-index: 1000;
+	position: absolute;
+	width:20px;
+	height:20px;
+	border-radius: 50%;
+	background-color: red;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background: url(../img/vipcore/guo_03.jpg) no-repeat center;
+}
+.pay_bei{
+	width:118px ;
+	height:10px ;
+	background-color: #dcdcdc;
+	position: absolute;
+	left: 99%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+#pro_info li>div{
+	float: left;
+	color: #b8b8b8;
+}
+#pro_info li{
+	clear: both;
+	line-height: 28px;
+}
+.ip_status{
+	width: 12px;
+	height: 12px;
+	border: 1px solid #ececec;
+	border-radius: 50%;
+	line-height: 12px;
+	margin: 5px 43px 0px 3px;
+	position: relative;
+}
+.current .ip_status{
+	border: 1px #90dd9b solid;
+	
+	
+}
+#pro{
+	overflow: hidden;
+	padding-top: 25px;
+	border-top: 1px dashed #e4e4e4;
+}
+.current .ip_status>div:first-child{
+		background:url(../img/vipcore/lvedian_03.jpg) ;	
+}
+#pro_info .current>.ip_date,#pro_info .current>.ip_details{
+	font-size:13px ;
+	color: #333333;
+	font-weight: bold;
+	
+}
+.ip_status>div:first-child{
+	width: 6px;
+	margin: 3px auto;
+	height:6px ;
+	color: #1aca37;
+}
+.ip_date{
+	margin-right: 24px;
+}
+.ip_status>div:last-child{
+	position: absolute;
+	width: 2px;
+		background-color: #e0e0e0;
+	height: 16px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+#indent_progerss>div:first-child{
+	text-align: center;
+	width: 95px;
+	line-height: 19px;
+	margin-top: 5px;
+	margin-bottom: 12px;
+}

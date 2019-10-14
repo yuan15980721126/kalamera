@@ -1,0 +1,175 @@
+#League{
+	width: 1200px;
+	margin: 0 auto;
+	
+}
+#head_title{
+	height: 46px;
+	line-height: 46px;
+}
+#head_title li{
+	float: left;
+	margin-right: 9px;
+}
+#League_head{
+	height: 60px;
+}
+#League_head>div{
+	float: left;
+	width: 600px;
+	height:60px ;
+	background-color: #25211e;
+	font: 24px "宋体";
+	text-align: center;
+	line-height: 60px;
+	color: #ffffff;
+}
+#League_head>div:hover{
+	cursor: pointer;
+	background-color: #c1b497;
+}
+#League_table{
+	
+	border: 1px solid #e4e4e4;
+	padding: 50px 30px 40px  30px;
+	
+}
+#Leagu_content{
+margin-bottom: 50px;
+	
+}
+
+#league_line{
+	height:77px;
+	
+	
+	
+}
+#league_line>div:first-child{
+	margin-right: 10px;
+	
+	
+}
+#league_line>div{
+	float: left;
+	
+}
+#league_line input{
+	
+	width: 531px;
+	height: 12px;
+	border-radius: 5px;
+	border: 1px solid #cccccc;
+	padding: 13px 15px;
+}
+
+
+#league_line span{
+	font: 14px "微软雅黑";
+	color: #ff4926; 
+	line-height: 24px;
+	
+}
+#League_table textarea{
+	width: 1108px;
+	height: 108px;
+	border: 1px solid #cccccc;
+	padding: 10px 15px ;
+	border-radius: 5px;
+	resize: none;
+	font-size: 14px;
+	margin-bottom: 20px;
+	outline: none;
+}
+#Verif>div{
+	float: left;
+	
+}
+
+
+#Verif input{
+	width:138px ;
+	height: 38px;
+	border-radius: 5px;
+	border: 1px solid #cccccc;
+	padding: 0 15px;
+	margin-right: 10px;
+}
+#Leagu_content #League_head div.add_bg{
+	
+	background-color: #c1b497;
+}
+
+#ma{
+	margin-left: 13px;
+	
+}
+#Verif{
+	overflow: hidden;
+}
+#ma>div:first-child{
+		font: 14px "微软雅黑";
+		color: #ff4926;
+	}
+
+#ma>div:last-child a{
+		font: 14px "微软雅黑";
+		color: #005ea7;
+	}
+
+
+#sub_table:hover{
+	cursor: pointer;
+}
+#sub_table{
+	width:125px ;
+	height:45px ;
+	line-height: 45px;
+	text-align: center;
+	color: #fefefe;
+	background-color: #c1b497;
+	font-size: 18px;
+	margin-top: 20px;
+	border-radius: 5px;
+}
+#tijiao{
+	width:125px ;
+	height:45px ;
+	line-height: 45px;
+	text-align: center;
+	color: #fefefe;
+	background-color: #c1b497;
+	font-size: 18px;
+	margin-top: 20px;
+	border-radius: 5px;
+}
+
+#ehong-code-tip-ck{
+	height: 40px;
+	line-height: 40px;
+}
+
+ #idcode #ehong-code{
+	
+	padding: 9px 25px;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

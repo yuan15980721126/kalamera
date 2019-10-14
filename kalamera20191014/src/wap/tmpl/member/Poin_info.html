@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<script type="text/html" id="product_title"><title><%=goods_info.goods_name%></title></script>
+<link rel="stylesheet" type="text/css" href="../../css/base.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_common.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_member.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_products_detail.css">
+<link rel="stylesheet" type="text/css" href="../../css/MyCss.css" />
+<link rel="stylesheet" type="text/css" href="../../css/My_css.css" />
+<link rel="stylesheet" type="text/css" href="../../css/swiper-3.4.2.min.css" />
+</head>
+<body>
+
+<header id="header" class="fixed">
+  <div class="header-wrap">
+    <div class="header-l" id="poin_l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+    <div class="header-title">
+      <h1>积分商品详情</h1>
+    </div>
+    <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="../search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="../product_first_categroy.html"><i class="categroy"></i>分类</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+        <li><a href="../cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="../member/member.html"><i class="member"></i>我的商城</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="nctouch-main-layout" id="My_orlist">
+</div>
+<script type="text/html" id="inquiry_list">
+						<!--商品信息-->
+		<div id="Zgoods_info">
+			<!--轮播图-->
+			<div id="goods_swiper">
+					<div class="swiper-container">
+        <div class="swiper-wrapper">
+        
+        	
+            <div class="swiper-slide">
+            		<img src="<%=prodinfo.pgoods_image%>" />
+            </div>
+            
+        </div>
+    	 <div class="swiper-pagination"></div>
+    </div>
+				
+				
+			</div>
+			
+			
+			<div id="Zgoods_des">
+					<div>
+						<%=prodinfo.pgoods_name%>
+					</div>
+					<div class="zgd_ji">
+						积分：<span><%=prodinfo.pgoods_points%></span>
+					</div>
+					<div class="zgd_pir">
+						价格：<del>&yen;<%=prodinfo.pgoods_price%></del>
+					</div>
+					<input type="hidden" id="storagenum" value="<%=prodinfo.pgoods_storage%>"/>
+          			<%if(prodinfo.pgoods_limitmgrade > 0){%>
+					<div class="zgd_ji">
+						<%if(prodinfo.pgoods_limitmgrade == 1){%>
+							所需等级：<span>黄金会员</span>
+						<%}else if(prodinfo.pgoods_limitmgrade == 2){%>
+							所需等级：<span>白金会员</span>
+						<%}else if(prodinfo.pgoods_limitmgrade == 3){%>
+							所需等级：<span>钻石会员</span>
+						<%}%>
+					</div>
+					<%}%>
+					<%if(prodinfo.pgoods_starttime && prodinfo.pgoods_endtime){%>
+						<div class="zgd_pir">
+
+							
+								兑换时间：<span><%=prodinfo.pgoods_starttime%>至<%=prodinfo.pgoods_endtime%></span>
+							
+							
+						</div>
+					<%}%>
+					<div class="zgd_ji">
+						<span>一旦兑换，积分会立即扣除并不再退回</span>
+					</div>
+
+			
+					
+			</div>
+			
+			
+			<div id="Zgoods_range">
+				<div id="_number">
+					<div>数量</div>
+					<div>
+						<div id="De_down">-</div>
+						<div id="De_html">1</div>
+						<div id="De_add">+</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div id="Poin_b">
+				<div>商品详情</div>
+				<div id="body_img">
+				
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<%if(prodinfo.pgoods_islimit == 1){%>
+		<input type="hidden" id="limitnum" value="<%=prodinfo.pgoods_limitnum%>"/>
+		<%}%>
+		<div class="error-tips"></div>
+		<input type="button"  id="once_dui" value="立即兑换">
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+<div id="product_detail_html" style="position: relative; z-index: 1;"></div>
+<div id="product_detail_spec_html" class="nctouch-bottom-mask"></div>
+<div id="voucher_html" class="nctouch-bottom-mask"></div>
+<footer id="footer" class="bottom"></footer>
+<script type="text/javascript" src="../../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../../js/config.js"></script> 
+<script type="text/javascript" src="../../js/template.js"></script> 
+<script type="text/javascript" src="../../js/swipe.js"></script> 
+<script type="text/javascript" src="../../js/common.js"></script> 
+<script type="text/javascript" src="../../js/iscroll.js"></script> 
+<script type="text/javascript" src="../../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../../js/tmpl/footer.js"></script> 
+<script type="text/javascript" src="../../js/fly/requestAnimationFrame.js"></script>
+<script type="text/javascript" src="../../js/fly/zepto.fly.min.js"></script>
+<script type="text/javascript" src="../../js/fly/swiper-3.4.2.min.js"></script>
+<script type="text/javascript" src="../../js/MyJs.js"></script>
+<script type="text/javascript" src="../../js/tmpl/point_info.js"></script>
+
+
+ <script type="text/javascript">
+ 			$(function(){
+ 						 var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        prevButton:'.swiper-button-prev',
+		nextButton:'.swiper-button-next',
+		loop : true,
+		autoplay:4000,
+		autoplayDisableOnInteraction : false,
+		touchRatio : 0.5
+    });
+			
+ 				
+ 				
+ 			})
+ 	
+ 	
+ </script> 
+  
+</body>
+</html>

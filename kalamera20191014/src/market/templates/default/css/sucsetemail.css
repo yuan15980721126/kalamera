@@ -1,0 +1,167 @@
+#modify_password{
+	border:  1px solid #e4e4e4;
+	background-color: #ffffff;
+}
+#modify_head{
+	
+	height: 39px;
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #e4e4e4;
+	line-height: 39px;
+	padding-left: 20px;
+}
+#modify_head>div{
+	font-size: 14px;
+	padding: 0 10px;
+	margin-right: 20px;
+	float: left;
+	
+}
+#modify_head>div.d_cureent{
+	border-bottom: 2px solid #c1b497;
+}
+#modify_area{
+	height: 355px;
+}
+#modify_content{
+	width: 630px;
+	margin: 0 auto;
+	
+}
+#modify_content>div:first-child{
+	margin: 50px 0;
+}
+#old_password div{
+	float: left;
+}
+#old_password>div:first-child{
+	
+	font-size: 14px;
+	color: #666666;
+	padding-left: 12px;
+	margin:10px 10px 0 0;
+	background: url(../img/indent/xx_03.jpg) no-repeat left top;
+	
+}
+#old_password input{
+	width: 228px;
+	height: 18px;
+	border: 1px solid #cccccc;
+	padding: 5px;
+}
+#old_password{
+	margin: 0 0 20px 20px;
+}
+#new_password,#old_password,#confirm_password{
+	overflow: hidden;
+}
+
+#new_password div{
+	float: left;
+}
+#new_password>div:first-child{
+	
+	font-size: 14px;
+	color: #666666;
+	padding-left: 12px;
+	margin:10px 10px 0 0;
+	background: url(../img/indent/xx_03.jpg) no-repeat left top;
+	
+}
+#new_password input{
+	width: 228px;
+	height: 18px;
+	border: 1px solid #cccccc;
+	padding: 5px;
+}
+#new_password{
+	margin: 0 0 20px 20px;
+}
+
+
+
+#confirm_password div{
+	float: left;
+}
+#confirm_password>div:first-child{
+	
+	font-size: 14px;
+	color: #666666;
+	padding-left: 12px;
+	margin:10px 10px 0 0;
+	background: url(../img/indent/xx_03.jpg) no-repeat left top;
+	
+}
+#confirm_password input{
+	width: 228px;
+	height: 18px;
+	border: 1px solid #cccccc;
+	padding: 5px;
+}
+#confirm_password{
+	margin: 0 0 45px 9px;
+}
+#confirm:hover{
+	cursor: pointer;
+}
+#confirm{
+	width:122px ;
+	height:32px ;
+	text-align: center;
+	line-height: 32px;
+	background-color: #c1b497;
+	color: #ffffff;
+	margin: 0 auto;
+		
+}
+.success_modlify{
+	margin-bottom: 50px;
+	
+}
+
+
+#suc_tip{
+	
+	height: 60px;
+	padding-left: 72px;
+	background: url(../img/vipcore/anq_03.jpg) no-repeat left top;
+	line-height: 60px;
+	font-size: 20px;
+	color: #1aca37;
+	margin-left: 182px;
+}
+
+#return_{
+	width: 144px;
+	height:28px ;
+	display: block;
+	border: 1px solid #b0da91;
+	line-height: 28px;
+	background-color: #f5ffee;
+	color: #7abd54;
+	font-size: 14px;
+	text-align: center;
+	margin:  13px auto 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

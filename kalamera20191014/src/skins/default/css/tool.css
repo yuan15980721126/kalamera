@@ -1,0 +1,110 @@
+.sprite_cuo{background: url(../images/sprite.png)0 -638px no-repeat !important;}
+.tel_lang_active{color: #000 !important;}
+.lang_active{background: #ed7702 ;color: #fdfdfd !important;}
+.last{text-decoration: underline;}
+.border_active{border: 1px solid #1A9403;}
+.pageCur{background: #77af1e !important; border: 1px solid #77af1e !important;}
+.pageCur a{color: #fff;}
+.company_active{background: rgba(54,156,38,0.8) !important;color: #fff !important; font-weight: 600 !important;}
+.yuan_active{background: #d91919 !important;}
+.pro_nav2_active{color: #E54E1E !important;}
+.pro_nav1_active{background: #E54E1E !important;box-shadow: 0px 1px 1px 3px #E54E1E;}
+.pro_nav1_active>a{color: #FFF !important;}
+.pro_class_active{background: #77AF1E;color: #fff;}
+.a_active{color: #ff8a00;}
+.color_ff7800{color: #ff7800 !important;}
+.orderli_active{font-weight:700;color: #000 !important;border-bottom: 2px solid #000 !important;}
+.memberli_active{color: #7fb827 !important;font-weight: 700;}
+.pro_class_active .icon1{background: url(../images/pro_class1_act.png)no-repeat center !important;}
+.wid_12{width: 12%;}
+.wid_44{width: 44%;}
+.wid_15{width: 15%;}
+.wid_25{width: 25%;}
+.wid_20{width: 22%;}
+.wid_30{width: 30%;}
+.wid_70{width: 70%;}
+.wid_56{width: 56%;}
+.wid_45{width: 45%;}
+.wid_55{width: 55%;}
+.wid_73{width: 73%;}
+.bg_ededed{background: #ededed;}
+.arti_active{background: #487500 !important;}
+.over_b{color: #6e6e6e !important;}
+.dis_n{display: none;}
+.pad_l_20{padding-left: 20px;}
+.pad_l_7{padding-left: 7px;}
+.pad_r_7{padding-right: 7px;}
+.pad_l_0{padding-left: 0;}
+.pad-lr-10{padding: 0 10px;}
+.pad_r_50{padding-right: 50px;}
+.pad_l_50{padding-left: 50px;}
+.pad_lr_5{padding: 0 5px;}
+.mar_t_0{margin-top: 0  !important;}
+.mar_r_5{margin-right: 5%;}
+.search_active{background: url(../images/cuo.png)no-repeat center !important;}
+.nav_active{ font-weight: 700;color: #008be7!important;}
+.hid_line_2{overflow:hidden; text-overflow:ellipsis;display:-webkit-box; -webkit-box-orient:vertical;-webkit-line-clamp:2; }
+.hid_line_3{overflow:hidden; text-overflow:ellipsis;display:-webkit-box; -webkit-box-orient:vertical;-webkit-line-clamp:3; }
+.hid_line_1{overflow: hidden;white-space: nowrap;text-overflow:ellipsis;}
+.pro_active{background: #2c67a4 !important;color: #fff !important;border: 1px solid #2c67a4 !important;}
+.tire_active{border-top: 6px solid #2c67a4 !important; color: #2c67a4 !important;}
+.new_active{background: #2c67a4;color: #fff !important; border-radius: 5px;}
+.scale_img{transition: all 1s;}
+.scale_H:hover .scale_img{transform: scale(1.1);}
+.hid{overflow: hidden;}
+.pro_nav_active{color: #F27703 !important; background: url(../images/jiantou_y.jpg) left no-repeat;}
+.pro_btn_active{background: #3399cc !important;}
+.img2_active{transform: translateX(0) !important;}
+.img1_active{transform: translateX(400%) !important;}
+.pro_show_active{background: #3399CC !important;color: #fff !important;}
+.support_active{background: #3399CC !important;}
+.carli_active{position: relative; background: #fff;border-top: 2px solid #77AF1E;border-left: 1px solid #e3e3e3;border-right: 1px solid #e3e3e3;}
+.carli_active::after{content: '';position: absolute;bottom: -1px;left: 0;width: 100%;height: 1px;background: #fff;}
+.bg_edf7fc{background: #edf7fc;}
+.dis_b{display: block;}
+.center{text-align: center;}
+.tip_active{color: #ff7800 !important;background: url(../images/tip_active.png) no-repeat left 11% !important;}
+.dh_sd{
+	transition: all 0.5s ;
+}
+.inline_b{display: inline-block;vertical-align: middle;}
+.bg_fff{background: #fff;}
+.color_e04740{color: #E04740;}
+.star_active{background: url(../images/star_active.png)no-repeat center !important;}
+.rotate_45{
+	transform:rotate(45deg);
+   -ms-transform:rotate(45deg);    /* IE 9 */
+   -moz-transform:rotate(45deg);   /* Firefox */
+   -webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+    -o-transform:rotate(45deg);    /* Opera */
+    transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out; /* Firefox 4 */
+    -webkit-transition: all 1s ease-in-out; /* Safari 和 Chrome */
+    -o-transition: all 1s ease-in-out; /* Opera */
+}
+.rotate_-45{
+	transform:rotate(-45deg);
+   -ms-transform:rotate(-45deg);    /* IE 9 */
+   -moz-transform:rotate(-45deg);   /* Firefox */
+   -webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+    -o-transform:rotate(-45deg);    /* Opera */
+    transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out; /* Firefox 4 */
+    -webkit-transition: all 1s ease-in-out; /* Safari 和 Chrome */
+    -o-transition: all 1s ease-in-out; /* Opera */
+}
+
+
+
+
+
+
+
+
+
+
+/*.box_shadow{box-shadow: -2px -2px 25px 25px #fcfcfd;}*/
+
+
+
+

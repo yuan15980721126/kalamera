@@ -1,0 +1,87 @@
+#data_upload{
+	overflow: hidden;
+	border: 1px solid #e4e4e4;
+	
+}
+#upload_head{
+	
+		height: 40px;
+		line-height: 40px;
+		padding-left: 15px;
+		font-size: 16px;
+		color: #c1b497;
+		background-color: #f1f1f1;
+	border-top: 2px solid #c1b497;	
+}
+#upload_content{
+	padding: 0 15px;
+}
+#upload_content li{
+	
+	height: 50px;
+	line-height: 50px;
+	border-bottom: none;
+	color: #747474;
+	font: 12px/50px "微软雅黑";
+	border-bottom: 1px solid #e4e4e4;
+}
+.upload_name{
+	float: left;
+	
+}
+.upload_date{
+	float: right;
+	
+}
+.upload_date a{
+	color: #666666;
+	margin-right: 40px;
+	
+}
+.leg_page{
+	overflow: hidden;
+	float: right;
+	margin: 50px 15px 35px 0;
+}
+.leg_page div{
+	float: left;
+	
+}
+.uppage:hover,.pageye:hover,.downpage:hover,.change:hover{
+	cursor: pointer;
+}
+.uppage{
+	
+	width: 62px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	line-height: 28px;
+	margin-right: 6px;
+	text-align: center;
+}
+.pageye{
+	width: 36px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	text-align: center;
+	line-height:28px ;
+	color: #cccccc;
+	margin-right:6px ;
+}
+.pageye.currentpage{
+	border: 1px solid #c1b497;
+	color: #ffffff;
+	background-color: #c1b497;
+	
+	
+}
+.downpage{
+	
+	width: 62px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	line-height: 28px;
+	text-align: center;
+}

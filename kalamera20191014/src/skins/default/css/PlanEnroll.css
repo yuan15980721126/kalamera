@@ -1,0 +1,258 @@
+#Enrool_top{
+	height: 90px;
+	line-height: 90px;
+	border-bottom: 5px solid #24201d;
+	overflow: hidden;
+}
+#top_c{
+		width: 1200px;
+		margin: 0 auto;
+}
+#top_c div:first-child{
+	float: left;
+	height: 90px;
+	overflow: hidden;
+}
+#top_c div:last-child{
+	font: 12px/90px "微软雅黑";
+	color: #a1a1a1;
+	float: right;
+}
+#Enrool_table{
+	width: 980px;
+	margin: 0 auto;
+	padding: 50px 0px 50px 220px;
+	overflow: hidden;
+}
+#Enrool_table>div{
+	float: left;
+}
+#boder_text{
+	
+	width:400px ;
+	height: 85px;
+	
+}
+.boder_text>div:first-child{
+	
+	width: 398px;
+	height: 52px;
+	border: 1px solid #E4E4E4;
+	
+	
+}
+.boder_text>div:first-child span{
+	display: block;
+	float: left;
+	width: 124px;
+	font-size: 14px;
+	color: #747474;
+	line-height: 52px;
+	text-align: center;
+	
+}
+.boder_text>div:first-child input{
+	width: 263px;
+	float: right;
+	padding: 0 5px;
+	height: 52px;
+	border: none;
+	font-size: 14px;
+}
+
+
+.boder_text>div:last-child{
+	
+	color: #d00100;
+	padding-left: 23px;
+	background: url(../img/Enroll/gth_06.jpg) no-repeat left center;
+	margin-top: 7px;
+}
+
+.code_border>div:last-child {
+    color: #d00100;
+    padding-left: 23px;
+    background: url(../img/Enroll/gth_06.jpg) no-repeat left center;
+    margin-top: 7px;
+}
+.my_form{
+	height: 85px;
+	
+}
+
+.boder_text{
+	padding-right: 18px;
+	background: url(../img/indent/xx_03.jpg) no-repeat right 25px;
+	
+	
+	
+}
+.v_code{
+	height: 85px;
+	
+}
+
+.code_border{
+	
+	padding-right: 18px;
+    background: url(../img/indent/xx_03.jpg) no-repeat right 25px;
+}
+.code_border>div:first-child {
+    width: 398px;
+    height: 52px;
+    border: 1px solid #E4E4E4;
+}
+
+.code_border>div:first-child span {
+    display: block;
+    float: left;
+    width: 124px;
+    font-size: 14px;
+    color: #747474;
+    line-height: 52px;
+    text-align: center;
+}
+
+.code_border>div:first-child input {
+    width:167px;
+    float: left;
+    padding: 0 5px;
+    height: 52px;
+    border: none;
+    font-size: 14px;
+}
+.yanz{
+	float: left;
+	width:94px ;
+	height:50px ;
+}
+
+#agreement div:first-child{
+	
+	width:17px ;
+	height: 17px;
+	border: 1px solid #777777;
+	
+}
+#agreement div:first-child.check_Stus{
+	background:url(../img/Enroll/lvg_17.jpg) no-repeat center ;
+	
+	
+}
+#agreement>div{
+	float: left;
+	margin-right: 5px;
+	
+}
+
+#agreement>div:nth-of-type(2){
+	font: 14px "微软雅黑";
+	color: #747474;
+	
+	
+}
+
+#agreement>div:last-child{
+	font: 14px "微软雅黑";
+	color: #2626fa;
+	
+	
+}
+#agreement{
+	overflow: hidden;
+}
+#enroll_btn{
+	width:400px ;
+	height:55px ;
+	line-height: 55px;
+	text-align: center;
+	margin-top: 37px;
+	background-color: #d00100;
+	color: #ffffff;
+	font-size: 16px;
+	
+}
+
+
+#enroll_btn:hover{
+	cursor: pointer;
+}
+
+
+#table_left{
+	padding-right: 82px;
+	border-right: 1px solid #e6e6e6;
+}
+
+
+#btn_all{
+	margin: 155px 0 0 100px;
+}
+#btn_all a{
+	display: block;
+	width: 160px;
+	height: 40px;
+	line-height: 40px;
+	color: #ffffff;
+	text-align: center;
+	margin-bottom: 30px;
+	font-size: 16px;
+}
+#btn_all a:first-child{
+	background-color: #7acf00;	
+}
+
+#Enrool_table{
+	margin-bottom: 50px;
+}
+
+
+#btn_all a:last-child{
+	background-color: #d00100;	
+}
+.get_code{
+	
+	background-color: #f2f2f2;
+	text-align: center;
+	margin-top: 4px;
+	font-size: 13px;
+	color: #333333;
+	line-height: 45px;
+	height: 45px;
+	
+	
+}
+.get_code:hover{
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

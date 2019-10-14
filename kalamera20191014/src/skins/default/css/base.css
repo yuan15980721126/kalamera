@@ -1,0 +1,50 @@
+/* 样式初始化 */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+form,
+input,
+dl,
+dd {
+	margin: 0;
+	padding: 0;
+}
+input{
+	
+	outline: none;
+}
+ul {
+	list-style: none;
+}
+a {
+	color: #000;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+input {
+	border: 0 none;
+}
+img {
+	border: 0 none;
+	vertical-align: middle;
+}
+body {
+	font: 12px/150% "microsoft yahei";
+	
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+
+ul,
+li {
+	list-style: none;
+}

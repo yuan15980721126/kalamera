@@ -1,0 +1,36 @@
+#firm_introduce{
+	
+	
+	border: 1px solid #e4e4e4;
+}
+#introdce_head{
+	height: 40px;
+	border-top: 2px solid #c1b497;
+	font: 16px "微软雅黑";
+	line-height: 40px;
+	background-color: #f1f1f1;
+	padding-left: 15px;
+	color: #c1b497;
+}
+#introdce_content{
+	
+	padding:15px 15px 245px 15px;
+	
+}
+#introdce_content>div{
+	text-indent: 2em;
+	font:16px/28px "微软雅黑" ;
+	
+}
+#introdce_content .other{
+	font-family: "宋体";
+	margin-top: 28px;
+}
+#introdce_content.shopintrodce{
+	
+	
+	padding-bottom: 555px;
+	
+	
+	
+}

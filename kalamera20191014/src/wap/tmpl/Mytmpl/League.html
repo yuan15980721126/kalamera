@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>招商加盟</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_common.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_cart.css">
+<link rel="stylesheet" type="text/javascript" href="../../css/jquery.idcode.css" />
+<link rel="stylesheet" type="text/css" href="../../css/MyCss.css" />
+</head>
+<body>
+<header id="header">
+  <div class="header-wrap">
+    <div class="header-l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+    <div class="header-title">
+      <h1>招商加盟</h1>
+    </div>
+    <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="../../tmpl/search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="../../tmpl/member/member.html"><i class="member"></i>我的商城</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+
+
+
+<div id="Tab_content">
+	<div id="tab_head">
+		<div>
+			<span class="curr">加盟详情</span>
+		</div>
+		<div>
+			<span>加盟意向留言</span>
+		</div>
+	</div>
+	
+	
+	<div id="tab_con">
+		
+		<div>
+			<img  src="../../images/hjimage/jmt_02.jpg"/>
+			<img src="../../images/hjimage/jmb_03.jpg" />
+		</div>
+		<div id="leg_table" style="display: none;">
+			<div class="text_inp">
+				<span>姓名:</span>
+				<input placeholder="请输入姓名" />
+			</div>
+			
+			<div class="text_inp">
+				<span>邮箱:</span>
+				<input placeholder="Please enter your mailbox" />
+			</div>
+		
+		
+			<div class="text_inp">
+				<span>手机号:</span>
+				<input placeholder="请输入手机号" />
+			</div>
+		
+			<div class="text_inp area_inp">
+				<span>内容:</span>
+				<textarea placeholder="请输入内容"></textarea>
+			</div>
+			<div class="text_inp code_inp" id="Verif">
+				<span>验证码:</span>
+				<input placeholder="请输入验证码"  class="in_ma txtVerification" id="Txtidcode"/>
+				<span id="idcode"></span>
+			</div>
+			
+			
+			
+				<div id="sub_btn">
+		<div>
+			提交
+		</div>
+		
+	</div>
+		</div>
+		
+		
+		
+		
+		
+		
+	</div>
+	
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<footer id="footer"></footer>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="../../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../../js/template.js"></script> 
+<script type="text/javascript" src="../../js/config.js"></script> 
+<script type="text/javascript" src="../../js/common.js"></script> 
+<script type="text/javascript" src="../../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../../js/zepto.waypoints.js"></script> 
+<script type="text/javascript" src="../../js/tmpl/order_payment_common.js"></script> 
+<script type="text/javascript" src="../../js/MyJs.js"></script>
+<script type="text/javascript" src="../../js/jquery-3.2.0.js"></script>
+<script type="text/javascript" src="../../js/jquery.idcode.js"></script>
+<script type="text/javascript">
+	$.idcode.setCode();
+			
+			$("#sub_btn div").click(function (){
+				var IsBy = $.idcode.validateCode(); 
+				alert("验证码测试");
+			});
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,356 @@
+#New_Core{
+	
+	border: 1px solid #e4e4e4;
+	background-color: #ffffff;
+	
+	
+}
+#head_tab{
+	
+	height:58px;
+	border: 1px solid #e4e4e4;
+	line-height: 58px;
+	padding: 0 20px;
+	
+}
+#new_tab{
+	float: left;
+	
+	
+}
+#new_tab >div{
+	float: left;
+	padding: 0 20px;
+	margin-right: 20px;
+	font-size:14px ;
+	color: #494949;
+}
+#new_tab >div.cur{
+	border-bottom: 2px solid #c1b497;
+}
+#head_select{
+	float: right;
+	
+}
+#head_select>select{
+	width: 118px;
+	height: 26px;
+	border: 1px solid #e4e4e4;
+	font-size: 14px;
+	color: #333333;
+}
+#New_content{
+	
+	padding:  0 37px 0px 20px;
+}
+#v_xx{
+	color: #c1b497;
+}
+
+.all_ck{
+	width: 38px;
+	height: 22px;
+	text-align: center;
+	font:14px "微软雅黑" ;
+	line-height: 22px;
+	color: #fffefe;
+	background-color: #c1b497;
+	margin:40px 0 15px 0;
+}
+
+.del_{
+	width: 66px;
+	height:22px ;
+	line-height: 22px;
+	text-align: center;
+	font: 14px "微软雅黑";
+	color: #fffefe;
+	background-color: #c1b497;
+	margin-bottom: 25px;
+}
+
+.del_ a{
+	width: 66px;
+	height:22px ;
+	line-height: 22px;
+	text-align: center;
+	font: 14px "微软雅黑";
+	color: #fffefe;
+	background-color: #c1b497;
+	margin-bottom: 25px;
+}
+.del_:hover,.all_ck:hover{
+	cursor: pointer;
+}
+.New_all{
+	padding-bottom: 90px;
+}
+#New_content li{
+}
+.New_info{
+	border-left: 1px solid #e4e4e4;
+		border-bottom: 1px dashed #e4e4e4;
+	height: 130px;
+	background: url(../img/vipcore/down_11.jpg) no-repeat bottom center;
+	margin-left: 70px;
+	padding-left: 70px;
+	position: relative;
+}
+
+.New_date{
+	position: absolute;
+	width: 70px;
+	height: 70px;
+	border-radius: 5px;
+	left: -35px;
+	overflow: hidden;
+	top: -1px;
+	
+}
+#new_tab>div:hover{
+	cursor: pointer;
+}
+.new_year{
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	font-size: 14px;
+	color: #ffffff;
+	background-color: #c1b497;
+	
+	
+}
+
+.new_day{
+	
+	height: 45px;
+	font-size:34px ;
+	color: #666666;
+	line-height: 45px;
+	text-align: center;
+	background-color: #f1f1f1;
+
+}
+
+.xt_new>div{
+	float: left;
+	
+}
+.check_info{
+	
+	width: 13px;
+	height: 13px;
+	border: 1px solid #333333;
+	position: relative;
+	margin-right: 13px;
+}
+
+.check_info img{
+	position: absolute;
+	left: 0;
+	top: -5px;
+	display: none;
+}
+.ckbg img{
+	
+	display: block;
+}
+
+.xt_new>div:nth-of-type(2){
+	
+	font:14px "微软雅黑" ;
+	color: #d00100;
+	line-height: 15px;
+	
+}
+.xt_new>div:nth-of-type(3){
+	
+		font-size: 16px;
+		color: #333333;
+		line-height: 15px;
+		margin-right: 9px;
+		padding-right: 25px;
+		background: url(../img/vipcore/xxa_03.jpg) no-repeat right center;
+	
+}
+.xt_new>div:nth-of-type(4){
+	
+		color: #999999;
+		line-height: 15px;
+}
+
+.xt_new>div:nth-of-type(5):hover{
+	cursor: pointer;
+}
+.xt_new>div:nth-of-type(5){
+	float: right;
+	width:17px ;
+	height:19px ;
+	background: url(../img/vipcore/asd.jpg) no-repeat;
+	margin-right: 30px;
+	
+	
+}
+.chakan{
+	    float: right;
+    margin-right: 24px;
+    margin-top: 24px;
+}
+.xt_new{
+	padding-top: 15px;
+}
+.xt_new{
+	overflow: hidden;
+}
+.new_wz{
+	padding-left: 30px;
+	font: 14px "微软雅黑";
+	color: #666666;
+	
+}
+.new_tip>div{
+	line-height: 34px;
+}
+
+.leg_page{
+	overflow: hidden;
+	margin: 20px 0 40px 0;
+	float: right;
+}
+.leg_page div{
+	float: left;
+	
+}
+.uppage:hover,.pageye:hover,.downpage:hover,.change:hover{
+	cursor: pointer;
+}
+.uppage{
+	
+	width: 62px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	line-height: 28px;
+	margin-right: 6px;
+	text-align: center;
+}
+.pageye{
+	width: 36px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	text-align: center;
+	line-height:28px ;
+	color: #cccccc;
+	margin-right:6px ;
+}
+.pageye.currentpage{
+	border: 1px solid #c1b497;
+	color: #ffffff;
+	background-color: #c1b497;
+	
+	
+}
+.page_height{
+	overflow: hidden;
+}
+.downpage{
+	
+	width: 62px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	line-height: 28px;
+	text-align: center;
+}
+
+#New_content li{
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

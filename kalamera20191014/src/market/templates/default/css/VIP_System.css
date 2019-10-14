@@ -1,0 +1,19 @@
+#System{
+	border: 1px solid #e4e4e4;
+}
+#system_head{
+	
+	height: 40px;
+	border-top: 2px solid #c1b497;
+	font: 16px "微软雅黑";
+	line-height: 40px;
+	background-color: #f1f1f1;
+	padding-left: 15px;
+	color: #c1b497;
+	
+}
+#system_content{
+	
+	text-align: center;
+	overflow: hidden;
+}

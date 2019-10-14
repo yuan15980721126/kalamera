@@ -1,0 +1,112 @@
+#account_security{
+	border: 1px solid #e4e4e4;
+	background-color: #ffffff;
+}
+#account_head{
+	height: 39px;
+	line-height: 39px;
+	border-bottom: 1px solid #e5e5e5;
+	padding-left: 20px;
+	background-color: #f9f9f9;
+}
+#account_head>div{
+	width: 56px;
+	padding:0 9px;
+	font-size: 14px;
+	border-bottom:2px solid #c1b497 ;
+}
+#account_content{
+	padding: 0 20px;
+}
+#email_3:hover{
+	cursor: pointer;
+}
+#account_content li{
+	height:80px;
+	border-bottom: 1px solid #e4e4e4;
+	padding-top: 30px;
+	padding-left: 50px;
+	
+}
+#account_content li>div{
+	float: left;
+	
+}
+#v_zhSafe{
+	color: #c1b497;
+}
+#account_content li>div:first-child{
+	width: 156px;
+	border-right: 1px solid #dddddd;
+	font-size: 22px;
+	color: #666666;
+	padding-left: 87px;
+	height: 50px;
+	line-height: 50px;
+}
+#account_content li>div:nth-of-type(2){
+	
+	height: 50px;
+	line-height: 50px;
+	margin-left: 29px;
+	font-size: 14px;
+}
+span.red{
+	color: #d00100;
+	font-size: 14px;
+}
+span.hui{
+	color: #bfbfbf;
+	font-size: 14px;
+}
+span.black{
+	font-weight: bold;
+	color: #333333;
+	font-size: 14px;
+}
+#account_content li>div:nth-of-type(3){
+	
+	
+	float: right;
+	margin-right: 18px;
+	
+}
+#account_content li>div:nth-of-type(3) a{
+	display: block;
+	width: 50px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	border: 1px solid #b0da91;
+	background-color: #f5ffee;
+	color: #7abd54;
+	margin-top: 14px;
+}
+._safe{
+	background: url(../img/vipcore/anq_03.jpg) no-repeat left top;
+}
+._dan{
+	background: url(../img/vipcore/dangerous_03.jpg) no-repeat left top;
+}
+#an_tip{
+	height: 26px;
+	border-bottom: 1px solid #e4e4e4;
+	font-size: 16px;
+	color: #333333;
+	padding-top: 100px;
+}
+#security_bottom{
+	height: 48px;
+	padding-top: 70px;
+	
+}
+#security_bottom>div{
+	font-size: 14px;
+	color: #666666;
+	line-height: 24px;
+	
+}
+#security_bottom>div span{
+	font-weight: bold;
+	color: #d74242;
+}

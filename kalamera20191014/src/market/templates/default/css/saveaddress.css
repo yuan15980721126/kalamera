@@ -1,0 +1,284 @@
+#save_address{
+	
+	background-color: #ffffff;
+
+}
+
+#address_head{
+		line-height: 59px;
+		height: 59px;
+		border-bottom: #c1b497 2px solid;
+		padding-left: 20px;
+
+}
+
+#address_head>div:first-child{
+font-size: 16px;
+float: left;
+margin-right: 13px;
+}
+
+#address_head>div:last-child{
+
+	font-size: 14px;
+	color: #747474;
+	float: left;
+	}
+#shou_address{
+
+	padding: 15px 0 20px 0;
+
+}
+#info_table>ul>li{
+	float: left;
+	margin-left: 20px;
+	width: 290px;
+	padding: 10px;
+	height: 189px;
+	border: 1px solid #e3e3e3;
+	border-top: 10px solid #e3e3e3;
+}
+#v_address{
+	color: #c1b497;
+}
+
+#info_table>ul>li.info_current{
+	border:1px solid #c1b497 ;
+	border-top:10px solid #c1b497 ;
+	background: url(../img/indent/guo_03.png) no-repeat right bottom;
+}
+#info_table{
+	overflow: hidden;
+}
+.info_name{
+	height: 29px;
+	border-bottom: 1px dashed #e3e3e3;
+	background: url(../img/indent/info_name_03.jpg) no-repeat left center;
+	padding-left: 26px;
+	font-size: 14px;
+	line-height: 29px;
+}
+.info_address{
+	
+	height: 64px;
+	border-bottom:1px dashed #e3e3e3 ;
+	background: url(../img/indent/info_address_06.jpg) no-repeat left 13px;
+	padding-left: 26px;
+	font-size: 14px;
+	line-height: 26px;
+	padding-right: 12px;
+	padding-top: 9px;
+}
+.info_phone{
+	border-bottom:1px dashed #e3e3e3 ;
+	height: 38px;
+	padding-left: 26px;
+	font-size: 14px;
+	line-height: 38px;
+	background: url(../img/indent/info_phone_08.jpg) no-repeat left center;
+}
+.info_email{
+	height: 25px;
+	font-size: 14px;
+	padding-left: 26px;
+	background: url(../img/indent/info_email_10.jpg) no-repeat left center;
+	line-height: 25px;
+}
+.table_btn{
+	float: right;
+	margin-right: 10px;
+}
+.table_btn a{
+	display: inline-block;
+}
+.i_address{
+	height: 20px;
+	padding: 0 5px;
+	line-height: 20px;
+	background-color: #fafafa;
+	border: 1px solid #e3e3e3;
+	
+}
+#info_table>ul{
+overflow: hidden;}
+
+.info_current .i_address{
+	height: 22px;
+	background-color:#c1b497 ;
+	line-height: 22px;
+	text-align: center;
+	color: #f7f6f3;
+}
+
+
+
+.i_amend,.i_address{
+	margin-right: 10px;
+}
+.i_amend,.i_del{
+	width:34px ;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	background-color: #fafafa;
+	border: 1px solid #e3e3e3;
+}
+#add_{
+	padding: 50px 20px 0 20px;
+
+}
+#add_aadress{
+display: block;
+height: 68px;
+border: 1px dashed #c1b497;
+}
+#add_aadress>div{
+width:90px ;
+height:12px ;
+padding-left: 20px;
+line-height: 12px;
+margin: 28px auto 0;
+background: url(../img/vipcore/add_03.jpg) no-repeat left center;
+color: #c1b497;
+}
+#add_harvest{
+	position: fixed;
+	width: 960px;
+	height: 500px;
+	top: 50%;
+	padding: 0 20px;
+	display: none;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 100;
+	background-color: #ffffff;
+	border: 5px #dbdbdb solid;
+}
+#head_harvest{
+
+	height: 24px;
+	margin-bottom: 40px;
+	padding-top: 20px;
+	border-bottom: #ececec 5px solid;
+}
+#head_harvest>div:first-child{
+	float: left;
+	font-size: 14px;
+}
+#close_add{
+		float: right;
+		width: 10px;
+		height:10px ;
+		background: url(../img/vipcore/6ca_03.jpg);
+		
+}
+#close_add:hover{
+cursor: pointer;
+}
+#address_info{
+	
+	padding: 0 100px;
+}
+#get_name,#in_address,#phone_nub,#mail{
+	overflow: hidden;
+}
+#get_name>div,#in_address>div,#phone_nub>div,#mail>div{
+	float: left;
+}
+#get_name>div:first-child,#in_address>div:first-child,#phone_nub>div:first-child{
+
+		padding-left: 12px;
+		color: #666666;
+		background: url(../img/indent/xx_03.jpg) no-repeat left ;
+		margin: 10px 15px 0 0;
+}
+
+#mail>div:first-child{
+padding-left: 12px;
+		color: #666666;
+		margin: 10px 15px 0 0;
+}
+
+#get_name input,#phone_nub input,#mail input{
+	width:190px ;
+	height: 20px;
+	border: 1px solid #cccccc;
+	padding:  5px;
+		
+}
+#in_address select{
+		width: 150px;
+		margin-right: 10px;
+		height: 30px;
+		font-size: 14px;
+		color: #999999;
+		border: 1px solid #cccccc;
+}
+#in_address  input{
+
+	width:448px ;
+	height: 30px;
+	border: 1px solid #cccccc;
+	margin-top: 15px;
+	padding: 0 10px;
+}
+#mo{
+	vertical-align: middle;
+}
+label{
+	font-size: 14px;
+	color: #5d5d5d;
+}
+#btn>div{
+	float: left;
+}
+
+#btn>div:first-child{
+
+		width:100px ;
+		height:34px;
+		line-height: 34px;
+		text-align: center;
+		background-color: #c1b497;
+		color: #ffffff;
+		font-size: 14px;
+		
+		
+}
+#btn>div:last-child{
+	line-height:34px ;
+	margin-left: 20px;
+	color: #005ea7;
+	font-size: 14px;
+}
+#btn>div:last-child:hover{
+	cursor: pointer;
+}
+#get_name,{
+	margin-bottom: 20px;
+}
+#in_address{
+
+	margin-bottom: 20px;
+}
+#phone_nub{
+	margin: 0 0 20px 25px;
+
+}
+/*#mo{
+	padding-top: 40px;
+}*/
+#mail{
+	margin:0 0 40px 13px;
+}
+#check{
+	margin: 0 0 40px 95px;
+
+}
+#btn{
+
+	margin-left: 95px;
+}
+#get_name{
+	margin-bottom: 20px;
+}

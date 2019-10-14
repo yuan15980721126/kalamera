@@ -1,0 +1,183 @@
+#My_collect{
+	
+	border: 1px solid #e5e5e5;
+	overflow: hidden;
+	background-color: #ffffff;
+	padding: 20px;
+}
+#collect_head{
+	height: 38px;
+	border-bottom: 1px solid #c1b497;
+	
+	margin-bottom: 20px;
+}
+#collect_head>div:first-child{
+	font-size: 16px;
+	float: left;
+	color: #666666;
+}
+#collect_goods{
+	overflow: hidden;
+}
+#collect_goods li{
+	float: left;
+	margin:0 10px;
+	width: 220px;
+	height: 308px;
+	border: 1px solid #e4e4e4;
+}
+#v_collect{
+	color: #c1b497;
+}
+#collect_goods li>div:first-child{
+		width: 202px;	
+		height: 208px;
+		margin: 9px auto 0;
+		border: 1px solid #e4e4e4;
+		overflow: hidden;
+}
+.goods_info>p:first-child{
+		color: #666666;
+		font-size: 14px;
+		font-family: "微软雅黑";
+		text-align: center;
+		line-height: 24px;
+}
+.goods_info>p:last-child{
+		color: #d00100;
+		font-size: 16px;
+		line-height: 26px;
+		text-align: center;
+		font-weight: bold;
+}
+.cle_btn{
+	margin-top: 16px;
+	border-top: 1px solid #e4e4e4;
+}
+.cle_btn>div{
+	float: left;
+	width: 109px;
+	height: 22px;
+	color: #666666;
+	line-height: 22px;
+}
+
+.cle_btn>div:first-child{
+	border-right: 1px solid #e4e4e4;
+	padding-left: 43px;
+	width: 66px;
+	font-family: "微软雅黑";
+	background: url(../img/vipcore/xrr.png) no-repeat 20px center ;
+}
+
+.cle_btn>div:last-child{
+	padding-left: 40px;
+	font-family: "微软雅黑";
+	width: 70px;
+	background: url(../img/vipcore/xr_03.png) no-repeat 13px center ;
+}
+.cle_btn>div:first-child:hover{
+	
+	background: url(../img/vipcore/zz.png) no-repeat 20px center #c1b497  ;
+	color: #ffffff;
+	cursor: pointer;
+}
+.cle_btn>div:last-child:hover{
+	
+	background: url(../img/vipcore/moqu_07.jpg) no-repeat 20px center #c1b497  ;
+	color: #ffffff;
+	cursor: pointer;
+}
+#leg_page{
+	float: right;
+	margin-top: 20px;
+}
+#leg_page div{
+	float: left;
+	
+}
+#uppage:hover,.pageye:hover,#downpage:hover,#change:hover{
+	cursor: pointer;
+}
+#uppage{
+	
+	width: 62px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	line-height: 28px;
+	margin-right: 6px;
+	text-align: center;
+}
+.pageye{
+	width: 36px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	text-align: center;
+	line-height:28px ;
+	color: #cccccc;
+	margin-right:6px ;
+}
+.pageye.currentpage{
+	border: 1px solid #c1b497;
+	color: #ffffff;
+	background-color: #c1b497;
+	
+	
+}
+#downpage{
+	
+	width: 62px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	line-height: 28px;
+	text-align: center;
+}
+
+#search_collect{
+	float: right;
+	
+}
+
+#search_collect input{
+	width:238px;
+	outline: none;
+	height:26px ;
+	font: 14px "微软雅黑";
+	border:1px solid #e4e4e4 ;
+	padding: 0 5px;
+}
+#search_collect>div:first-child{
+	float: left;
+	
+}
+#ser_btn{
+	float: right;
+	margin-left: 10px;
+	width:48px ;
+	height:26px ;	
+	border:1px solid #e4e4e4 ;
+	text-align: center;
+	line-height: 26px;
+	color: #333333;
+	font-size: 14px;
+	font-family: "微软雅黑";
+}
+#ser_btn:hover{
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

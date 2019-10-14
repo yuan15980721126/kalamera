@@ -1,0 +1,452 @@
+#idn_title{
+	height: 28px;
+	line-height: 28px;
+	border-left: 4px solid #c1b497;
+	padding-left: 10px;
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+.summarize{
+	height: 311px;
+	border: 1px solid #e4e4e4;
+}
+#summarize_t{
+	height: 39px;
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #e4e4e4;
+	line-height: 39px;
+	font-size: 14px;
+	padding-left: 20px;
+}
+.to .ip_status>div:last-child{
+	background-color: #91dc9c;
+}
+#summarize_c{
+	
+	padding: 0 20px;
+	
+}
+#summarize_info{
+	padding: 0 20px;
+}
+#summarize_status{
+	padding-top: 20px;
+	height: 62px;
+	border-bottom: 1px dashed #e4e4e4;
+}
+#summarize_status>div{
+	
+	height: 30px;
+	border: 1px solid #b4e1f3;
+	background-color: #dff1f8;
+	padding-left: 10px;
+	line-height: 30px;
+	
+}
+#summarize_status>div>div{
+	float: left;
+}
+#summarize_status>div>div:first-child{
+	
+		margin-right:40px ;
+	
+}
+#summarize_status span{
+	color: #d00100;
+}
+#summarize_info{
+	
+	margin-top: 25px;
+	
+}
+#summarize_info div{
+	line-height: 24px;
+	
+}
+#indent_tail{
+	margin: 15px 0;
+	padding-bottom: 50px;
+	border: 1px solid #e3e3e3;
+	background-color: #ffffff;
+	
+}
+#tail_title{
+	height: 39px;
+	border-bottom: 1px solid #e4e4e4;
+	line-height: 39px;
+	background-color: #f9f9f9;
+	padding-left: 20px;
+	font-size: 14px;
+	margin-bottom: 15px;
+}
+#tail_c{
+	padding: 0 20px;
+	
+}
+#tail_c>div:first-child{
+	
+	height: 112px;
+	border-bottom: 1px dashed #e4e4e4;
+}
+#tail_c>div:first-child>div{
+	width: 630px;
+	height: 55px;
+	margin: 30px auto 0;
+}
+#tail_c>div:first-child>div{
+	width: 630px;
+	height: 55px;
+	margin: 30px auto 0;
+}
+
+#tail_c>#cancael_ind>div{
+	
+	width:207px ;
+	height: 53px;
+	margin: 30px auto 0;
+}
+#indent_progerss>div:first-child{
+	text-align: center;
+	width: 95px;
+	line-height: 19px;
+	margin-top: 5px;
+	margin-bottom: 12px;
+}
+#indent_progerss{
+	padding: 0 20px;
+}
+#pro_info li>div{
+	float: left;
+	color: #b8b8b8;
+}
+#pro_info li{
+	clear: both;
+	line-height: 28px;
+}
+.ip_status{
+	width: 12px;
+	height: 12px;
+	border: 1px solid #ececec;
+	border-radius: 50%;
+	line-height: 12px;
+	margin: 5px 43px 0px 3px;
+	position: relative;
+}
+.current .ip_status{
+	border: 1px #90dd9b solid;
+	
+	
+}
+.current .ip_status>div:first-child{
+		background:url(../img/vipcore/lvedian_03.jpg) ;	
+}
+#pro_info .current>.ip_date,#pro_info .current>.ip_details{
+	font-size:13px ;
+	color: #333333;
+	font-weight: bold;
+	
+}
+.ip_status>div:first-child{
+	width: 6px;
+	margin: 3px auto;
+	height:6px ;
+	color: #1aca37;
+}
+.ip_date{
+	margin-right: 24px;
+}
+.ip_status>div:last-child{
+	position: absolute;
+	width: 2px;
+		background-color: #e0e0e0;
+	height: 16px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+#commodity_list{
+	
+	border: 1px solid #e4e4e4;
+	background-color: #ffffff;
+}
+#commodity_title{
+	
+	height: 39px;
+	line-height: 39px;
+	border-bottom: 1px solid #e4e4e4;
+	padding-left: 20px;
+	background-color: #f9f9f9;
+	font-size: 14px;
+}
+#goods_list{
+	
+	padding: 0 20px;
+	
+}
+#list_tfoot{
+	height: 39px;
+	border-bottom: 1px solid #e4e4e4;
+	line-height: 50px;
+	overflow: hidden;
+}
+#list_tfoot>div{
+	float: left;
+}
+#list_tfoot>div:nth-of-type(1){
+	width: 294px;
+}
+#list_tfoot>div:nth-of-type(2){
+	width: 148px;
+	text-align: center;
+	
+}
+#list_tfoot>div:nth-of-type(3){
+	width: 240px;
+	text-align: center;
+	
+}
+#list_tfoot>div:nth-of-type(4){
+	width: 65px;
+	text-align: center;
+	
+}
+#list_tfoot>div:nth-of-type(5){
+	
+	width: 100px;
+	padding-left: 125px;
+	
+}
+.p_cost{
+	width: 110px;
+	padding-left: 115px;
+	line-height: 100px;
+	font-size: 14px;
+	color: #d00100;
+}
+.gls_row{
+	
+	height: 100px;
+	border-bottom: 1px dashed #e4e4e4;
+}
+.goods_name{
+width: 294px;	
+padding-top: 20px;
+}
+.goods_name>div{
+	float: left;
+}
+.goods_name>div:first-child{
+	width:58px;
+	height: 58px;
+	border: 1px solid #e4e4e4;
+	overflow: hidden;
+	margin-right: 10px;
+}
+.goods_name>div:last-child{
+	margin-top: 15px;
+	color: #666666;
+	
+}
+.gls_row> div{
+	float: left;
+}
+.worth{
+	width: 148px;
+	text-align: center;
+	line-height: 100px;
+	color: #666666;
+}
+.discounts{
+	width: 240px;
+	text-align: center;
+	padding-top: 40px;
+}
+#summarize_info span{
+	color: #d00100;
+}
+.discounts span{
+	color: #005ea7;
+	
+}
+
+
+.discounts>div:last-child:before{
+	content: "";
+	position: absolute;
+	display: block;
+	width:8px ;
+	height:4px ;
+	background: url(../img/vipcore/zhao_06.jpg);
+	left: 0;
+	top: 0;
+}
+.discounts>div:last-child{
+	position: relative;
+	width: 138px;
+	height: 30px;
+	border: 1px solid #e4e4e4;
+	background-color: #ffffff;
+	line-height: 30px;
+	text-align: center;
+	color: #333333;
+	margin-left: 50px;
+}
+.nub{
+	width: 65px;
+	text-align: center;
+	line-height: 100px;
+	color: #808080;
+}
+.gls_tbottom{
+	margin-top: 50px;
+	overflow: hidden;
+	padding-bottom: 34px;
+}
+.gls_tbottom>div{
+	float: right;
+}
+.gls_tbottom .red{
+	color: #dd6c6b;
+	
+}
+
+.total_goods >div{
+	float: right;
+	
+}
+#cost_{
+	width: 80px;
+	text-align: right;
+	float: right;
+	overflow: hidden;
+}
+#expense{
+	overflow: hidden;
+	width: 120px;
+	float: right;
+	text-align: right;
+}
+#expense span{
+	color: #dd6c6b;
+}
+#cost_ span{
+	font-size: 16px;
+	color: #d00100;
+}
+
+.wxma:before{
+	content: "";
+	position: absolute;
+	display: block;
+	width:8px ;
+	height:4px ;
+	background: url(../img/vipcore/zhao_06.jpg);
+	left: 0;
+	top: 0;
+}
+.wxma{
+	position:relative;
+	width: 180px;
+	height: 31px;
+	line-height: 31px;
+	text-align: center;
+	border: 1px solid #e4e4e4;
+	clear: both;
+	margin:0 0 20px 20px;
+}
+#agin_buy:hover{
+	cursor: pointer;
+}
+#agin_buy{
+	
+	width: 100px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	font-size: 14px;
+	color: #ffffff;
+	margin-left: 102px;
+	background-color: #c1b497;
+}
+#cost_>div,#expense>div{
+		line-height: 31px;	
+}
+#wait_pay{
+	
+	width: 640px;
+	height: 55px;
+	margin: 0 auto;
+}
+#wait_pay >ul>li{
+	float: left;
+	margin-right: 90px;
+}
+.audit{
+	background: url(../img/vipcore/san_07.jpg) no-repeat center;
+}
+.shipments{
+	background: url(../img/vipcore/si_09.jpg) no-repeat center;
+}
+.collect{
+	background: url(../img/vipcore/wu_11.jpg) no-repeat center;
+}
+.sub{
+	margin-left: -8px;
+}
+#wait_pay >ul>li>div:first-child{
+	position: relative;
+	width:30px;
+	height: 30px;
+	background-color: #dcdcdc;
+	margin-bottom: 10px;
+	border-radius: 50%;
+}
+#wait_pay li:last-child{
+	margin-right: 0px;
+}
+.suc .wait_stus{
+	background: url(../img/vipcore/guo_03.jpg) no-repeat center;
+}
+.suc .pay_pro{
+	width: 126px;
+	height: 5px;
+	position: absolute;
+	top: 50%;
+	background-color: #1aca37;
+	transform: translateY(-50%);
+	left: 24px;
+	z-index: 100;
+}
+#tail_c>div:first-child{
+	border-bottom: 1px dashed #e4e4e4;
+}
+.wait_stus{
+		z-index: 1000;
+	position: absolute;
+	width:20px;
+	height:20px;
+	border-radius: 50%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	}
+.to .wait_stus{
+	z-index: 1000;
+	position: absolute;
+	width:20px;
+	height:20px;
+	border-radius: 50%;
+	background-color: red;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background: url(../img/vipcore/guo_03.jpg) no-repeat center;
+}
+.pay_bei{
+	width:118px ;
+	height:10px ;
+	background-color: #dcdcdc;
+	position: absolute;
+	left: 99%;
+	top: 50%;
+	transform: translateY(-50%);
+}

@@ -1,0 +1,255 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>我的优惠劵</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_member.css">
+<link rel="stylesheet" type="text/css" href="../../css/My_css.css" />
+</head>
+<body>
+<header id="header">
+  <div class="header-wrap">
+    <div class="header-l"><a href="member.html"><i class="back"></i></a></div>
+    <span class="header-tab"> <a href="javascript:void(0);" class="cur">我的优惠劵</a> <a href="voucher_pwex.html">领取优惠券</a> </span>
+    <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="../search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="../product_first_categroy.html"><i class="categroy"></i>分类</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+        <li><a href="../cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="../member/member.html"><i class="member"></i>我的商城</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="nctouch-main-layout">
+	<div id="favo_head">
+		<div>
+			<span class="cu you">有效优惠券</span>
+		</div>
+		<div>
+			<span>无效优惠券</span>
+		</div>
+	</div>
+	<div class="ch_tab">
+		<input type="checkbox" id="all_vou" />
+		<label for="all_vou">全选</label>
+		<span id="del">删除</span>
+	</div>
+  <div class="nctouch-voucher-list">
+    <ul class="nctouch-tickets" id="voucher-list">
+    </ul>
+  </div>
+</div>
+<div class="fix-block-r"> <a href="javascript:void(0);" class="gotop-btn gotop hide" id="goTopBtn"><i></i></a> </div>
+<footer id="footer" class="bottom"></footer>
+<script type="text/html" id="voucher-list-tmpl">
+<% if (voucher_list && voucher_list.length > 0) { %>
+<% for (var k in voucher_list) { var v = voucher_list[k]; %>
+	<li class="ticket-item <% if (v.voucher_state == 1) { %>normal<% }else{ %>invalid<%}%>">
+		<div class="ck_juan">
+			<input type="checkbox" class="checkitem" value="<%=v.voucher_id%>"/>
+		</div>
+		
+		<div class="juan_info">
+			<div class="border-left"></div>
+		<div class="block-center">
+			<div class="ticket-info">
+				<div class="bg-ico"></div>
+				<% if (v.voucher_state==2) { %>
+				<div class="watermark ysy"></div>
+				<% } %>
+				<% if (v.voucher_state==3 || v.voucher_state==4) { %>
+				<div class="watermark ysx"></div>
+				<% } %>
+				<dl>
+				<dt>￥<span><%= v.voucher_price %></span></dt>
+				<dd><% if (v.voucher_limit) { %>满<%= v.voucher_limit %>使用<% } %></dd>
+				</dl>
+			</div>
+			<div class="store-info">
+				<dl>
+					<dt><%= v.voucher_title %></dt>
+					<dd><span>有效期至：<%= v.voucher_end_date_text %></span> 
+						 <% if (v.voucher_state == 1) { %><a href="../product_list.html">立即使用</a><% }else{ %><span>已失效</span><%}%>
+						
+					
+					</dd>
+				</dl>
+				<div class="juan_bot">
+					详细信息
+				</div>
+			</div>
+		</div>
+		</div>
+		
+		<div class="bottmo_info">
+			单笔订单实际支付<%= v.voucher_limit %>元即可使用
+		</div>
+	</li>
+<% } %>
+<li class="loading"><div class="spinner"><i></i></div>数据读取中</li>
+<% } else { %>
+	<div class="nctouch-norecord voucher">
+		<div class="norecord-ico"><i></i></div>
+		<dl>
+			<dt>您还没有相关的优惠券</dt>
+			<dd>优惠券可享受商品折扣</dd>
+		</dl>
+	</div>
+<% } %>
+</script> 
+<script type="text/javascript" src="../../js/config.js"></script> 
+<script type="text/javascript" src="../../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../../js/template.js"></script> 
+<script type="text/javascript" src="../../js/common.js"></script> 
+<script type="text/javascript" src="../../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../../js/ncscroll-load.js"></script> 
+<!-- <script type="text/javascript" src="../../js/tmpl/voucher_list.js"></script>  -->
+
+<script>
+	var key = getCookie('key');
+    // if (key) {
+    //     window.location.href = WapSiteUrl+'/tmpl/member/member.html';
+    //     return;
+    // }
+	function showSpacing(){
+		$('.spacing-div').remove();
+		$('.invalid').first().before('<div class="spacing-div"><span>已失效的券</span></div>');
+	}
+	$(function(){
+		var key = getCookie('key');
+		if (!key) {
+			window.location.href = WapSiteUrl+'/tmpl/member/login.html';
+			return;
+		}
+		//渲染list
+		var load_class = new ncScrollLoad();
+		load_class.loadInit({
+			'url':ApiUrl + '/index.php?model=member_voucher&fun=voucher_list',
+			'getparam':{'key':key},
+			'tmplid':'voucher-list-tmpl',
+			'containerobj':$("#voucher-list"),
+			'iIntervalId':true,
+//			'callback':showSpacing,
+			'data':{WapSiteUrl:WapSiteUrl}
+		});
+	});
+	
+		$("#all_vou").click(function(){
+			// $("#voucher-list input").prop("checked",$(this).prop("checked"));
+				if($(".you").hasClass("cu")){
+					$(".normal input").prop("checked",$(this).prop("checked"));
+
+				}else{
+					$(".invalid input").prop("checked",$(this).prop("checked"));
+
+				}
+
+
+		});
+		$("#del").click(function(){
+			var flag=false;
+            $.each($(".checkitem"),function(){
+                if($(this).prop("checked")==true){
+                    flag=true;
+                }
+            })
+
+            if(!flag){
+                $.sDialog({
+                    skin:"red",
+                    content:'请选择需要操作的记录',
+                    okBtn:false,
+                    cancelBtn:false
+                });
+                // console.log(1)
+
+                return false;
+            }
+			if(confirm("确定要全部删除优惠券吗？")){
+				var items = '';
+                var items = '';
+                $.each($(".checkitem"),function(){
+                	if($(this).prop("checked")==true){
+                		// console.log($(this).val());
+ 
+                		var val =  $(this).val();
+                        // console.log(va)
+                        items += val + ',';
+                	}
+
+                })
+                // console.log(items);
+                // return false;
+                $.ajax({
+                     type: 'post',
+                     url: ApiUrl+'/index.php?model=member_voucher&fun=voucher_edit',
+                     data: {key:key,voucher_id:items},
+                     dataType:'json',
+                     success: function(result){
+                            // console.log(result);
+                            if (result.code == 200) {
+                                $.sDialog({
+		                            skin:"block",
+		                            content:'删除成功',
+		                            okBtn:false,
+		                            cancelBtn:false
+		                        });
+		                        setInterval("window.location.reload()",2000);
+                            } else {
+                                $.sDialog({
+                                    skin:"red",
+                                    content:result.datas.error,
+                                    okBtn:false,
+                                    cancelBtn:false
+                                });
+                                return false;
+                            }
+                         
+                     }
+                  
+                        
+                })
+            }
+		});
+	
+		$("#favo_head span").click(function(){
+			$("#all_vou").prop("checked",false);
+			$(".ticket-item input").prop("checked",false);
+			$("#favo_head span").removeClass("cu");
+			$(this).addClass("cu");
+			if($(this).hasClass("you")){
+				$(".normal").show();
+				$(".invalid").hide();
+			}else{
+					$(".normal").hide();
+					$(".invalid").show();
+				
+			}
+			
+			
+		});
+
+	$("#voucher-list").on("click",".juan_bot",function(){
+			$(this).toggleClass("infoup");
+			$(this).parent().parent().parent().next().toggle();
+	});
+	
+	
+</script>
+</body>
+</html>

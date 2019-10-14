@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>我的投诉</title>
+
+
+<link rel="stylesheet" type="text/css" href="../../css/base.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_common.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_cart.css">
+<link rel="stylesheet" type="text/css" href="../../css/User_center.css" />
+
+</head>
+<body >
+<header id="header" class="fixed">
+  <div class="header-wrap">
+    <div class="header-l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+    <div class="header-title">
+      <h1>我的投诉</h1>
+    </div>
+    <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="../search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="../product_first_categroy.html"><i class="categroy"></i>分类</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+        <li><a href="../cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="../member/member.html"><i class="member"></i>我的商城</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div id="ze_lod" style="display: none;">
+	<div id="ze_show">
+		<div id="ze_head">投诉类型</div>
+		<div>
+			<select name="">
+				<option value="">请选择投诉类型</option>
+			</select>
+		</div>
+		<div id="ze_yu">
+			<textarea name="" rows="" cols="" placeholder="请输入投诉内容"></textarea>
+		</div>
+		<div id="ze_code">
+			<div>验证码：</div>
+			<div class="code_all">
+				<div>
+					<input type="text" />
+				</div>
+				<div><img src="../../images/hjimage/codeimg_03.jpg" /></div>
+				<div>换一张</div>
+				
+			</div>
+		</div>
+		
+		<div class="lod_btns">
+			<div>
+				<input type="submit" value="提交"  class="lo_btn"/>
+			</div>
+			<div>
+				<input type="button" value="取消"  class="lo_btn" id="ca_lo"/>
+				
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+
+<div id="lodge">
+
+</div>
+<script type="text/html" id="lodge_list">
+	
+	<div id="lod_head">
+		<!--<div id="add_lod">
+			添加投诉
+		</div>-->
+		
+		<div id="ck_lod">
+			<select name="select_complain_state" id="ServiceId">
+            <option value="0" selected=true>选择状态</option>
+            <option value="10" >新投诉 </option>
+            <option value="20" >待申诉 </option>
+            <option value="30" >对话中 </option>
+            <option value="40" >待仲裁 </option>
+            <option value="99" >已关闭 </option>
+          </select>
+			
+		</div>
+		
+	</div>
+	<% if (list) { %>
+	<ul id="lod_con">
+		<% for (var i = 0;i<list.length;i++){%>
+		<li>
+			<div class="lod_time">
+				<div>投诉时间 :</div>
+				<div><%=list[i].complain_datetime%></div>
+			</div>
+			<div class="lod_time">
+				<div>投诉主题 :</div>
+				<div><%=list[i].complain_subject_content%></div>
+			</div>
+			
+			<div class="lod_stus">
+				<div>投诉商品：</div>
+				
+				<div><a href="../product_detail.html?goods_id=<%=list[i].goods_id;%>"><%=list[i].goods_detail%></a></div>
+				
+			</div>
+			<div class="lod_stus">
+				<div>处理状态：</div>
+				<div>
+					<% if (list[i].complain_state == 10) { %>
+						新投诉
+					<% }else if(list[i].complain_state == 20){ %>
+						待申诉
+					<% }else if(list[i].complain_state == 30){ %>
+						对话中
+					<% }else if(list[i].complain_state == 40){ %>
+						待仲裁
+					<% }else if(list[i].complain_state == 99){ %>
+						已关闭
+					<% }%>
+				</div>
+				
+			</div>
+			<div class="load_content">
+				<div class="lod_tit">
+					投诉内容
+				</div>
+				
+				<div class="lod_wen">
+				<%=list[i].complain_content%>
+				</div>
+				
+			</div>
+			
+			<% if (list[i].final_handle_message) { %>
+			<div class="hui_">
+				<div class="hui_tit">客服回复</div>
+
+				<div class="hui_wen">
+					<%=list[i].appeal_message%>
+				</div>
+			</div>
+				<% if (list[i].appeal_message != '') { %>
+					<div class="lod_time">
+						<div>回复时间 :</div>
+						<div><%=list[i].appeal_datetime%></div>
+					</div>
+				<% } %>	
+			<% } %>	
+			
+		
+		</li>
+		<% } %>	
+	</ul>
+	<% }else{ %>	
+		<div class="nctouch-norecord eval">
+		 <div class="norecord-ico"><i></i></div>
+		 <dl>
+			 <dt>您还没有投诉记录</dt>
+			 
+		 </dl>
+		 <a href="../../index.html" class="btn">随便逛逛</a>
+		</div>
+	<% } %>	
+	
+</script>	
+	
+
+
+
+
+
+
+<script type="text/javascript" src="../../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../../js/config.js"></script> 
+<script type="text/javascript" src="../../js/template.js"></script> 
+<script type="text/javascript" src="../../js/common.js"></script> 
+<script type="text/javascript" src="../../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../../js/MyJs.js"></script>
+<script type="text/javascript" src="../../js/tmpl/lodge.js"></script>
+</body>
+</html>

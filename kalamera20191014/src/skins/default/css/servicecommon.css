@@ -1,0 +1,140 @@
+#head_nav{
+	height: 40px;
+	line-height: 40px;
+}
+#head_nav li{
+	
+	float: left;
+	font: 12px/40px "微软雅黑" ;
+	color: #666666;
+	margin-right: 9px;
+}
+#MemberReg{
+	width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+	margin-bottom: 50px;
+	
+}
+#mbr_left{
+	float: left;
+	width:227px ;
+	
+	
+}
+#mbr_head{
+	height: 42px;
+	line-height: 42px;
+	color: #f7f6f3;
+	padding-left: 20px;
+	font-size: 18px;
+	background-color: #c1b497;
+}
+#mbr_nav{
+	border: 1px solid #e4e4e4;
+}
+.nav_zi{
+	
+	line-height: 35px;
+	background-color: #fafafa;
+	font-size: 16px;
+	
+}
+.zi_head>div{
+	float: left;
+	
+}
+.zi_head{
+	overflow: hidden;
+	border-bottom: 1px solid #e4e4e4;
+}
+.zi_head>div:first-child{
+	width: 14px;
+	height:14px ;
+	margin: 10px 10px 0 20px;
+	background: url(../img/Menber/bjz_03.jpg) no-repeat center center  #c1b497;
+	
+}
+.bort{
+	border-top: 1px solid #e4e4e4;
+}
+.er_nav{
+	
+	padding: 0 20px;
+	
+}
+.er_head{
+	
+	font-size: 14px;
+	margin-top: 5px;
+	color: #000000;
+}
+.er_nav div{
+	
+	line-height: 24px;
+}
+.er_nav div:not(.er_head){
+	
+	padding-left: 15px;
+	background: url(../img/vipcore/hedian_03.jpg) no-repeat left;
+	
+}
+.er_nav a{
+	font: 12px "微软雅黑";
+	color: #747474;
+	
+}
+.er_nav li{
+	border-bottom: 1px dashed #e4e4e4;
+	padding: 0 10px;
+}
+
+.er_nav li:last-child{
+	border-bottom: none;
+}
+.si_nav {
+	padding: 0 10px;
+	
+}
+
+.si_nav li{
+	height: 33px;
+	line-height: 33px;
+		border-bottom: 1px dashed #e4e4e4;	
+		color: #666666;
+		font-size: 14px;
+		padding-left: 33px;
+}
+.si_nav li:last-child{
+	border-bottom: none;
+}
+
+.si_nav a{
+	font-size: 14px;
+	color: #666666;
+}
+
+.guan>.zi_head>div:first-child{
+	
+	background-image: url(../img/Menber/xia_03.jpg);
+	background-repeat:  no-repeat;
+	background-position:center; 
+}
+
+.mbr_right{
+	/*width: 960px;*/
+	width: 1075px;
+	/*margin-left: 30px*/
+	
+}
+
+
+
+
+
+
+
+
+
+
+

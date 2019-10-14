@@ -1,0 +1,295 @@
+#service{
+	border: 1px solid #e4e4e4;
+	background-color: #ffffff;
+	
+}
+#service_head{
+	
+	height: 58px;
+	background-color: #f9f9f9;
+	line-height: 58px;
+	border-bottom: 1px solid #e4e4e4;
+	padding: 0 20px;
+	
+}
+#service_tab{
+	float: left;
+}
+#service_tab>div:hover{
+	cursor: pointer;
+	
+}
+#service_tab>div{
+	float: left;
+	padding: 0 20px;
+	font: 14px/58px "微软雅黑";
+	margin-right: 20px;
+}
+#service_tab>div.current_tab{
+	border-bottom: 2px solid #c1b497;
+	
+}
+#ser_search{
+	float: right;
+	
+}
+#v_after{
+	color: #c1b497;
+}
+#ser_search>div{
+	float: left;
+}
+#ser_search input{
+	width:238px ;
+	height:16px ;
+	border: 1px solid #e4e4e4;
+	padding: 5px;
+}
+#ser_search>div:last-child{
+		width:48px ;
+		height: 26px;
+		border: 1px solid #e4e4e4;
+		text-align: center;
+		font: 14px "微软雅黑";
+		color: #333333;
+		line-height: 26px;
+		margin: 15px 0 0 10px;
+		
+}
+#ser_search>div:last-child:hover{
+	cursor: pointer;
+}
+#service_content{
+		padding:40px 20px ;
+	
+}
+.ser_table{
+	border: 1px solid #e4e4e4;
+	
+}
+
+.ser_thead{
+	height: 40px;
+	border-bottom: 1px solid #e4e4e4;
+	background-color: #f9f9f9;
+	
+}
+.ser_thead>div{
+	float: left;
+	width: 240px;
+	font: 14px/40px "微软雅黑";
+	text-align: center;
+	
+	
+}
+.ser_row>div{
+	float: left;
+	width: 240px;
+}
+.ser_row >div:nth-of-type(2),.ser_row> div:nth-of-type(3){
+	
+	text-align: center;
+	line-height:100px;
+	color: #747474;
+	
+}
+.ser_row{
+	height: 100px;
+	border-bottom: 1px solid #e4e4e4;
+}
+.ser_row:last-child{
+	border-bottom: none;
+}
+.goods_name>div{
+	float: left;
+}
+.goods_name>div:first-child{
+	
+	width: 58px;
+	height: 58px;
+	border: 1px solid #e4e4e4;
+	overflow: hidden;
+	margin: 20px 10px 0 38px;
+	
+	
+}
+#service_content ul{
+	overflow: hidden;
+}
+
+.goods_name>div:last-child{
+	color: #747474;
+	width: 130px;
+	margin-top: 35px;
+	overflow: hidden; /*自动隐藏文字*/
+	text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+	white-space: nowrap;/*强制不换行*/
+	
+}
+
+.cl_link{
+	margin-top: 28px;
+	
+}
+.cl_link>div{
+	text-align: center;
+	line-height: 24px;
+}
+.cl_link>div a{
+	color: #558bbe;
+	
+}
+
+.leg_page{
+	overflow: hidden;
+	float: right;
+	margin-top: 40px;
+}
+.leg_page div{
+	float: left;
+	
+}
+.uppage:hover,.pageye:hover,.downpage:hover,.change:hover{
+	cursor: pointer;
+}
+.uppage{
+	
+	width: 62px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	line-height: 28px;
+	margin-right: 6px;
+	text-align: center;
+}
+.pageye{
+	width: 36px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	text-align: center;
+	line-height:28px ;
+	color: #cccccc;
+	margin-right:6px ;
+}
+.pageye.currentpage{
+	border: 1px solid #c1b497;
+	color: #ffffff;
+	background-color: #c1b497;
+	
+	
+}
+.downpage{
+	
+	width: 62px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	line-height: 28px;
+	text-align: center;
+}
+
+#re_table{
+	border: 1px solid  #e4e4e4; 
+	
+}
+
+#re_thead{
+	
+	height: 39px;
+	line-height: 39px;
+	border-bottom: 1px solid #e4e4e4;
+	background-color: #f9f9f9;
+	
+}
+#re_thead>div{
+	float: left;
+text-align: center;
+font: 14px/39px "微软雅黑";
+color: #333333;
+
+	
+}
+.col_goods{
+	width: 187px;
+	
+}
+
+.col_nub{
+	width: 273px;
+	
+}
+.col_date{
+	width: 159px;
+}
+.col_status{
+	width: 212px;
+}
+.col_cz{
+	width: 139px;
+}
+
+
+#re_thead select{
+	
+	width: 118px;
+	color: #333333;
+	height:26px ;
+	border: 1px solid #e4e4e4;
+	margin: 0 auto;
+}
+.re_row{
+	
+	
+	height: 100px;
+	border-bottom: 1px solid #e4e4e4;
+}
+.re_row:last-child{
+	border-bottom: none;
+}
+.image_goods{
+	float: left;
+	width: 58px;
+	height: 58px;
+	overflow: hidden;
+	border: 1px solid #e4e4e4;
+	margin: 20px 0 0 20px;
+}
+.image_goods img{
+	vertical-align: baseline;
+}
+.goods_n{
+	width: 95px;
+	color: #747474;
+	margin: 35px 0 0 10px ;
+	float: left;
+	overflow: hidden; /*自动隐藏文字*/
+	text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+	white-space: nowrap;/*强制不换行*/
+}
+#goods_>div{
+	float: left;
+}
+.bian{
+	color: #d74242;
+	text-align: center;
+	line-height: 100px;
+	
+}
+.re_row >div{
+	float: left;
+}
+.riqi{
+	color: #666666;
+	text-align: center;
+	line-height: 100px;
+	
+}
+.re_row a{
+	color: #666666;
+}
+#re_tbody li{
+	display: none;
+}
+#re_tbody li.re_show{
+	display: block;
+}

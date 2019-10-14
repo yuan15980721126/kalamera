@@ -1,0 +1,313 @@
+#info_title{
+	
+	height: 39px;
+	line-height: 39px;
+	border-bottom: 1px solid #e5e5e5;
+	padding-left: 20px;
+	font-size: 14px;
+}
+#user_info{
+	background-color: #ffffff;
+	border: 1px solid  #e5e5e5;
+	
+}
+#info_title{
+	background-color: #f9f9f9;
+}
+#info_title>div{
+	width: 56px;
+	padding: 0 9px;
+	border-bottom: 2px solid #c1b497;
+}
+#user_cotent{
+	
+	padding: 0 20px;
+	
+}
+#ui_head >div{
+	
+	float: left;
+}
+#v_geinfo{
+	color: #c1b497;
+}
+#ui_head{
+	
+	height: 144px;
+	padding-top: 20px;
+	border-bottom: 1px solid #e4e4e4;
+	
+}
+.user_tx{
+	width: 100px;
+	height: 100px;
+	border:1px solid #e4e4e4 ;
+	border-radius: 50%;
+	overflow: hidden;
+	line-height: 100px;
+	text-align: center;
+	box-shadow: 0px 3px 3px #e4e4e4;
+}
+#head_image>div:last-child{
+	text-align: center;
+	margin-top: 9px;
+	
+	
+}
+#head_image>div:last-child a{
+	color: #666666;
+}
+#head_image{
+	margin-right: 15px;
+}
+#uploadname>div:first-child{
+	
+	font-size: 14px;
+	
+}
+#uploadname>div:first-child span:first-child{
+	font-family: "宋体";	
+	margin-right:37px ;
+}
+
+#uploadname>div:first-child span:last-child{
+	color: #d00100;
+	
+}
+#uploadname>div:last-child>div{
+	float: left;
+	line-height: 12px;
+	
+}
+#uploadname{
+	margin-top: 30px;
+}
+#uploadname>div:last-child{
+	margin-top: 17px;
+}
+.du{
+	width: 90px;
+	background-color: #dddddd;
+	height: 12px;
+	position: relative;
+}
+
+.du>span{
+	line-height: 12px;
+	color: #ffffff;
+	position: absolute;
+	z-index: 1;
+	
+}
+
+.du>div{
+	position: absolute;
+	width: 25%;
+	background-color: #f09412;
+	height: 12px;
+	left: 0;
+	top: 0;
+}
+
+#user_name>div{
+	float: left;
+	
+}
+form>div{
+	overflow: hidden;
+	
+}
+#user_name>div:first-child{
+		padding-left: 13px;
+		color: #747474;
+		background: url(../img/indent/xx_03.jpg) no-repeat center  left;
+		line-height: 30px;
+	margin-right: 16px;
+}
+#gender>div:first-child{
+		padding-left: 13px;
+		color: #747474;
+		background: url(../img/indent/xx_03.jpg) no-repeat center  left;
+	margin-right: 16px;
+}
+
+
+
+#user_name input{
+	width:200px ;
+	height:30px ;
+	border: 1px solid #cccccc;
+	
+}
+.gender_ck div,#gender>div{
+	float: left;
+}
+
+
+#man{
+	margin-right: 32px;
+}
+#man >div:first-child{
+	width:15px ;
+	height:15px ;
+	border-radius: 50%;
+	border: 1px solid #c0c0c0;
+	margin-right: 10px;
+	
+}
+#birthday>div:first-child{
+		padding-left: 13px;
+		color: #747474;
+		background: url(../img/indent/xx_03.jpg) no-repeat center  left;
+	margin-right: 16px;
+}
+
+#address>div:first-child{
+		padding-left: 13px;
+		color: #747474;
+		background: url(../img/indent/xx_03.jpg) no-repeat center  left;
+	margin-right: 16px;
+}
+#phonenumber>div:first-child{
+		color: #747474;
+		margin-right: 16px;
+}
+#email>div:first-child{
+		color: #747474;
+		margin-right: 16px;
+}
+
+
+
+#birthday>div,#address>div,#phonenumber>div,#email >div{
+	float: left;
+}
+	
+
+
+
+
+#woman >div:first-child{
+	width:15px ;
+	height:15px ;
+	border-radius: 50%;
+	border: 1px solid #c0c0c0;
+	margin-right: 10px;
+}
+
+
+.r_checked {
+    background: url(../img/vipcore/checked_03.jpg) no-repeat center;
+}
+#bir_year{
+	width: 128px;
+	height: 30px;
+	border: 1px solid #cccccc;	
+	
+}
+#bir_mouth{
+	width: 78px;
+	height: 30px;
+	border: 1px solid #cccccc;	
+	
+}
+#bir_day{
+	width: 78px;
+	height: 30px;
+	border: 1px solid #cccccc;	
+	
+}
+#birthday select{
+	color: #999999;
+	
+}
+#birthday span{
+	margin: 0 10px;
+	
+}
+#address select{
+	
+	width: 180px;
+	height: 30px;
+	margin-right: 10px;
+	color: #999999;
+}
+#address input{
+	width: 450px;
+	height:12px ;
+	border: 1px solid #cccccc;
+	margin-top: 15px;
+	padding: 9px;
+	margin-left:100px;
+}
+#phonenumber input{
+	width: 148px;
+	height: 30px;
+	border: 1px solid #cccccc;
+}
+#phonenumber>div:first-child{
+	line-height: 30px;
+	
+}
+#email input{
+	width: 148px;
+	height: 30px;
+	border: 1px solid #cccccc;
+}
+#email >div:first-child{
+	line-height: 30px;
+	
+}
+#user_name,#gender{
+	margin:0 0 28px 57px;
+}
+#birthday{
+	margin:0 0 19px 57px ;
+	
+	
+}
+#user_info_form{
+	padding-top: 20px;
+}
+#address{
+	
+	margin-left: 21px;
+	
+}
+#phonenumber{
+	
+	margin:20px 0 0 46px ;
+}
+#email{
+	margin: 20px 0 50px 70px ;
+}
+#sub_form{
+	border-top: 1px solid #e4e4e4;
+	padding: 20px 0 50px 0;
+	
+	
+}
+#sub_form>div{
+	float: left;
+	
+}
+#sub_form>div:first-child{
+	margin-left: 412px;
+}
+#sub_form>div:first-child input{
+	width: 100px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	background-color: #c1b497;
+	color: #ffffff;
+	
+}
+#sub_form>div:last-child{
+	line-height: 35px;
+	margin-left: 20px;
+	
+}
+#sub_form>div:last-child a{
+	color: #005ea7;
+}

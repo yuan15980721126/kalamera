@@ -1,0 +1,191 @@
+#Enrool_top{
+	height: 90px;
+	line-height: 90px;
+	border-bottom: 5px solid #24201d;
+	overflow: hidden;
+}
+#top_c{
+		width: 1200px;
+		margin: 0 auto;
+}
+#top_c div:first-child{
+	float: left;
+	height: 90px;
+	overflow: hidden;
+}
+#top_c div:last-child{
+	font: 12px/90px "微软雅黑";
+	color: #a1a1a1;
+	float: right;
+}
+
+#login{
+	width: 1000px;
+	margin: 0 auto;
+	padding: 50px 100px 95px 100px;
+	
+	
+	
+	
+	
+}
+
+#login_image{
+	float: left;
+	
+	
+}
+
+#login_form{
+	
+	float: right;
+	border: 1px solid #e6e6e6;
+	width: 345px;
+	height: 408px;
+}
+
+#login_head{
+	height: 35px;
+	border-bottom: 1px solid #e6e6e6 ;
+	background-color: #ffffff;	
+	padding-top:19px ;
+}
+#login_head>div{
+	float: left;
+	width: 171px;
+	font: 18px "微软雅黑";
+	border-right: 1px solid #f4f4f4;
+	text-align: center;
+}
+#login_head>div:hover{
+	cursor: pointer;
+	
+}
+#login_head>div:last-child{
+	border-right: none;
+}
+
+
+.boder_text{
+	width: 304px;
+	height:38px ;
+	margin-bottom: 20px;
+	border: 1px solid #bdbdbd;
+	
+}
+#login_body{
+	padding: 0 20px;
+	
+}
+.boder_text:first-child{
+	margin-top: 33px;
+}
+.boder_text div{
+	
+	float: left;
+}
+.boder_text div:first-child{
+	width:38px ;
+	height:38px ;
+	background:url(../images/Enroll/user_06.jpg) no-repeat center #f3f3f3;
+	border-right: 1px solid #bdbdbd;
+
+}
+.boder_text input{
+	width:241px ;
+	height: 14px;
+	border: none;
+	padding: 12px;
+}
+
+#passwode_image{
+	background-image: url(../images/Enroll/password_10.jpg);
+	
+}
+
+#login{
+	overflow: hidden;
+}
+
+
+#login_content label {
+	color: #666666;
+	
+}
+.re_password{
+	margin-bottom: 15px;
+}
+.re_password input{
+	vertical-align: middle;
+	margin-right: 10px;
+}
+#login_btn:hover{
+	cursor: pointer;
+}
+#login_btn{
+	
+	width:305px ;
+	height:35px ;
+	background-color: #c1b497;
+	text-align: center;
+	line-height: 35px;
+	color: #efece6;
+	font-size: 20px;
+	margin-bottom: 22px;
+}
+
+
+#bo{
+	float: right;
+	margin-bottom: 20px;
+}
+
+#bo a{
+	color: #666666;
+}
+#bo a:first-child{
+	margin-right: 20px;
+}
+#login_bottom{
+	border-top:1px solid #f4f4f4 ;
+	clear: both;
+	padding: 0 20px;
+}
+
+
+#login_bottom >div:first-child{
+	font: 12px/32px "微软雅黑";
+	color: #666666;
+}
+#sm_login>div:first-child{
+	
+	width:238px ;
+	height:217px ;
+	border: 1px solid #cccccc;
+	margin:  40px auto 5px;
+	padding-top: 10px;
+	text-align: center;
+}
+#sm_login>div:nth-of-type(2){
+	
+	text-align: center;
+	font: 14px "微软雅黑";
+	color: #666666;
+	margin-bottom: 40px;
+}
+#sm_login>div:last-child {
+	
+	float: right;
+
+	font: 12px "微软雅黑";
+	margin-right: 20px;
+	
+}
+#sm_login>div:last-child a{
+	color: #666666;
+	
+}
+#login_head>div.font_colro{
+	color: #c1b497;
+	
+}

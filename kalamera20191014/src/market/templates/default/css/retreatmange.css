@@ -1,0 +1,151 @@
+#retreat_head{
+	
+	height: 28px;
+	line-height: 28px;
+	border-left: 4px solid #c1b497;
+	padding-left: 9px;
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+#ret_goods_info{
+	border:  1px solid #e5e5e5;
+	background-color: #ffffff;
+}
+.ret_head{
+	
+	height:39px ;
+	line-height: 39px;
+	border-bottom: 1px solid #e5e5e5;
+	padding: 0 20px;
+	line-height: 39px;
+	background-color: #f9f9f9;
+}
+.ret_head>div{
+	float: left;
+	font-size: 14px;
+	text-align: center;
+	
+}
+#v_tuig{
+	color: #c1b497;
+}
+.col_goodsnmae{
+	
+	width: 185px;
+	
+}
+#v_tuig{
+	color: #c1b497;
+}
+.col_indentnumb{
+	width: 240px;
+	
+}
+.col_date{
+	width: 200px;
+	
+}
+.col_status{
+	width: 168px;
+	
+}
+.col_operate{
+	width: 179px
+}
+#ret_list{
+	padding: 0 20px 8px;
+}
+#change_status{
+	width: 118px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	margin: 0 auto;
+	border: 1px solid #cccccc;
+}
+.ret_row>div{
+	
+	float: left;
+	height: 100px;
+	text-align: center;
+}
+.ret_row{
+	height: 100px;
+	border-bottom: 1px dashed #dbdbdb;
+	line-height: 100px;
+}
+.col_goodsnmae>div:first-child{
+	margin-top: 20px;
+		width: 58px;
+		height: 58px;
+		border: 1px solid #e4e4e4;
+		overflow: hidden;
+		margin-right: 10px;
+	
+}
+.col_goodsnmae>div{
+	float: left;
+
+}
+.ret_row img{
+	vertical-align: baseline;
+}
+.col_indentnumb>span{
+	color: #d32726;
+}
+.col_date>span,.col_status>span,.col_operate a{
+	color: #747474;
+	
+}
+#leg_page{
+	margin-top: 20px;	
+	overflow: hidden;
+	float: right;
+}
+#leg_page div{
+	float: left;
+	
+}
+#uppage:hover,.pageye:hover,#downpage:hover,#change:hover{
+	cursor: pointer;
+}
+#uppage{
+	
+	width: 62px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	line-height: 28px;
+	margin-right: 6px;
+	text-align: center;
+}
+.pageye{
+	width: 36px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	text-align: center;
+	line-height:28px ;
+	color: #cccccc;
+	margin-right:6px ;
+}
+.pageye.currentpage{
+	border: 1px solid #c1b497;
+	color: #c1b497;
+	
+	
+}
+#downpage{
+	
+	width: 62px;
+	height: 26px;
+	border: 1px solid #c1b497;
+	background-color: #ffffff;
+	line-height: 28px;
+	margin-right: 6px;
+	text-align: center;
+}
+#ret_list li{
+	display: none;
+}
+#ret_list li.current{
+	display: block;
+}

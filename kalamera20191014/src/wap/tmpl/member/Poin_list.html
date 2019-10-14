@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>兑换记录</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_member.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_common.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_cart.css">
+<link rel="stylesheet" type="text/css" href="../../css/User_center.css" />
+
+
+</head>
+<body>
+	
+	<header id="header" class="fixed">
+			<div class="header-wrap">
+				<div class="header-l">
+					<a href="javascript:history.go(-1)">
+						<i class="back"></i>
+					</a>
+				</div>
+				<div class="header-title">
+					<h1>兑换记录
+			</h1>
+				</div>
+				<div class="header-r">
+					<a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a>
+				</div>
+			</div>
+			<div class="nctouch-nav-layout">
+				<div class="nctouch-nav-menu">
+					<span class="arrow"></span>
+					<ul>
+						<li>
+							<a href="../../index.html"><i class="home"></i>首页</a>
+						</li>
+						<li>
+							<a href="../../tmpl/search.html"><i class="search"></i>搜索</a>
+						</li>
+						<li>
+							<a href="../../tmpl/product_first_categroy.html"><i class="categroy"></i>分类</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a>
+						</li>
+						<li>
+							<a href="../../tmpl/member/member.html"><i class="member"></i>我的商城</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		
+		
+		
+<div class="nctouch-main-layout" id="My_orlist">
+</div>
+<script type="text/html" id="inquiry_list">
+<% if (order_list) {%>
+  <div class="nctouch-order-list" >
+  	 <ul class="order-list" style="display: block;" id="Poin_list">
+        <% for (var k in order_list) { var v = order_list[k]; %>
+        <% for (var j in v['prodlist']) { var v1 = v['prodlist'][j]; %>
+    	<li>
+    		<div class="li_con">
+    			<div class="order_image">
+                    
+                    <a href="Poin_info.html?id=<%=v1.point_goodsid%>" t_id="<%=k%>" class="msg-list-del">
+    				    <img src="<%=v1.point_goodsimage_small%>" />
+                    </a>
+    			</div>
+    			<div class="order_name">
+    				<%=v1.point_goodsname%><br>
+    				<%=v.point_addtime%>
+    			</div>
+
+    			<div class="order_ran">
+    				<div class="jif"><span><%=v1.point_goodspoints%></span>积分</div>
+    				<div>x<%=v1.point_goodsnum%></div>
+                    <div><%=v.point_orderstatetext%>
+    			</div>
+    		</div>
+    	</li>
+        <%}%>
+        <%}%>
+    </ul>
+  	
+  	
+  </div>  
+<%}%>
+</script>  	
+  	
+  	
+  	
+  	
+  	
+    		
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+<div class="fix-block-r">
+	<a href="javascript:void(0);" class="gotop-btn gotop hide" id="goTopBtn"><i></i></a>
+</div>
+<footer id="footer" class="bottom"></footer>
+<script type="text/javascript" src="../../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../../js/template.js"></script> 
+<script type="text/javascript" src="../../js/config.js"></script> 
+<script type="text/javascript" src="../../js/common.js"></script> 
+<script type="text/javascript" src="../../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../../js/zepto.waypoints.js"></script> 
+<script type="text/javascript" src="../../js/MyJs.js"></script>
+<script type="text/javascript" src="../../js/tmpl/point_list.js"></script>
+</body>
+</html>

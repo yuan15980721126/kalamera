@@ -1,0 +1,107 @@
+#modify_password{
+	border:  1px solid #e4e4e4;
+	background-color: #ffffff;
+}
+#modify_head{
+	
+	height: 39px;
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #e4e4e4;
+	line-height: 39px;
+	padding-left: 20px;
+}
+#modify_head>div{
+	float: left;
+	margin-right: 20px;
+	font-size: 14px;
+	padding: 0 10px;
+}
+#modify_head>div:hover{
+	cursor: pointer;
+}
+ #modify_head>div.d_cureent{
+	border-bottom: 2px solid #c1b497;
+}
+#modify_area{
+	height: 355px;
+}
+#modify_content{
+	width: 625px;
+	margin: 0 auto;
+	
+}
+.write_email{
+	margin-top: 50px;
+}
+#user_name{
+	height: 88px;
+	padding-left: 166px;
+	line-height: 84px;
+}
+#user_name>div{
+	
+	float: left;
+	font-size: 14px;
+}
+#user_name>div:last-child{
+	font-weight: bold;
+}
+
+
+#bound_pnone,#bound_email{
+	height: 55px;
+	padding-left: 140px;
+}
+#bound_pnone>div,#bound_email>div{
+	
+	float: left;
+	font-size: 14px;
+}
+#bound_pnone>div:last-child,#bound_email>div:last-child{
+	font-weight: bold;
+}
+
+#verification_email{
+	overflow: hidden;
+	margin: 0 0 40px 122px;
+}
+#verification_email>div{
+	float: left;
+}
+
+#verification_email>div:first-child{
+	margin-top: 10px;
+	padding-left: 17px;
+	font-size: 14px;
+	color: #666666;
+	background: url(../img/indent/xx_03.jpg) no-repeat left top;
+}
+#verification_email input{
+	width:128px ;
+	height: 17px;
+	padding: 5px;
+	border: 1px solid #cccccc;
+}
+
+
+#verification_email a{
+	color: #005ea7;
+	font-size: 14px;
+	line-height: 27px;
+	margin-left: 15px;
+}
+#next_step{
+	display: block;
+	width: 122px;
+	height: 32px;
+	text-align: center;
+	line-height: 32px;
+	background-color: #c1b497;
+	color: #ffffff;
+	font-size: 16px;
+	margin-left:225px ;
+	
+}
+.mode_hide{
+	display: none;
+}

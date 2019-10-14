@@ -1,0 +1,181 @@
+#sreach{
+	border: 1px solid #e5e5e5;	
+	background-color: #ffffff;
+	padding: 20px;
+	overflow: hidden;
+	
+}
+#notice_head{
+		height: 28px;
+		font: 16px "微软雅黑";
+		border-bottom: 1px solid #c1b497;
+		margin-bottom: 20px;
+}
+#notice_table{
+	
+		border: 1px solid #e4e4e4;
+		border-bottom: none;
+	
+}
+#not_thead{
+	
+	height: 39px;
+	line-height: 39px;
+	color: #333333;
+	background-color: #f9f9f9;
+	font-size: 14px;
+	border-bottom: 1px solid #e4e4e4;
+}
+#not_thead>div{
+	float: left;
+	text-align: left;
+}
+.col_gname{
+	
+	width: 322px;
+	
+}
+#not_thead>.col_gname{
+	padding-left: 93px;
+	width:229px ;
+	
+}
+.col_nub{
+	width: 255px;
+	
+}
+#not_thead>.col_nub{
+	padding-left: 38px;
+	width:217px ;
+}
+
+
+.col_date{
+	
+	width: 185px;
+	
+}
+#not_thead>.col_date{
+	padding-left: 28px;
+	width:157px ;
+}
+
+
+.col_status{
+	
+	width: 120px;
+	
+}
+#not_thead>.col_status{
+	padding-left: 3px;
+	width: 117px;
+	
+}
+
+#v_get{
+	color: #c1b497;
+}
+.col_cz{
+	width: 87px;
+	
+}
+#not_thead>.col_cz{
+		padding-left: 10px;
+	width: 77px;
+	
+}
+.not_row{
+	
+	height: 100px;
+	border-bottom: 1px solid #e4e4e4;
+}
+
+.not_row>div:first-child>div{
+	float: left;
+}
+.goods_desc{
+	width:58px ;
+	height: 58px;
+	margin: 21px 10px 0 53px;
+	border: 1px solid #e4e4e4;
+	overflow: hidden;
+}
+.goods_desc>img{
+	vertical-align: baseline;
+}
+.not_row>div{
+	float: left;
+	text-align: left;
+	
+}
+.not_row{
+	color: #666666;
+	
+}
+.not_row a{
+	color: #0061ae;
+}
+
+.goods_n{
+	width: 195px;
+	margin-top: 36px;
+	
+}
+.not_row .col_nub,.not_row .col_date,.not_row .col_status,.not_row .col_cz{
+	line-height: 100px;
+	
+}
+
+
+
+
+
+
+#leg_page{
+	float: right;
+	margin: 38px 0 40px 0;
+}
+#leg_page div{
+	float: left;
+	
+}
+#uppage:hover,.pageye:hover,#downpage:hover,#change:hover{
+	cursor: pointer;
+}
+#uppage{
+	
+	width: 62px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	line-height: 28px;
+	margin-right: 6px;
+	text-align: center;
+}
+.pageye{
+	width: 36px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	text-align: center;
+	line-height:28px ;
+	color: #cccccc;
+	margin-right:6px ;
+}
+.pageye.currentpage{
+	border: 1px solid #c1b497;
+	color: #ffffff;
+	background-color: #c1b497;
+	
+	
+}
+#downpage{
+	
+	width: 62px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	line-height: 28px;
+	text-align: center;
+}
+
+

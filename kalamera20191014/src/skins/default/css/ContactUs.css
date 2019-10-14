@@ -1,0 +1,31 @@
+#ContactUs{
+	border: 1px solid #e4e4e4;
+}
+#contact_head{
+	height: 40px;
+	border-top: 2px solid #c1b497;
+	font: 16px "微软雅黑";
+	line-height: 40px;
+	background-color: #f1f1f1;
+	padding-left: 15px;
+	color: #c1b497;
+	
+	
+	
+}
+.Contact_info{
+	text-align: center;
+	font: 18px "微软雅黑";
+	color: #25211e;
+	line-height:37px ;
+	margin-top: 20px;
+}
+#_map{
+	width: 898px;
+	height:338px ;
+	border: 1px solid #e4e4e4;
+	margin:  33px auto 50px;
+}
+#contact_content{
+	overflow: hidden;
+}

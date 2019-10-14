@@ -1,0 +1,9 @@
+/project.imi
+/data/config/config.ini.php
+*.log
+/data/cache
+/data/log
+/data/mysql
+/data/session
+/data/upload
+/data/sql_back

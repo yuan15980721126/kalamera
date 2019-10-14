@@ -1,0 +1,87 @@
+#grade{
+
+border: 1px solid #e5e5e5;
+background-color: #ffffff;
+padding: 20px;
+
+}
+#grade_head{
+	height: 28px;	
+	border-bottom: 1px solid #c1b497;
+	font: 16px "宋体";
+
+}
+#grade_info{
+	
+	margin:20px 0 25px 0 ;
+	
+	
+}
+#grade_info>div{
+
+		font-size: 14px;
+		color: #666666;
+		line-height: 31px;
+}
+#grade_info>div span{
+	color: #d32726;
+}
+#table_title{
+	height: 28px;
+	border-bottom: #c1b497 1px solid ;
+	margin-bottom: 20px;
+	font: 16px "宋体";
+	
+}
+#v_lv{
+	color: #c1b497;
+}
+#t_head>div{
+
+float: left;
+}
+#t_head{
+height: 40px;
+border-bottom: 1px solid #e4e4e4;
+background-color: #f9f9f9;
+line-height: 40px;
+
+}
+
+
+.col_nub_{
+
+	width: 192px;
+	padding-left: 10px;
+
+}
+.col_name{
+	width: 286px;
+}
+.col_lv{
+	width: 250px;
+}
+
+
+#tab_boder{
+	border:1px solid #E4E4E4;
+
+}
+.t_row{
+	height: 80px;
+	border-bottom: 1px solid #E4E4E4;
+	font-size: 14px;
+	color: #333333;
+	line-height: 80px;
+}
+
+.t_row>div{
+float: left;
+}
+
+
+
+
+
+
+

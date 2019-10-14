@@ -1,0 +1,190 @@
+#coupon{
+	border: 1px solid #e4e4e4;
+	background-color: #ffffff;
+	overflow: hidden;
+}
+
+#coupon_head{
+	
+	height: 39px;
+	line-height: 39px;
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #e4e4e4;
+	padding-left: 20px;
+	
+}
+#coupon_head>div:hover{
+	cursor: pointer;
+}
+#coupon_head>div{
+	float: left;
+	padding: 0 10px;
+	font-size: 14px;
+	color: #333333;
+	margin-right: 10px;
+}
+#coupon_head>div.current{
+	border-bottom: 2px solid #c1b497;
+}
+#coupon_content{
+	padding: 20px;
+}
+#coupon_content li{
+	
+	border: 1px solid #e4e4e4;
+	
+}
+#my_yh{
+	color: #c1b497;
+}
+.cpn_head{
+	height: 40px;
+	border-bottom:1px solid #e4e4e4;
+	background-color: #f9f9f9;
+	
+}
+.cpn_head>div{
+	float: left;
+	text-align: center;
+	line-height: 40px;
+	font-size: 14px;
+	color: #333333;
+}
+.cpn_head>div:nth-of-type(1),.cpn_row>div:nth-of-type(1){
+	width: 74px;
+}
+.cpn_head>div:nth-of-type(2),.cpn_row>div:nth-of-type(2){
+	width: 198px;
+}
+.cpn_head>div:nth-of-type(3),.cpn_row>div:nth-of-type(3){
+	width: 117px;
+}
+.cpn_head>div:nth-of-type(4),.cpn_row>div:nth-of-type(4){
+	width: 195px;
+}
+.cpn_head>div:nth-of-type(5),.cpn_row>div:nth-of-type(5){
+	width: 210px;
+}
+.cpn_row>div:nth-of-type(4){
+	padding: 23px 20px 0 40px;
+	width: 135px;
+	line-height: 24px;
+}
+.cpn_head>div:nth-of-type(6),.cpn_row>div:nth-of-type(6){
+	width: 175px;
+}
+.cpn_row{
+	height: 87px;
+	border-bottom: 1px solid #e4e4e4;
+}
+.cpn_row:last-child{
+	border-bottom:none ;
+}
+.cpn_row>div:nth-of-type(1){
+	
+line-height: 87px;	
+text-align: center;
+font-size: 14px;
+}
+.cpn_row>div{
+	float: left;
+}
+.coupon_type div:first-child{
+	width: 36px;
+	height: 25px;
+	background: url(../img/vipcore/jun_03.jpg) no-repeat;
+	margin: 20px auto 0;
+}
+.coupon_type div:last-child{
+	color: #d00100;
+	text-align: center;
+	line-height: 24px;
+}
+.cpn_row>div:nth-of-type(3){
+	
+	line-height: 87px;	
+text-align: center;
+font-size: 14px;
+	
+}
+.cpn_row>div:nth-of-type(5){
+	text-align: center;
+	padding-top: 23px;
+	
+		
+}
+.cpn_row>div:nth-of-type(5) p{
+	line-height: 24px;
+}
+.cpn_row>div:nth-of-type(6) a{
+	text-align: center;
+	display: block;
+	color: #005ea7;
+	line-height: 87px;
+	
+}
+.leg_page{
+	overflow: hidden;
+	float: right;
+	margin: 20px 0 30px 0;
+}
+.leg_page div{
+	float: left;
+	
+}
+.uppage:hover,.pageye:hover,.downpage:hover,.change:hover{
+	cursor: pointer;
+}
+.uppage{
+	
+	width: 62px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	line-height: 28px;
+	margin-right: 6px;
+	text-align: center;
+}
+.pageye{
+	width: 36px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	text-align: center;
+	line-height:28px ;
+	color: #cccccc;
+	margin-right:6px ;
+}
+.pageye.currentpage{
+	border: 1px solid #c1b497;
+	color: #ffffff;
+	background-color: #c1b497;
+	
+	
+}
+.downpage{
+	
+	width: 62px;
+	height: 26px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	line-height: 28px;
+	text-align: center;
+}
+#coupon_content li{
+	
+	display: none;
+	
+}
+#coupon_content li.pon_show{
+	
+	display: block;
+	
+}
+.expire_c>div:first-child{
+	
+	background: url(../img/vipcore/wx_03.jpg) no-repeat;
+}
+.expire_c>div:last-child{
+	color: #333333;
+	
+}

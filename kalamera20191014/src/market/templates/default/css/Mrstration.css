@@ -1,0 +1,30 @@
+#vip_enroll{
+	border: 1px solid #e4e4e4;
+}
+#head_enroll{
+	height: 40px;
+	line-height: 40px;
+	border-top: 2px #c1b497 solid;
+	color: #c1b497;	
+	font-size: 16px;
+	padding-left: 15px;
+	background-color: #f1f1f1;
+}
+#mem{
+	text-align: center;
+	background-color: #fffefb;
+}	
+#shopprogress{
+	
+	text-align: center;
+	background-color: #f9f8f6;
+}
+#zfbpay{
+	text-align: center;
+	background-color: #f9f8f6;
+}
+#pushstyle{
+	background-color:#fafafa ;
+	text-align: center;
+	
+}
