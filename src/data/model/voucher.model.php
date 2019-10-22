@@ -13,9 +13,9 @@ class voucherModel extends Model {
     const VOUCHER_STATE_EXPIRE = 3;
 
     private $voucher_state_array = array(
-        self::VOUCHER_STATE_UNUSED => '未使用',
-        self::VOUCHER_STATE_USED => '已使用',
-        self::VOUCHER_STATE_EXPIRE => '已过期',
+        self::VOUCHER_STATE_UNUSED => 'not used',
+        self::VOUCHER_STATE_USED => 'Already used',
+        self::VOUCHER_STATE_EXPIRE => 'Expired',
     );
 
     const VOUCHER_GETTYPE_DEFAULT = 'points';//默认领取方式

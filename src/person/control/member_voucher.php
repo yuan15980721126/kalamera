@@ -67,6 +67,18 @@ class member_voucherControl extends BaseMemberControl
         
         // 清空缓存
         dcache($_SESSION['member_id'], 'm_voucher');
+
+        $nav_link_list = array(
+            array(
+                'title'=>'My Account',
+                'link'=>urlShop('member', 'home')
+            ),
+            array(
+                'title'=>'Coupon'
+            )
+        );
+        Tpl::output('nav_link_list', $nav_link_list );
+
         // echo "<pre>";
         // print_R($list);
         Tpl::output('list', $list);
@@ -87,12 +99,12 @@ class member_voucherControl extends BaseMemberControl
                 array(
                     "input" => $_POST["pwd_code"],
                     "require" => "true",
-                    "message" => '请输入优惠券卡密'
+                    "message" => 'Please enter the coupon serial number'
                 )
             );
             $error = $obj_validate->validate();
             if ($error != '') {
-                exit(json_encode(array('state'=>false,'msg'=>$error)));
+//                exit(json_encode(array('state'=>false,'msg'=>$error)));
                 showDialog($error,'','error','submiting = false');
             }
             // 查询优惠券
@@ -101,16 +113,16 @@ class member_voucherControl extends BaseMemberControl
             $where['voucher_pwd'] = md5($_POST["pwd_code"]);
             $voucher_info = $model_voucher->getVoucherInfo($where);
             if (! $voucher_info) {
-                exit(json_encode(array('state'=>false,'msg'=>'优惠券卡密错误')));
-                showDialog('优惠券卡密错误','','error','submiting = false');
+//                exit(json_encode(array('state'=>false,'msg'=>'优惠券卡密错误')));
+                showDialog('Coupon serial number error','','error');
             }
             if (intval($_SESSION['store_id']) == $voucher_info['voucher_store_id']) {
-                exit(json_encode(array('state'=>false,'msg'=>'不能领取自己店铺的优惠券')));
-                showDialog('不能领取自己店铺的优惠券','','error','submiting = false');
+//                exit(json_encode(array('state'=>false,'msg'=>'不能领取自己店铺的优惠券')));
+                showDialog('Can not get coupons from your own store','','error','submiting = false');
             }
             if ($voucher_info['voucher_owner_id'] > 0) {
-                exit(json_encode(array('state'=>false,'msg'=>'该优惠券卡密已被使用，不可重复领取')));
-                showDialog('该优惠券卡密已被使用，不可重复领取','','error','submiting = false');
+//                exit(json_encode(array('state'=>false,'msg'=>'该优惠券卡密已被使用，不可重复领取')));
+                showDialog('The coupon serial number has been used and cannot be retrieved repeatedly','','error','submiting = false');
             }
             $where = array();
             $where['voucher_id'] = $voucher_info['voucher_id'];
@@ -129,11 +141,11 @@ class member_voucherControl extends BaseMemberControl
                 $model_voucher->editVoucherTemplate(array(
                     'voucher_t_id' => $voucher_info['voucher_t_id']
                 ), $update_arr);
-                exit(json_encode(array('state'=>true,'msg'=>'优惠券领取成功')));
-                showDialog('优惠券领取成功', 'index.php?model=member_voucher&fun=voucher_list', 'succ');
+//                exit(json_encode(array('state'=>true,'msg'=>'优惠券领取成功')));
+                showDialog('Coupon received successfully', 'index.php?model=member_voucher&fun=voucher_list', 'succ');
             } else {
-                exit(json_encode(array('state'=>false,'msg'=>'优惠券领取失败')));
-                showDialog('优惠券领取失败','','error','submiting = false');
+//                exit(json_encode(array('state'=>false,'msg'=>'优惠券领取失败')));
+                showDialog('Coupon collection failed','','error','submiting = false');
             }
         }
 

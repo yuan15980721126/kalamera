@@ -9,6 +9,7 @@ function getMemmberMenus() {
         'member_security'   => array('name' => 'Account security', 'url'=>urlMember('member_security','modify_pwd')),
         'member_address'    => array('name' => 'Addresses', 'url'=>urlMember('member_address', 'address')),
         'member_favorite_goods' => array('name' => 'Favorites', 'url' => urlShop('member_favorite_goods', 'index')),
+        'member_voucher'    => array('name' => 'coupon', 'url'=>urlMember('member_voucher', 'index')),
     );
 
 //    $menu_list = array(

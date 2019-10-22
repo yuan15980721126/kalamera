@@ -1,5 +1,4 @@
-<?php defined('interMarket') or exit('Access Invalid!'); ?>
-<div class="order_nav  clearfix">
+ <div class="order_nav  clearfix">
     <div class="form fr">
         <form method="get" action="index.php" target="_self">
             <input type="hidden" name="model" value="member_order" />
