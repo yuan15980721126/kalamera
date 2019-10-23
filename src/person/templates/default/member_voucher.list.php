@@ -15,8 +15,8 @@
     </div>
     <div class="form fr">
         <form id="voucher_list_form" method="get" >
-            <input type="hidden" id='act' name='act' value='member_voucher' />
-            <input type="hidden" id='op' name='op' value='voucher_list' />
+            <input type="hidden" id='act' name='model' value='member_voucher' />
+            <input type="hidden" id='op' name='fun' value='voucher_list' />
             <select name="select_detail_state" class="sear_select">
                 <option value="0" <?php if (!$_GET['select_detail_state'] == '0'){echo 'selected=true';}?>> <?php echo $lang['voucher_voucher_state']; ?> </option>
                 <?php if (!empty($output['voucherstate_arr'])){?>

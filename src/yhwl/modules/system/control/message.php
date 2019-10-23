@@ -46,6 +46,7 @@ class messageControl extends SystemControl{
             }
         }
         $list_setting = $model_setting->getListSetting();
+//        print_r($list_setting);die;
         Tpl::output('list_setting',$list_setting);
 
         Tpl::output('top_link',$this->sublink($this->links,'email'));
@@ -59,6 +60,7 @@ class messageControl extends SystemControl{
     public function email_tplOp(){
         $model_templates = Model('mail_templates');
         $templates_list = $model_templates->getTplList();
+//        print_r($templates_list);die;
         Tpl::output('templates_list',$templates_list);
         Tpl::output('top_link',$this->sublink($this->links,'email_tpl'));
 		Tpl::setDirquna('system');

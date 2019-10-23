@@ -178,6 +178,7 @@ class articleControl extends BaseArticleControl {
         if(empty($article) || !is_array($article) || $article['article_show']=='0'){
             showMessage($lang['article_show_not_exists'],'','html','error');//'该文章并不存在'
         }
+//        print_r($article);
         Tpl::output('article',$article);
 
         /**

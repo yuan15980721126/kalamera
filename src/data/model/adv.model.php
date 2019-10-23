@@ -282,6 +282,9 @@ class advModel extends Model
             if (C('cache_open')) {
                 wkcache("adv/{$apId}", $v);
             } else {
+                if(!is_dir(BASE_DATA_PATH . '/cache/adv/')){
+                    @mkdir(BASE_DATA_PATH . '/cache/adv/',0755,true);
+                }
                 write_file(BASE_DATA_PATH . '/cache/adv/' . $apId . '.php', $v);
             }
         }

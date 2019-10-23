@@ -104,33 +104,90 @@ class store_deliverControl extends BaseSellerControl {
             if (!$result['state']) {
                 showMessage($result['msg'],'','html','error');
             } else {
-                import('libraries.alisms');//阿里云短信
-                $sms = new Alisms();
-                header('Content-Type: text/plain; charset=utf-8');
+                //即时发送邮箱 by .com
                 $model_express = Model('express');
                 $express_id = $_POST['shipping_express_id'];
-                $express_list = $model_express->getExpressListByID($express_id);
-                // $message = '您的订单'.$order_info['order_sn'].已经交由.$express_list[$express_id]['e_name'].'进行配送,快递单号为'.$_POST['shipping_code'].',请留意查收！';
-                // print_R($order_info);
-                // echo $message;
-                $res = $sms->sendSms(
-                    "维诺卡夫官方商城", // 短信签名
-                    "SMS_115380948", // 短信模板编号
-                    $order_info['extend_order_common']['reciver_info']['mob_phone'], // 短信接收者
-                    Array(  // 短信模板中字段的值
-                        "order"=>$order_info['order_sn'],
-                        "shipn"=>$express_list[$express_id]['e_name'],
-                        "shipd"=>$_POST['shipping_code'],
-                    ),
-                    "1234"
-                );
-                // print_R($order_info);
-                // print_R($res);die;
-                if ($res->Message == 'OK') {
-                    $rls = '发货短信发送成功';
-                }else{
-                    $rls = '发货短信发送失败';
+                $express_list = $model_express->getExpressInfo($express_id);
+//                print_r($order_info);
+
+                $model_tpl = Model('mail_templates');
+                $tpl_info = $model_tpl->getTplInfo(array('code'=>'send_ship_code'));
+                $param = array();
+//                $param['site_name']	= C('site_name');
+                $param['order_sn'] = $order_info['order_sn'];
+                $param['reciver_name'] = $order_info['extend_order_common']['reciver_name'];
+                $param['new_address'] = $order_info['extend_order_common']['reciver_info']['street'].$order_info['extend_order_common']['reciver_info']['area'];
+                $param['phone'] = $order_info['extend_order_common']['reciver_info']['phone'];
+                $param['ship_name'] = $express_list['e_name'];
+                $param['pay_name'] = $order_info['payment_name'];
+                $param['pay_sn'] = $order_info['pay_sn'];
+
+                $html = '<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" width="0" style="width:441pt;border:none;">
+                <tbody>
+                    <tr>
+                        <td style="border:none;background:#EAEAEA;"><p class="MsoNormal" style="text-align:left;"><span
+                                        style="font-size:10.0pt;font-family:;">Item</span></p></td>
+                        <td style="border:none;background:#EAEAEA;"><p class="MsoNormal" style="text-align:left;"><span
+                                        style="font-size:10.0pt;font-family:;">Sku</span></p></td>
+                        <td style="border:none;background:#EAEAEA;"><p class="MsoNormal" style="text-align:center;"><span
+                                        style="font-size:10.0pt;font-family:;">Qty</span></p></td>
+                    </tr>
+                </tbody>';
+                $html .= '<tbody>';
+                $html .= '<tr>';
+
+
+                if(is_array($order_info['extend_order_goods'])){
+                    foreach ($order_info['extend_order_goods'] as $val){
+                        $html .= '<td valign="top" style="border:solid #EAEAEA 1.0pt;"><p class="MsoNormal" style="text-align:left;"><span style="font-size:11.3333px;">
+                        '.$val['goods_name'].'</span></p></td>';
+                        $html .= '<td valign="top" style="border:solid #EAEAEA 1.0pt;"><p class="MsoNormal" style="text-align:left;"><span style="font-size:8.5pt; 
+                        font-family:;">
+                        hh</span><span style="font-size:8.5pt;font-family:;"></span></p></td>';
+                        $html .= '<td valign="top" style="border:solid #EAEAEA 1.0pt;"><p class="MsoNormal" style="text-align:center;">
+                        <span style="font-size:8.5pt;font-family:;"><span style="font-size:11.3333px;">'.$val['goods_num'].'</span></span> </p></td>';
+                    }
+                    $html .= '</tr></tbody></table>';
                 }
+                $param['goods_list'] = $html;
+
+                $subject	= ncReplaceText($tpl_info['title'],$param);
+                $message	= ncReplaceText($tpl_info['content'],$param);
+
+
+
+                $email = new Email();
+
+                $result = $email->send_sys_email('457896654@qq.com',$subject,$message);
+//                print_r($message);
+                die;
+//                import('libraries.alisms');//阿里云短信
+//                $sms = new Alisms();
+//                header('Content-Type: text/plain; charset=utf-8');
+//                $model_express = Model('express');
+//                $express_id = $_POST['shipping_express_id'];
+//                $express_list = $model_express->getExpressListByID($express_id);
+//                // $message = '您的订单'.$order_info['order_sn'].已经交由.$express_list[$express_id]['e_name'].'进行配送,快递单号为'.$_POST['shipping_code'].',请留意查收！';
+//                // print_R($order_info);
+//                // echo $message;
+//                $res = $sms->sendSms(
+//                    "维诺卡夫官方商城", // 短信签名
+//                    "SMS_115380948", // 短信模板编号
+//                    $order_info['extend_order_common']['reciver_info']['mob_phone'], // 短信接收者
+//                    Array(  // 短信模板中字段的值
+//                        "order"=>$order_info['order_sn'],
+//                        "shipn"=>$express_list[$express_id]['e_name'],
+//                        "shipd"=>$_POST['shipping_code'],
+//                    ),
+//                    "1234"
+//                );
+//                // print_R($order_info);
+//                // print_R($res);die;
+//                if ($res->Message == 'OK') {
+//                    $rls = '发货短信发送成功';
+//                }else{
+//                    $rls = '发货短信发送失败';
+//                }
                 showDialog($result['msg'].'  '.$rls,$_POST['ref_url'],'succ');
             }
         }

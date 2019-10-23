@@ -1402,7 +1402,9 @@ function write_file($filepath, $data, $mode = null)
 
     $data = "<?php defined('interMarket') or exit('Access Invalid-core!'); return ".$data.";";
     $mode = $mode == 'append' ? FILE_APPEND : null;
-
+//    if(!is_dir($filepath)){
+//        @mkdir($filepath,0755,true);
+//    }
     if (false === file_put_contents($filepath,($data),$mode)){
         return false;
     }else{
