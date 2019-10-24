@@ -106,7 +106,7 @@ class voucherControl extends SystemControl{
     {
         $model = Model();
         $list = (array) $model->table('voucher_price')
-            ->order('voucher_price asc')
+            ->order('voucher_price_id desc')
             ->page($_REQUEST['rp'])
             ->select();
 
@@ -124,8 +124,16 @@ class voucherControl extends SystemControl{
 
             $i = array();
             $i['operation'] = $o;
+            if( $val['voucher_type'] ==1){
+                $voucher_type = '面额满减';
+                $voucher_price = $val['voucher_price'];
+            }else{
+                $voucher_type = '折扣换算';
+                $voucher_price = $val['voucher_price'].'%';
+            }
 
-            $i['voucher_price'] = $val['voucher_price'];
+            $i['voucher_type'] = $voucher_type;
+            $i['voucher_price'] = $voucher_price;
             $i['voucher_price_describe'] = $val['voucher_price_describe'];
             $i['voucher_defaultpoints'] = $val['voucher_defaultpoints'];
 
@@ -148,6 +156,7 @@ class voucherControl extends SystemControl{
             $obj_validate->validateparam = $validate_arr;
             $error = $obj_validate->validate();
             //验证面额是否存在
+            $voucher_type= intval($_POST['voucher_type']);
             $voucher_price = intval($_POST['voucher_price']);
             $voucher_points = intval($_POST['voucher_points']);
             $model = Model();
@@ -162,6 +171,7 @@ class voucherControl extends SystemControl{
                 //保存
                 $insert_arr = array(
                     'voucher_price_describe'=>trim($_POST['voucher_price_describe']),
+                    'voucher_type'=>$voucher_type,
                     'voucher_price'=>$voucher_price,
                     'voucher_defaultpoints'=>$voucher_points,
                 );
@@ -202,6 +212,8 @@ class voucherControl extends SystemControl{
             //验证面额是否存在
             $voucher_price = intval($_POST['voucher_price']);
             $voucher_points = intval($_POST['voucher_points']);
+            $voucher_type= intval($_POST['voucher_type']);
+
             $voucherprice_info = $model->table('voucher_price')->where(array('voucher_price'=>$voucher_price,'voucher_price_id'=>array('neq',$id)))->find();
             if(!empty($voucherprice_info)) {
                 $error .= Language::get('admin_voucher_price_exist');
@@ -213,6 +225,8 @@ class voucherControl extends SystemControl{
                 $update_arr['voucher_price_describe'] = trim($_POST['voucher_price_describe']);
                 $update_arr['voucher_price'] = $voucher_price;
                 $update_arr['voucher_defaultpoints'] = $voucher_points;
+                $update_arr['voucher_type'] = $voucher_type;
+
                 $rs = $model->table('voucher_price')->where(array('voucher_price_id'=>$id))->update($update_arr);
                 if ($rs){
                     $this->log(L('nc_edit,admin_voucher_priceadd').'['.$_POST['voucher_price'].']');
@@ -432,6 +446,14 @@ class voucherControl extends SystemControl{
             $i = array();
             $i['operation'] = $o;
             $i['voucher_t_title'] = $val['voucher_t_title'];
+            if($val['voucher_t_price_type'] ==1){
+                $voucher_type = '面额满减';
+                $voucher_price = $val['voucher_t_price'];
+            }else{
+                $voucher_type = '折扣换算';
+                $voucher_price = $val['voucher_t_price'].'%';
+            }
+            $i['voucher_t_price_type'] = $voucher_type;
 
             $i['voucher_t_storename'] = '<a target="_blank" href="' . urlShop('show_store', 'index', array(
                 'store_id' => $val['voucher_t_store_id'],
@@ -442,8 +464,10 @@ class voucherControl extends SystemControl{
             }
             //代金券店铺分类
             $i['voucher_t_sc_name'] = $val['voucher_t_sc_name'];
-            $i['voucher_t_price'] = $val['voucher_t_price'];
+            $i['voucher_t_price'] = $voucher_price;
             $i['voucher_t_limit'] = $val['voucher_t_limit'];
+
+
             //会员级别
             $i['voucher_t_mgradelimittext'] = $val['voucher_t_mgradelimittext'];
             $i['add_time_text'] = date('Y-m-d H:i', $val['voucher_t_add_date']);
@@ -480,6 +504,7 @@ class voucherControl extends SystemControl{
         $param = array();
         $param['voucher_t_id'] = $t_id;
         $t_info = $model->getVoucherTemplateInfo($param);
+//        print_r($t_info);die;
         if (empty($t_info)){
             showMessage(Language::get('param_error'),'index.php?model=voucher&fun=templatelist','html','error');
         }

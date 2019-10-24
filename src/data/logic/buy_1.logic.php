@@ -270,9 +270,9 @@ class buy_1Logic {
         $model_voucher = Model('voucher');
         foreach ($store_goods_total as $store_id => $goods_total) {
             $condition = array();
-            $condition['voucher_store_id'] = $store_id;
-            $condition['voucher_owner_id'] = $member_id;
-            $voucher_list[$store_id] = $model_voucher->getCurrentAvailableVoucher($condition,$goods_total, APP_ID == 'mobile' ? 'voucher_limit desc' : '');
+            $condition['voucher.voucher_store_id'] = $store_id;
+            $condition['voucher.voucher_owner_id'] = $member_id;
+            $voucher_list[$store_id] = $model_voucher->getCurrentAvailableVoucher($condition,$goods_total, APP_ID == 'mobile' ? 'voucher.voucher_limit desc' : '');
         }
         return $voucher_list;
     }

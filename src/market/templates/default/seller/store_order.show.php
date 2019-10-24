@@ -494,39 +494,7 @@
 </div>
 
 
-<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" width="0" style="width:441pt;border:none;">
-    <tbody>
-    <tr>
-        <td style="border:none;background:#EAEAEA;"><p class="MsoNormal" style="text-align:left;"><span
-                        style="font-size:10.0pt;font-family:;">Item</span></p></td>
-        <td style="border:none;background:#EAEAEA;"><p class="MsoNormal" style="text-align:left;"><span
-                        style="font-size:10.0pt;font-family:;">Sku</span></p></td>
-        <td style="border:none;background:#EAEAEA;"><p class="MsoNormal" style="text-align:center;"><span
-                        style="font-size:10.0pt;font-family:;">Qty</span></p></td>
-    </tr>
-    </tbody>
-    <tbody>
-    <tr>
-        <td valign="top" style="border:solid #EAEAEA 1.0pt;">
-            <p class="MsoNormal" style="text-align:left;">
-<span style="font-size:11.3333px;">
-{$goods_name}</span>
-            </p>
-        </td>
-        <td valign="top" style="border:solid #EAEAEA 1.0pt;">
-            <p class="MsoNormal" style="text-align:left;">
- <span style="font-size:8.5pt;font-family:;">
- {$sku}
- </span>
-                <span style="font-size:8.5pt;font-family:;">
- </span>
-            </p>
-        </td>
-        <td valign="top" style="border:solid #EAEAEA 1.0pt;"><p class="MsoNormal" style="text-align:center;"><span style="font-size:8.5pt;font-family:;"><span style="font-size:11.3333px;">{$number}</span></span> </p></td>
-    </tr>
 
-    </tbody>
-</table>
 
 
 <script type="text/javascript">

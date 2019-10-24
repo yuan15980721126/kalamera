@@ -98,6 +98,7 @@ class store_deliverControl extends BaseSellerControl {
         }
 
         if (chksubmit()){
+//            print_r($order_info);die;
             $logic_order = Logic('order');
             $_POST['reciver_info'] = $this->_get_reciver_info();
             $result = $logic_order->changeOrderSend($order_info, 'seller', $_SESSION['seller_name'], $_POST);
@@ -115,11 +116,10 @@ class store_deliverControl extends BaseSellerControl {
                 $param = array();
 //                $param['site_name']	= C('site_name');
                 $param['order_sn'] = $order_info['order_sn'];
-                $param['reciver_name'] = $order_info['extend_order_common']['reciver_name'];
-                $param['new_address'] = $order_info['extend_order_common']['reciver_info']['street'].$order_info['extend_order_common']['reciver_info']['area'];
+                $param['reciver_name'] = str_replace('---', ' ', $order_info['extend_order_common']['reciver_name']);
+                $param['new_address'] = $order_info['extend_order_common']['reciver_info']['street'].'<br>'.$order_info['extend_order_common']['reciver_info']['area'];
                 $param['phone'] = $order_info['extend_order_common']['reciver_info']['phone'];
-                $param['ship_name'] = $express_list['e_name'];
-                $param['pay_name'] = $order_info['payment_name'];
+                $param['pay_name'] = $order_info['payment_code'];
                 $param['pay_sn'] = $order_info['pay_sn'];
 
                 $html = '<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" width="0" style="width:441pt;border:none;">
@@ -127,8 +127,6 @@ class store_deliverControl extends BaseSellerControl {
                     <tr>
                         <td style="border:none;background:#EAEAEA;"><p class="MsoNormal" style="text-align:left;"><span
                                         style="font-size:10.0pt;font-family:;">Item</span></p></td>
-                        <td style="border:none;background:#EAEAEA;"><p class="MsoNormal" style="text-align:left;"><span
-                                        style="font-size:10.0pt;font-family:;">Sku</span></p></td>
                         <td style="border:none;background:#EAEAEA;"><p class="MsoNormal" style="text-align:center;"><span
                                         style="font-size:10.0pt;font-family:;">Qty</span></p></td>
                     </tr>
@@ -141,9 +139,6 @@ class store_deliverControl extends BaseSellerControl {
                     foreach ($order_info['extend_order_goods'] as $val){
                         $html .= '<td valign="top" style="border:solid #EAEAEA 1.0pt;"><p class="MsoNormal" style="text-align:left;"><span style="font-size:11.3333px;">
                         '.$val['goods_name'].'</span></p></td>';
-                        $html .= '<td valign="top" style="border:solid #EAEAEA 1.0pt;"><p class="MsoNormal" style="text-align:left;"><span style="font-size:8.5pt; 
-                        font-family:;">
-                        hh</span><span style="font-size:8.5pt;font-family:;"></span></p></td>';
                         $html .= '<td valign="top" style="border:solid #EAEAEA 1.0pt;"><p class="MsoNormal" style="text-align:center;">
                         <span style="font-size:8.5pt;font-family:;"><span style="font-size:11.3333px;">'.$val['goods_num'].'</span></span> </p></td>';
                     }
@@ -159,8 +154,15 @@ class store_deliverControl extends BaseSellerControl {
                 $email = new Email();
 
                 $result = $email->send_sys_email('457896654@qq.com',$subject,$message);
-//                print_r($message);
-                die;
+                if ($result) {
+                    $rls = '发货通知邮件发送成功';
+                }else{
+                    $rls = '发货通知邮件发送失败';
+                }
+                showDialog($rls,$_POST['ref_url'],'succ');
+
+//                var_dump($result);
+//                die;
 //                import('libraries.alisms');//阿里云短信
 //                $sms = new Alisms();
 //                header('Content-Type: text/plain; charset=utf-8');
@@ -183,12 +185,8 @@ class store_deliverControl extends BaseSellerControl {
 //                );
 //                // print_R($order_info);
 //                // print_R($res);die;
-//                if ($res->Message == 'OK') {
-//                    $rls = '发货短信发送成功';
-//                }else{
-//                    $rls = '发货短信发送失败';
-//                }
-                showDialog($result['msg'].'  '.$rls,$_POST['ref_url'],'succ');
+
+//                showDialog($result['msg'].'  '.$rls,$_POST['ref_url'],'succ');
             }
         }
 

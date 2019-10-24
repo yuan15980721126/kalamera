@@ -87,7 +87,7 @@ class member_voucherControl extends BaseMemberControl
         $this->profile_menu('voucher_list');
         Tpl::showpage('member_voucher.list');
     }
-rk\function\core.php
+
     /**
      * 通过卡密绑定优惠券
      */

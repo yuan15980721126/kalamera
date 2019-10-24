@@ -17,9 +17,28 @@
     <input type="hidden" id="form_submit" name="form_submit" value="ok"/>
     <input type="hidden" name="priceid" value="<?php echo $output['info']['voucher_price_id'];?>"/>
     <div class="ncap-form-default">
+        <dl class="row">
+            <dt class="tit">
+                <label><em>*</em>优惠券类型</label>
+            </dt>
+            <dd class="opt">
+
+                <select name="voucher_type" id="voucher_type" class="s-select">
+                    <option value="1" <?php if($output['info']['voucher_type'] ==1){?>selected <?php }?> >面额满减</option>
+                    <option value="2" <?php if($output['info']['voucher_type'] ==2){?>selected <?php }?>>折扣换算</option>
+
+                </select>
+                <span class="err"></span>
+                <p class="notic"></p>
+            </dd>
+        </dl>
       <dl class="row">
-        <dt class="tit">
-          <label><em>*</em><?php echo $lang['admin_voucher_price_title'];?>(<?php echo $lang['currency_zh'];?>)</label>
+        <dt class="tit" id="tits">
+            <?php if($output['info']['voucher_type'] ==1){?>
+                <label><em>*</em><?php echo $lang['admin_voucher_price_title'];?>(<?php echo $lang['currency_zh'];?>)</label>
+            <?php }else{?>
+                <label><em>*</em>折扣优惠(%)</label>
+            <?php }?>
         </dt>
         <dd class="opt">
           <input type="text" id="voucher_price" name="voucher_price" class="input-txt" value="<?php echo $output['info']['voucher_price'];?>">
@@ -54,6 +73,20 @@
 <script>
 //按钮先执行验证再提交表单
 $(function(){
+    $("#voucher_type").change(function(){
+        var title = "<?php echo $lang['admin_voucher_price_title'];?>"
+        var currency_zh = "<?php echo $lang['currency_zh'];?>"
+
+
+        var type = $("#voucher_type").val()
+        if(type ==1){
+            $('#tits').html('<label><em>*</em>'+title+'('+currency_zh+')</label>');
+        }else{
+            $('#tits').html('<label><em>*</em>折扣优惠(%)</label>');
+        }
+
+        // alert(title)
+    });
 	$("#submitBtn").click(function(){
 		$("#add_form").submit();
 	});

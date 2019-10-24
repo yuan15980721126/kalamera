@@ -94,8 +94,9 @@
 
 			<th class="w50"></th>
 			<th class="tl"><?php echo $lang['voucher_template_title']; ?></th>
+            <th class="tl">代金券类型</th>
 			<th class="w100"><?php echo $lang['voucher_template_orderpricelimit'];?></th>
-			<th class="w100">会员级别</th>
+<!--			<th class="w100">会员级别</th>-->
 			<th class="w60"><?php echo $lang['voucher_template_price'];?></th>
 			<th class="w200"><?php echo $lang['voucher_template_enddate'];?></th>
 			<th class="w60">领取方式</th>
@@ -111,9 +112,22 @@
 					<img src="<?php echo $val['voucher_t_customimg'];?>" />
 				</div></td>
 			<td class="tl"><?php echo $val['voucher_t_title'];?></td>
+            <td class="tl">
+                <?php if($val['voucher_t_price_type'] == 1){?>
+                    面额满减
+                <?php }else if($val['voucher_t_price_type'] == 2){?>
+                    折扣换算
+                <?php } ?>
+            </td>
 			<td>￥<?php echo $val['voucher_t_limit'];?></td>
-			<td><?php echo $val['voucher_t_mgradelimittext'];?></td>
-			<td class="goods-price">￥<?php echo $val['voucher_t_price'];?></td>
+<!--			<td>--><?php //echo $val['voucher_t_mgradelimittext'];?><!--</td>-->
+			<td class="goods-price">
+                <?php if($val['voucher_t_price_type'] == 1){?>
+                    ￥<?php echo $val['voucher_t_price'];?>
+                <?php }else if($val['voucher_t_price_type'] == 2){?>
+                    <?php echo $val['voucher_t_price'];?>%
+                <?php } ?>
+            </td>
 			<td class="goods-time"><?php echo date("Y-m-d",$val['voucher_t_start_date']).'~'.date("Y-m-d",$val['voucher_t_end_date']);?></td>
 			<td><?php echo $val['voucher_t_gettype_text'];?></td>
 			<td><?php echo $val['voucher_t_state_text']; ?></td>

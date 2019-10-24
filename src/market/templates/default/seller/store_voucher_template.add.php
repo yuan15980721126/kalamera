@@ -62,15 +62,47 @@
             </p>
 	      </dd>
 	    </dl>
+          <dl>
+              <dt>优惠券类型<?php echo $lang['nc_colon']; ?></dt>
+              <dd>
+                  <select id="voucher_t_price_type" name="voucher_t_price_type" class="w80 vt">
+                      <option value="1" <?php if($output['t_info']['voucher_t_price_type'] ==1){?>selected <?php }?> >面额满减</option>
+                      <option value="2" <?php if($output['t_info']['voucher_t_price_type'] ==2){?>selected <?php }?>>折扣换算</option>
+                  </select>
+                  <span></span>
+              </dd>
+          </dl>
 	    <dl>
-	      <dt><?php echo $lang['voucher_template_price'].$lang['nc_colon']; ?></dt>
+	      <dt id="template_price_desc">
+              <?php if(isset($output['t_info']['voucher_t_price_type'])){?>
+                  <?php if($output['t_info']['voucher_t_price_type'] == 1){?>
+                    <?php echo $lang['voucher_template_price'].$lang['nc_colon']; ?>
+                  <?php }else{?>
+                      折扣优惠:
+                  <?php }?>
+              <?php }else{?>
+                  <?php echo $lang['voucher_template_price'].$lang['nc_colon']; ?>
+              <?php }?>
+          </dt>
 	      <dd>
 	        <select id="select_template_price" name="select_template_price" class="w80 vt">
 	          <?php if(!empty($output['pricelist'])) { ?>
 	          	<?php foreach($output['pricelist'] as $voucher_price) {?>
 	          	<option value="<?php echo $voucher_price['voucher_price'];?>" <?php echo $output['t_info']['voucher_t_price'] == $voucher_price['voucher_price']?'selected':'';?>><?php echo $voucher_price['voucher_price'];?></option>
 	          <?php } } ?>
-	        </select><em class="add-on"><i class="icon-renminbi"></i></em>
+	        </select>
+              <em class="add-on" id="template_price_ico">
+                  <?php if(isset($output['t_info']['voucher_t_price_type'])){?>
+                      <?php if($output['t_info']['voucher_t_price_type'] == 1){?>
+                          <i class="icon-renminbi"></i>
+                      <?php }else{?>
+                          %
+                      <?php }?>
+                  <?php }else{?>
+                      <i class="icon-renminbi"></i>
+                  <?php }?>
+
+              </em>
 	        <span></span>
 	      </dd>
 	    </dl>
@@ -174,6 +206,42 @@ function showcontent(choose_gettype){
 }
 
 $(document).ready(function(){
+
+    $("#voucher_t_price_type").change(function(){
+        var title = "<?php echo $lang['voucher_template_price'];?>"
+        var nc_colon = "<?php echo $lang['nc_colon'];?>"
+        var type = $("#voucher_t_price_type").val()
+
+        var op = $('#op').val()
+        if(type ==1){
+            $('#template_price_desc').html(title+nc_colon);
+            $('#template_price_ico').html('<i class="icon-renminbi"></i>');
+        }else{
+            $('#template_price_desc').html('折扣优惠:');
+            $('#template_price_ico').html('%');
+        }
+        var tid = 0
+        if(op == 'templateedit'){//判断新增还是编辑
+            var tid = $('#tid').val()
+        }
+
+        $.ajax({
+            type: 'post',
+            url:'index.php?model=store_voucher&fun=get_voucher',
+            data: {type: type,tid:tid},
+            dataType: 'json',
+            async: false,
+            success: function(result) {
+                if (result.state) {
+                    $('#select_template_price').html(result.data)
+                } else {
+
+                }
+            }
+        });
+
+        // alert(title)
+    });
 	showcontent('<?php echo $output['t_info']['voucher_t_gettype_key']; ?>');
 	
 	$("#gettype_sel").change(function(){

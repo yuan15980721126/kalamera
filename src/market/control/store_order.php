@@ -16,7 +16,7 @@ defined('interMarket') or exit('Access Invalid!');
 class store_orderControl extends BaseSellerControl {
     public function __construct() {
         parent::__construct();
-        Language::read('member_store_index');
+        Language::read('member_store_index','zh_cn');
     }
 
     /**
@@ -41,7 +41,7 @@ class store_orderControl extends BaseSellerControl {
      *
      */
     public function show_orderOp() {
-        Language::read('member_member_index');
+        Language::read('member_member_index','zh_cn');
         $order_id = intval($_GET['order_id']);
         if ($order_id <= 0) {
             showMessage(Language::get('wrong_argument'),'','html','error');
@@ -281,7 +281,7 @@ class store_orderControl extends BaseSellerControl {
      * 打印发货单
      */
     public function order_printOp() {
-        Language::read('member_printorder');
+        Language::read('member_printorder','zh_cn');
 
         $order_id   = intval($_GET['order_id']);
         if ($order_id <= 0){
@@ -354,7 +354,7 @@ class store_orderControl extends BaseSellerControl {
      * @return
      */
     private function profile_menu($menu_type='',$menu_key='') {
-        Language::read('member_layout');
+        Language::read('member_layout','zh_cn');
         switch ($menu_type) {
             case 'list':
             $menu_array = array(

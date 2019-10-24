@@ -33,6 +33,8 @@ class voucherModel extends Model {
         //代金券模板状态
         $this->templatestate_arr = array('usable'=>array(1,'有效'),'disabled'=>array(2,'失效'));
 
+
+
     }
 
     /**
@@ -57,12 +59,25 @@ class voucherModel extends Model {
     public function getCurrentAvailableVoucher($condition = array(), $goods_total = 0,$order = '') {
        $condition['voucher_end_date'] = array('gt',TIMESTAMP);
        $condition['voucher_state'] = 1;
-       $voucher_list = $this->table('voucher')->where($condition)->order($order)->key('voucher_t_id')->select();
+
+        $on = 'voucher.voucher_t_id=voucher_template.voucher_t_id';
+        $voucher_list = $this->table('voucher,voucher_template')->field('voucher.*,voucher_template.voucher_t_price_type')->join('left')->on($on)->where($condition)
+            ->order($order)->key('voucher_t_id')->select();
+
+//       $voucher_list = $this->table('voucher,voucher_template')->where($condition)->order($order)->key('voucher_t_id')->select();
+//        echo '<pre>';
+//        print_r($voucher_list);
        foreach ($voucher_list as $key => $voucher) {
            if ($goods_total < $voucher['voucher_limit']) {
                unset($voucher_list[$key]);
            } else {
-               $voucher_list[$key]['desc'] = sprintf('Denomination%s dollars Valid until %s ',$voucher['voucher_price'],date('Y-m-d',$voucher['voucher_end_date']));
+               if($voucher['voucher_t_price_type'] == 1){
+                    $desc =  sprintf('Denomination%s dollars Valid until %s ',$voucher['voucher_price'],date('Y-m-d',$voucher['voucher_end_date']));
+               }else{
+                    $dis = 100-$voucher['voucher_price'];
+                   $desc = $dis.' percent off Valid until '.date('Y-m-d',$voucher['voucher_end_date']);
+               }
+               $voucher_list[$key]['desc'] = $desc;
                if ($voucher['voucher_limit'] > 0) {
                    $voucher_list[$key]['desc'] .= sprintf(' Consumption up to %s dollars  available',$voucher['voucher_limit']);
                }

@@ -22,7 +22,7 @@ class store_voucherControl extends BaseSellerControl{
     public function __construct() {
         parent::__construct() ;
         //读取语言包
-        Language::read('member_layout,member_voucher');
+        Language::read('member_layout,member_voucher','zh_cn');
         //判断系统是否开启代金券功能
         if (C('voucher_allow') != 1){
             showMessage(Language::get('voucher_unavailable'),'index.php?model=store','html','error');
@@ -302,9 +302,12 @@ class store_voucherControl extends BaseSellerControl{
                 showMessage($message,'index.php?model=store_voucher&fun=templatelist','html','error');
             }
         }
-
+        $voucher_t_price_type = 1;
+        if($_POST['voucher_t_price_type']){
+            $voucher_t_price_type = $_POST['voucher_t_price_type'];
+        }
         //查询面额列表
-        $pricelist =  $model->table('voucher_price')->order('voucher_price asc')->select();
+        $pricelist =  $model->table('voucher_price')->where('voucher_type='.$voucher_t_price_type)->order('voucher_price_id desc')->select();
         if(empty($pricelist)){
             showMessage(Language::get('voucher_template_pricelisterror'),'index.php?model=store_voucher&fun=templatelist','html','error');
         }
@@ -336,7 +339,10 @@ class store_voucherControl extends BaseSellerControl{
                 $error.=Language::get('voucher_template_pricelisterror');
             }
             $limit = floatval($_POST['txt_template_limit'])>0?floatval($_POST['txt_template_limit']):0;
-            if($price>=$limit) $error.=Language::get('voucher_template_price_error');
+            if(intval($_POST['voucher_t_price_type']) == 1){//面额满减情况下才限制消费金额必须大于面额
+                if($price>=$limit) $error.=Language::get('voucher_template_price_error');
+            }
+
             //验证卡密代金券发放数量
             $gettype = trim($_POST['gettype_sel']);
             if($gettype == 'pwd'){
@@ -377,6 +383,8 @@ class store_voucherControl extends BaseSellerControl{
                 $insert_arr['voucher_t_quotaid'] = $quotainfo['quota_id'] ? $quotainfo['quota_id'] : 0;
                 $insert_arr['voucher_t_points'] = ($gettype == 'points'?$chooseprice['voucher_defaultpoints']:0);
                 $insert_arr['voucher_t_eachlimit'] = intval($_POST['eachlimit'])>0?intval($_POST['eachlimit']):0;
+                $insert_arr['voucher_t_price_type'] = intval($_POST['voucher_t_price_type']);
+
                 //自定义图片
                 if (!empty($_FILES['customimg']['name'])){
                     $upload = new UploadFile();
@@ -442,9 +450,9 @@ class store_voucherControl extends BaseSellerControl{
         $param = array();
         $param['voucher_t_id'] = $t_id;
         $param['voucher_t_store_id'] = $_SESSION['store_id'];
-        $param['voucher_t_state'] = $this->templatestate_arr['usable'][0];
-        $param['voucher_t_giveout'] = array('elt','0');
-        $param['voucher_t_end_date'] = array('gt',time());
+//        $param['voucher_t_state'] = $this->templatestate_arr['usable'][0];
+//        $param['voucher_t_giveout'] = array('elt','0');
+//        $param['voucher_t_end_date'] = array('gt',time());
         $t_info = $model->table('voucher_template')->where($param)->find();
         if (empty($t_info)){
             showMessage(Language::get('wrong_argument'),'index.php?model=store_voucher&fun=templatelist','html','error');
@@ -459,9 +467,10 @@ class store_voucherControl extends BaseSellerControl{
                 showMessage(Language::get('voucher_template_quotanull'),'index.php?model=store_voucher&fun=quotaadd','html','error');
             }
         }
-
+//        print_r($t_info);die;
         //查询面额列表
-        $pricelist =  $model->table('voucher_price')->order('voucher_price asc')->select();
+        $pricelist =  $model->table('voucher_price')->where('voucher_type='.$t_info['voucher_t_price_type'])->order('voucher_price asc')
+            ->select();
         if(empty($pricelist)){
             showMessage(Language::get('voucher_template_pricelisterror'),'index.php?model=store_voucher&fun=templatelist','html','error');
         }
@@ -527,6 +536,8 @@ class store_voucherControl extends BaseSellerControl{
                 $update_arr['voucher_t_add_date'] = time();
                 $update_arr['voucher_t_points'] = $gettype == 'points'?$chooseprice['voucher_defaultpoints']:0;
                 $update_arr['voucher_t_eachlimit'] = intval($_POST['eachlimit'])>0?intval($_POST['eachlimit']):0;
+                $update_arr['voucher_t_price_type'] = intval($_POST['voucher_t_price_type']);
+
                 //自定义图片
                 if (!empty($_FILES['customimg']['name'])){
                     $upload = new UploadFile();
@@ -666,7 +677,7 @@ class store_voucherControl extends BaseSellerControl{
      * @return
      */
     private function profile_menu($menu_type,$menu_key='') {
-        Language::read('member_layout');
+        Language::read('member_layout','zh_cn');
         $menu_array = array();
         switch ($menu_type) {
             case 'voucher':
@@ -701,5 +712,38 @@ class store_voucherControl extends BaseSellerControl{
         }
         Tpl::output('member_menu',$menu_array);
         Tpl::output('menu_key',$menu_key);
+    }
+
+    function get_voucherop(){
+        $type = intval($_REQUEST['type']);
+        $tid= intval($_REQUEST['tid']);
+        $model = Model('voucher');
+
+        if($tid){
+            $param = array();
+            $param['voucher_t_id'] = $tid;
+            $param['voucher_t_store_id'] = $_SESSION['store_id'];
+            $param['voucher_t_state'] = $this->templatestate_arr['usable'][0];
+            $t_info = $model->table('voucher_template')->where($param)->find();
+//            print_r($t_info);
+        }
+        $pricelist =  $model->table('voucher_price')->where('voucher_type='.$type)->order('voucher_price_id desc')->select();
+        $html = '';
+        foreach ($pricelist as $val){
+            $html .= '<option value="'.$val['voucher_price'].'" ';
+            if(isset($t_info['voucher_t_price']) && ($t_info['voucher_t_price'] == $val['voucher_price'])){
+                $html .= 'selected';
+            }
+            $html .= ' >';
+            $html .= $val['voucher_price'];
+            $html .= '</option>';
+        }
+
+        if($pricelist){
+            exit(json_encode(array('state'=>true,'data'=>$html)));
+        }else{
+            exit(json_encode(array('state'=>false,'msg'=>'系统错误')));
+        }
+
     }
 }

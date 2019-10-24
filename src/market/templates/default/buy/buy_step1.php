@@ -44,7 +44,10 @@
         showProductChain(<?php echo $output['address_info']['city_id'] ? $output['address_info']['city_id'] : $output['address_info']['area_id']?>);
         <?php } ?>
         $('select[nctype="voucher"]').on('change', function () {
+            var type = $("select[nctype='voucher'] option:selected").data('type');
+
             if ($(this).val() == '') {
+
                 $('#eachStoreVoucher_' + items[1]).html('-0.00');
             } else {
                 var items = $(this).val().split('|');
@@ -270,24 +273,25 @@
                                     <?php } ?>
 
                                     <!-- E voucher list -->
-                                    <?php if (!empty($output['store_voucher_list'][$store_id]) && is_array($output['store_voucher_list'][$store_id])) {?><!--    优惠券暂时注释-->
-<!--                                        <p class="list_t">Coupon List</p>-->
-<!--                                        <p class="t coupons_desc">Here are coupons available for this order 。</p>-->
-<!--                                        <div class="yhqbox">-->
-<!--                                            <div class="yhq">-->
-<!---->
-<!--                                                <select nctype="voucher" name="voucher[--><?php //echo $store_id;?><!--]" class="select">-->
-<!--                                                    <option value="--><?php //echo $voucher['voucher_t_id'];?><!--|--><?php //echo $store_id;?><!--|0.00">-Choose to use coupons -</option>-->
-<!--                                                    --><?php //foreach ($output['store_voucher_list'][$store_id] as $voucher) {?>
-<!--                                                        <option value="--><?php //echo $voucher['voucher_t_id'];?><!--|--><?php //echo $store_id;?><!--|--><?php //echo $voucher['voucher_price'];?><!--|--><?php //echo $voucher['voucher_fav_type'];?><!--|--><?php //echo $voucher['voucher_t_discount'];?><!--">--><?php //echo $voucher['desc'];?><!--</option>-->
-<!--                                                    --><?php //} ?>
-<!--                                                </select>-->
-<!--                                                <div class="sum">-->
-<!--                                                    <em id="eachStoreVoucher_--><?php //echo $store_id;?><!--" class="subtract">-0.00</em>-->
-<!--                                                    <input type="hidden" id="voucher_fav_type" value="--><?php //echo $voucher['voucher_fav_type'];?><!--"/>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
+                                    <?php if (!empty($output['store_voucher_list'][$store_id]) && is_array($output['store_voucher_list'][$store_id])) {?>
+                                        <!--    优惠券暂时注释-->
+                                       <p class="list_t">Coupon List</p>
+                                        <p class="t coupons_desc">Available coupons</p>
+                                        <div class="yhqbox">
+                                            <div class="yhq">
+
+                                                <select nctype="voucher" name="voucher[<?php echo $store_id;?>]" class="select">
+                                                    <option value="<?php echo $voucher['voucher_t_id'];?>|<?php echo $store_id;?>|0.00">-Choose to use coupons -</option>
+                                                    <?php foreach ($output['store_voucher_list'][$store_id] as $voucher) {?>
+                                                        <option value="<?php echo $voucher['voucher_t_id'];?>|<?php echo $store_id;?>|<?php echo $voucher['voucher_price'];?>|<?php echo $voucher['voucher_fav_type'];?>|<?php echo $voucher['voucher_t_discount'];?>" data-type="<?php echo $voucher['voucher_t_price_type'];?>"><?php echo $voucher['desc'];?></option>
+                                                    <?php } ?>
+                                                </select>
+                                                <div class="sum">
+                                                    <em id="eachStoreVoucher_<?php echo $store_id;?>" class="subtract hide">-0.00</em>
+                                                    <input type="hidden" id="voucher_fav_type" value="<?php echo $voucher['voucher_fav_type'];?>"/>
+                                                </div>
+                                            </div>
+                                      </div>
                                     <?php } ?>
                                     <!-- E voucher list -->
 

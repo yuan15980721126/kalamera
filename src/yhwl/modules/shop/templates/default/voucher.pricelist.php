@@ -36,7 +36,8 @@ $(function(){
         url: 'index.php?model=voucher&fun=pricelist_xml',
         colModel: [
             {display: '操作', name: 'operation', width: 150, sortable: false, align: 'center', className: 'handle'},
-            {display: '代金券面额(元)', name: 'voucher_price', width: 200, sortable: false, align: 'left'},
+            {display: '代金券类型', name: 'voucher_type', width: 200, sortable: false, align: 'left'},
+            {display: '代金券面额(元)或折扣', name: 'voucher_price', width: 200, sortable: false, align: 'left'},
             {display: '描述', name: 'voucher_price_describe', width: 400, sortable: false, align: 'left'},
             {display: '兑换积分数', name: 'voucher_defaultpoints', width: 200, sortable: false, align: 'left'}
         ],

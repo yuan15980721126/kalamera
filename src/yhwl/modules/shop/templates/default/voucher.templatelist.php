@@ -131,6 +131,7 @@ $(function(){
         colModel: [
             {display: '操作', name: 'operation', width: 60, sortable: false, align: 'center', className: 'handle'},
             {display: '代金券名称', name: 'voucher_t_title', width: 300, sortable: false, align: 'left'},
+            {display: '代金券类型', name: 'voucher_t_price_type', width: 300, sortable: false, align: 'left'},
             {display: '店铺名称', name: 'voucher_t_storename', width: 200, sortable: false, align: 'left'},
             {display: '代金券分类', name: 'voucher_t_sc_name', width: 200, sortable: false, align: 'left'},
             {display: '面额', name: 'voucher_t_price', width: 80, sortable: true, align: 'left'},

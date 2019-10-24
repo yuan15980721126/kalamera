@@ -47,6 +47,18 @@
           <p class="notic"></p>
         </dd>
       </dl>
+        <dl class="row">
+            <dt class="tit">
+                <label>优惠券类型</label>
+            </dt>
+            <dd class="opt">
+                <input type="text" class="readonly txt"
+                       value="<?php if($output['t_info']['voucher_t_price_type'] ==1){?>面额满减<?php }else{?> 折扣换算<?php }?>"
+                       readonly>
+                <span class="err"></span>
+                <p class="notic"></p>
+            </dd>
+        </dl>
       <dl class="row">
         <dt class="tit">
           <label>领取方式</label>

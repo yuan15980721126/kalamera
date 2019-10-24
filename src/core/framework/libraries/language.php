@@ -54,11 +54,13 @@ final class Language{
      * @param string $file 语言包文件，可以按照逗号(,)分隔
      * @return bool 布尔类型的返回结果
      */
-    public static function read($file){
+    public static function read($file,$lang_type='en'){
         str_replace('，',',',$file);
         $tmp = explode(',',$file);
         foreach ($tmp as $v){
-            $tmp_file = BASE_PATH.'/language/'.LANG_TYPE.DS.$v.'.php';
+//            $tmp_file = BASE_PATH.'/language/'.LANG_TYPE.DS.$v.'.php';
+            $tmp_file = BASE_PATH.'/language/'.$lang_type.DS.$v.'.php';//改为可以选择语言包
+
             if (file_exists($tmp_file)){
                 require($tmp_file);
                 if (!empty($lang) && is_array($lang)){
