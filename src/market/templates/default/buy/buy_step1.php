@@ -51,6 +51,12 @@
                 $('#eachStoreVoucher_' + items[1]).html('-0.00');
             } else {
                 var items = $(this).val().split('|');
+                // if(type ==1){
+                //     var vouvher_price =  '-' + number_format(items[2], 2);
+                // }else if(type ==2){
+                //     var discount =  '*' + items[2]%;
+                //     var vouvher_price =  '*' + number_format();
+                // }
                 $('#eachStoreVoucher_' + items[1]).html('-' + number_format(items[2], 2));
             }
             calcOrder();

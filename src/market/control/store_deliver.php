@@ -113,6 +113,8 @@ class store_deliverControl extends BaseSellerControl {
 
                 $model_tpl = Model('mail_templates');
                 $tpl_info = $model_tpl->getTplInfo(array('code'=>'send_ship_code'));
+//                echo "<pre>";
+//                print_r($tpl_info);die;
                 $param = array();
 //                $param['site_name']	= C('site_name');
                 $param['order_sn'] = $order_info['order_sn'];
@@ -144,7 +146,7 @@ class store_deliverControl extends BaseSellerControl {
                     }
                     $html .= '</tr></tbody></table>';
                 }
-                $param['goods_list'] = $html;
+//                $param['goods_list'] = $html;
 
                 $subject	= ncReplaceText($tpl_info['title'],$param);
                 $message	= ncReplaceText($tpl_info['content'],$param);
@@ -154,15 +156,15 @@ class store_deliverControl extends BaseSellerControl {
                 $email = new Email();
 
                 $result = $email->send_sys_email('457896654@qq.com',$subject,$message);
-                if ($result) {
-                    $rls = '发货通知邮件发送成功';
-                }else{
-                    $rls = '发货通知邮件发送失败';
-                }
-                showDialog($rls,$_POST['ref_url'],'succ');
+//                if ($result) {
+//                    $rls = '发货通知邮件发送成功';
+//                }else{
+//                    $rls = '发货通知邮件发送失败';
+//                }
+//                showDialog($rls,$_POST['ref_url'],'succ');
 
 //                var_dump($result);
-//                die;
+                die;
 //                import('libraries.alisms');//阿里云短信
 //                $sms = new Alisms();
 //                header('Content-Type: text/plain; charset=utf-8');
