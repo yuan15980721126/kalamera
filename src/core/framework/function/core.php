@@ -527,6 +527,7 @@ function showEditor($id, $value='', $width='700px', $height='300px', $style='vis
 						allowFlashUpload : false,
 						allowMediaUpload : false,
 						allowFileManager : false,
+						filterMode: false,//是否开启过滤模式
 						syncType:"form",
 						afterCreate : function() {
 							var self = this;

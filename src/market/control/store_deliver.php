@@ -105,26 +105,27 @@ class store_deliverControl extends BaseSellerControl {
             if (!$result['state']) {
                 showMessage($result['msg'],'','html','error');
             } else {
-                //即时发送邮箱 by .com
-                $model_express = Model('express');
-                $express_id = $_POST['shipping_express_id'];
-                $express_list = $model_express->getExpressInfo($express_id);
+                if($order_info['buyer_email']){
+                    //即时发送邮箱 by .com
+                    $model_express = Model('express');
+                    $express_id = $_POST['shipping_express_id'];
+                    $express_list = $model_express->getExpressInfo($express_id);
 //                print_r($order_info);
 
-                $model_tpl = Model('mail_templates');
-                $tpl_info = $model_tpl->getTplInfo(array('code'=>'send_ship_code'));
+                    $model_tpl = Model('mail_templates');
+                    $tpl_info = $model_tpl->getTplInfo(array('code'=>'send_ship_code'));
 //                echo "<pre>";
 //                print_r($tpl_info);die;
-                $param = array();
+                    $param = array();
 //                $param['site_name']	= C('site_name');
-                $param['order_sn'] = $order_info['order_sn'];
-                $param['reciver_name'] = str_replace('---', ' ', $order_info['extend_order_common']['reciver_name']);
-                $param['new_address'] = $order_info['extend_order_common']['reciver_info']['street'].'<br>'.$order_info['extend_order_common']['reciver_info']['area'];
-                $param['phone'] = $order_info['extend_order_common']['reciver_info']['phone'];
-                $param['pay_name'] = $order_info['payment_code'];
-                $param['pay_sn'] = $order_info['pay_sn'];
+                    $param['order_sn'] = $order_info['order_sn'];
+                    $param['reciver_name'] = str_replace('---', ' ', $order_info['extend_order_common']['reciver_name']);
+                    $param['new_address'] = $order_info['extend_order_common']['reciver_info']['street'].'<br>'.$order_info['extend_order_common']['reciver_info']['area'];
+                    $param['phone'] = $order_info['extend_order_common']['reciver_info']['phone'];
+                    $param['pay_name'] = $order_info['payment_code'];
+                    $param['pay_sn'] = $order_info['pay_sn'];
 
-                $html = '<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" width="0" style="width:441pt;border:none;">
+                    $html = '<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" width="588px">
                 <tbody>
                     <tr>
                         <td style="border:none;background:#EAEAEA;"><p class="MsoNormal" style="text-align:left;"><span
@@ -133,38 +134,42 @@ class store_deliverControl extends BaseSellerControl {
                                         style="font-size:10.0pt;font-family:;">Qty</span></p></td>
                     </tr>
                 </tbody>';
-                $html .= '<tbody>';
-                $html .= '<tr>';
+                    $html .= '<tbody>';
+                    $html .= '<tr>';
 
 
-                if(is_array($order_info['extend_order_goods'])){
-                    foreach ($order_info['extend_order_goods'] as $val){
-                        $html .= '<td valign="top" style="border:solid #EAEAEA 1.0pt;"><p class="MsoNormal" style="text-align:left;"><span style="font-size:11.3333px;">
+                    if(is_array($order_info['extend_order_goods'])){
+                        foreach ($order_info['extend_order_goods'] as $val){
+                            $html .= '<td valign="top" style="border:solid #EAEAEA 1.0pt;"><p class="MsoNormal" style="text-align:left;"><span style="font-size:11.3333px;">
                         '.$val['goods_name'].'</span></p></td>';
-                        $html .= '<td valign="top" style="border:solid #EAEAEA 1.0pt;"><p class="MsoNormal" style="text-align:center;">
+                            $html .= '<td valign="top" style="border:solid #EAEAEA 1.0pt;"><p class="MsoNormal" style="text-align:center;">
                         <span style="font-size:8.5pt;font-family:;"><span style="font-size:11.3333px;">'.$val['goods_num'].'</span></span> </p></td>';
+                        }
+                        $html .= '</tr></tbody></table>';
                     }
-                    $html .= '</tr></tbody></table>';
+                    $param['goods_list'] = $html;
+
+                    $subject	= ncReplaceText($tpl_info['title'],$param);
+                    $message	= ncReplaceText($tpl_info['content'],$param);
+
+//                    die;
+
+                    $email = new Email();
+                        $result = $email->send_sys_email($order_info['buyer_email'],$subject,$message);
+//                    $result = $email->send_sys_email('457896654@qq.com',$subject,$message);
+                    if ($result) {
+                        $rls = '发货通知邮件发送成功';
+                    }else{
+                        $rls = '发货通知邮件发送失败';
+                    }
+                }else{
+                    $rls = '客户未填写邮箱地址，发货通知邮件发送失败';
                 }
-//                $param['goods_list'] = $html;
 
-                $subject	= ncReplaceText($tpl_info['title'],$param);
-                $message	= ncReplaceText($tpl_info['content'],$param);
-
-
-
-                $email = new Email();
-
-                $result = $email->send_sys_email('457896654@qq.com',$subject,$message);
-//                if ($result) {
-//                    $rls = '发货通知邮件发送成功';
-//                }else{
-//                    $rls = '发货通知邮件发送失败';
-//                }
-//                showDialog($rls,$_POST['ref_url'],'succ');
+                showDialog($rls,$_POST['ref_url'],'succ');
 
 //                var_dump($result);
-                die;
+//                die;
 //                import('libraries.alisms');//阿里云短信
 //                $sms = new Alisms();
 //                header('Content-Type: text/plain; charset=utf-8');
