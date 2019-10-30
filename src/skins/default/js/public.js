@@ -1,4 +1,5 @@
 $(function(){
+
 		$("#allshop a").on("click",function(){
 			$.cookie("gj",$(this).data("gj"))
 		})
@@ -18,8 +19,17 @@ $(function(){
 //		},function(){
 //			$(".hidden").hide();
 //		});
-		
-			
+
+    //	PC端商品三级导航功能
+    $('.second_nav_menu').hover(function(){
+    	var cid = $(this).data('cid')
+		$('.three_menu_'+cid).show();
+        // alert(cid)
+    });
+    $('.second_menu').mouseleave(function(){
+        var cid = $(this).data('cid')
+        $('.three_menu_'+cid).hide();
+    });
 
 	var mbo = document.getElementsByClassName("mbo")[0];
 	if(mbo){

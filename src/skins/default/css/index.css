@@ -5381,14 +5381,15 @@
     position: absolute;
     top: 55px;
     left: 0;
-    padding: 10px 0;
+    /*border: #000 1px solid ;*/
+    /*padding: 10px 0;*/
 }
 
 .second_nav > div {
     text-align: left;
     padding: 0;
-    background: #000;
-    color: #fff;
+    background: #fff;
+    color: #000;
     font-size: 14px;
     font-weight: 700;
     text-align: center;
@@ -5397,6 +5398,8 @@
 .second_nav > div a {
     height: 38px;
     line-height: 38px;
+    color: #000;
+
 }
 
 .first_nav > li > a:hover + .second_nav {
@@ -5406,6 +5409,28 @@
 .second_nav:hover {
     display: block;
 }
+
+/*.three_nav  {*/
+    /*text-align: left;*/
+    /*padding: 0;*/
+    /*background: #000;*/
+    /*color: #fff;*/
+    /*font-size: 14px;*/
+    /*font-weight: 700;*/
+    /*text-align: center;*/
+/*}*/
+.three_nav {
+    z-index: 111;
+    display: none;
+    background: #fff;
+    color: #000;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    padding: 10px 0;
+}
+
 
 .nav ul li:nth-child(2) {
     width: 160px;

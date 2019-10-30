@@ -15,7 +15,7 @@ final class Email{
 	/**
 	 * 端口
 	 */
-	private $email_port = 25;
+	private $email_port = 465;
 	/**
 	 * 账号
 	 */
@@ -74,10 +74,23 @@ final class Email{
 		 */
 		// print_r($header);
 		// fsockopen
-		if(!$fp = @fsockopen($this->email_server, $this->email_port, $errno, $errstr, 30)) {
-			$this->resultLog($this->email_server.':'.$this->email_port." CONNECT - Unable to connect to the SMTP server");
-			return false;
-		}
+//        $fp = fsockopen('ssl://'.$host, 443, $errno, $errstr, 20);
+
+        $http_type = is_https();
+//        var_dump($http_type);die;
+        if($http_type){
+            $fp = @fsockopen('ssl://'.$this->email_server, $this->email_port, $errno, $errstr, 30);
+        }else{
+            $fp = @fsockopen($this->email_server, $this->email_port, $errno, $errstr, 30);
+        }
+        if(!$fp) {
+            $this->resultLog($this->email_server.':'.$this->email_port." CONNECT - Unable to connect to the SMTP server");
+            return false;
+        }
+//        if(!$fp = @fsockopen($this->email_server, $this->email_port, $errno, $errstr, 30)) {
+//			$this->resultLog($this->email_server.':'.$this->email_port." CONNECT - Unable to connect to the SMTP server");
+//			return false;
+//		}
 		stream_set_blocking($fp, true);
 
 		$lastmessage = fgets($fp, 512);
@@ -259,6 +272,7 @@ final class Email{
 	 * @return bool 布尔形式的返回结果
 	 */
 	private function resultLog($msg){
+	    print_r($msg);die;
 		if (DeBug === true){
 			$fp = fopen('txt.txt','a+');
 			fwrite($fp,$msg);

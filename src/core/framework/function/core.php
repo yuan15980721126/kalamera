@@ -2549,3 +2549,12 @@ function isMobile()
     return false;
 }
 
+/**
+ * 判断域名类型
+ */
+
+function is_https()
+{
+    $http_type = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')) ? true : false;
+    return $http_type;
+}

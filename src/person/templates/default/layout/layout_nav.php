@@ -26,7 +26,7 @@
                                     <?php if ($key == 0) { ?>
                                         <div class="second_nav">
                                             <div>
-                                                <?php require template('layout/home_goods_class'); ?>
+                                                <?php require template('layout/home_goods_class'); ?> <!--PC商品导航和手机端导航分开-->
                                             </div>
                                         </div>
                                     <?php } ?>
@@ -71,7 +71,7 @@
                             <?php if ($key == 0) { ?>
                                 <div class="tel_probox">
                                     <div class="tel_allpro nav_amiddle">
-                                        <?php require template('layout/home_goods_class'); ?>
+                                        <?php require template('layout/mobile_goods_class'); ?> <!--PC商品导航和手机端导航分开-->
                                     </div>
                                 </div>
 
