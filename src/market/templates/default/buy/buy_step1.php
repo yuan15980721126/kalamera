@@ -45,19 +45,22 @@
         <?php } ?>
         $('select[nctype="voucher"]').on('change', function () {
             var type = $("select[nctype='voucher'] option:selected").data('type');
-
+            $('#voucher_fav_type').val(type);
             if ($(this).val() == '') {
-
                 $('#eachStoreVoucher_' + items[1]).html('-0.00');
             } else {
                 var items = $(this).val().split('|');
-                // if(type ==1){
-                //     var vouvher_price =  '-' + number_format(items[2], 2);
-                // }else if(type ==2){
-                //     var discount =  '*' + items[2]%;
-                //     var vouvher_price =  '*' + number_format();
-                // }
-                $('#eachStoreVoucher_' + items[1]).html('-' + number_format(items[2], 2));
+                // console.log(items)
+                if(type ==1){
+                    var vouvher_price =  '-' + number_format(items[2], 2);
+                }else if(type ==2){
+                    var vouvher_price =  (items[2]/100);
+                    // var vouvher_price =  '*' + number_format();
+                }
+                // console.log(vouvher_price)
+                $('#eachStoreVoucher_' + items[1]).html(vouvher_price);
+                // $('#eachStoreVoucher_' + items[1]).html('-' + number_format(items[2], 2));
+
             }
             calcOrder();
         });
@@ -289,12 +292,12 @@
                                                 <select nctype="voucher" name="voucher[<?php echo $store_id;?>]" class="select">
                                                     <option value="<?php echo $voucher['voucher_t_id'];?>|<?php echo $store_id;?>|0.00">-Choose to use coupons -</option>
                                                     <?php foreach ($output['store_voucher_list'][$store_id] as $voucher) {?>
-                                                        <option value="<?php echo $voucher['voucher_t_id'];?>|<?php echo $store_id;?>|<?php echo $voucher['voucher_price'];?>|<?php echo $voucher['voucher_fav_type'];?>|<?php echo $voucher['voucher_t_discount'];?>" data-type="<?php echo $voucher['voucher_t_price_type'];?>"><?php echo $voucher['desc'];?></option>
+                                                        <option value="<?php echo $voucher['voucher_t_id'];?>|<?php echo $store_id;?>|<?php echo $voucher['voucher_price'];?>|<?php echo $voucher['voucher_t_price_type'];?>" data-type="<?php echo $voucher['voucher_t_price_type'];?>"><?php echo $voucher['desc'];?></option>
                                                     <?php } ?>
                                                 </select>
                                                 <div class="sum">
                                                     <em id="eachStoreVoucher_<?php echo $store_id;?>" class="subtract hide">-0.00</em>
-                                                    <input type="hidden" id="voucher_fav_type" value="<?php echo $voucher['voucher_fav_type'];?>"/>
+                                                    <input type="hidden" id="voucher_fav_type" value=""/>
                                                 </div>
                                             </div>
                                       </div>

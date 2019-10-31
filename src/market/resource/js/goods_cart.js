@@ -131,24 +131,19 @@ function calcOrder() {
             allTotal += parseFloat($('#eachStoreManSong_'+store_id).html());
         }
 
-
         if ($('#eachStoreVoucher_'+store_id).length > 0 && $('#eachStoreVoucher_'+store_id).html() !=='-0.00' ) {
             var voucher_fav_type = $('#voucher_fav_type').val();
-
+            // console.log(voucher_fav_type)
             if(voucher_fav_type == 1){
                 allTotal += parseFloat($('#eachStoreVoucher_'+store_id).html());
             }else{
-
-                // allTotal = parseFloat(allTotal*$('#eachStoreVoucher_'+store_id).html());
-
-
-
-                allTotal += parseFloat($('#eachStoreVoucher_'+store_id).html());
-                console.log(allTotal)
+                allTotal = parseFloat(allTotal * $('#eachStoreVoucher_'+store_id).html());
+                // console.log(allTotal)
             }
 
-
+            // console.log(allTotal)
         }
+
 
         $('.repair_prices').each(function () {
             repair_price +=  parseFloat($(this).val())

@@ -676,18 +676,22 @@ class buyLogic {
         }
 
         //验证代金券
+//        echo "<pre>";
+//             print_R($post['voucher']);
         $input_voucher_list = array();
         if (!empty($post['voucher']) && is_array($post['voucher'])) {
             foreach ($post['voucher'] as $store_id => $voucher) {
-                if (preg_match_all('/^(\d+)\|(\d+)\|([\d.]+)$/',$voucher,$matchs)) {
+                if (preg_match_all('/^(\d+)\|(\d+)\|(\d+)\|([\d.]+)$/',$voucher,$matchs)) {
                     if (floatval($matchs[3][0]) > 0) {
+//                        print_R($matchs);
                         $input_voucher_list[$store_id]['voucher_t_id'] = $matchs[1][0];
                         $input_voucher_list[$store_id]['voucher_price'] = $matchs[3][0];
+                        $input_voucher_list[$store_id]['voucher_type'] = $matchs[4][0];
                     }
                 }
             }
         }
-
+//        die;
         //验证红包
         $input_rpt_info = array();
         if ($post['rpt']) {
@@ -911,9 +915,14 @@ class buyLogic {
             }
 
             //得到有效的代金券
+//            Log::record('优惠券初始信息'.json_encode($input_voucher_list),Log::ERR);
+
             $input_voucher_list = $this->_logic_buy_1->reParseVoucherList($input_voucher_list,$store_final_goods_total,$this->_member_info['member_id']);
+
             //重新计算店铺扣除优惠券送商品实际支付金额
             $store_final_goods_total = $this->_logic_buy_1->reCalcGoodsTotal($store_final_goods_total,$input_voucher_list,'voucher');
+
+//            Log::record('重新计算店铺扣除优惠券送商品实际支付金额'.json_encode($store_final_goods_total),Log::ERR);
 
             //计算店铺最终订单实际支付金额(加上运费)
             $store_final_order_total = $this->_logic_buy_1->reCalcGoodsTotal($store_final_goods_total,$store_freight_total,'freight');
@@ -1092,6 +1101,7 @@ class buyLogic {
             if (isset($input_voucher_list[$store_id])){
                 $order_common['voucher_price'] = $input_voucher_list[$store_id]['voucher_price'];
                 $order_common['voucher_code'] = $input_voucher_list[$store_id]['voucher_code'];
+                $order_common['voucher_type'] = $input_voucher_list[$store_id]['voucher_type'];
             }
 
             //订单总优惠金额（代金券，满减，平台红包）
@@ -1139,8 +1149,21 @@ class buyLogic {
 //             }
 
             //代金券
+//            Log::record('优惠券初始信息'.json_encode($input_voucher_list),Log::ERR);
+
             if (isset($input_voucher_list[$store_id])){
-                $order_common['promotion_info'][] = array('店铺代金券',sprintf('使用%s元代金券 编码：%s',$input_voucher_list[$store_id]['voucher_price'],$input_voucher_list[$store_id]['voucher_code']));
+                if($input_voucher_list[$store_id]['voucher_type'] == 1){//判断优惠券类型 满减 折扣
+                    $voucher_arr = array('Coupon',sprintf('Use $ %s coupon Code：%s',$input_voucher_list[$store_id]['voucher_price'],
+                            $input_voucher_list[$store_id]['voucher_code']));
+                }else if($input_voucher_list[$store_id]['voucher_type'] == 2){
+                    $dis = 100-$input_voucher_list[$store_id]['voucher_price'];
+                    $voucher_arr = array('Coupon','Use '.$dis.' % discount coupon Code:'.$input_voucher_list[$store_id]['voucher_code']);
+//                    $voucher_arr = array('Coupon',sprintf('Use %s % discount coupon Code：%s',$input_voucher_list[$store_id]['voucher_price'],
+//                        $input_voucher_list[$store_id]['voucher_code']));
+                }
+//                Log::record('优惠券备注信息'.json_encode($voucher_arr),Log::ERR);
+
+                $order_common['promotion_info'][] = $voucher_arr;
             }
             $order_common['promotion_info'] = $order_common['promotion_info'] ? serialize($order_common['promotion_info']) : '';
 

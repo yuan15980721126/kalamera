@@ -237,8 +237,14 @@ class buy_1Logic {
 
             case 'voucher':
                 if (!C('voucher_allow')) return $store_goods_total;
+//                Log::record('订单优惠券信息'.json_encode($preferential_array),Log::ERR);
+
                 foreach ($preferential_array as $store_id => $voucher_info) {
-                    $store_goods_total[$store_id] -= $voucher_info['voucher_price'];
+                    if($voucher_info['voucher_type'] == 1){//判断优惠券类型 满减 折扣
+                        $store_goods_total[$store_id] -= $voucher_info['voucher_price'];
+                    }else if($voucher_info['voucher_type'] == 2){//计算折扣券
+                        $store_goods_total[$store_id] = $store_goods_total[$store_id]*($voucher_info['voucher_price']/100);
+                    }
                 }
                 break;
 
@@ -375,12 +381,14 @@ class buy_1Logic {
     public function reParseVoucherList($input_voucher_list = array(), $store_goods_total = array(), $member_id) {
         if (empty($input_voucher_list) || !is_array($input_voucher_list)) return array();
         $store_voucher_list = $this->getStoreAvailableVoucherList($store_goods_total, $member_id);
+//        Log::record('代金券是否可用有效信息'.json_encode($store_voucher_list),Log::ERR);
 
         foreach ($input_voucher_list as $store_id => $voucher) {
             $tmp = $store_voucher_list[$store_id];
             if (is_array($tmp) && isset($tmp[$voucher['voucher_t_id']])) {
                 $input_voucher_list[$store_id]['voucher_id'] = $tmp[$voucher['voucher_t_id']]['voucher_id'];
                 $input_voucher_list[$store_id]['voucher_code'] = $tmp[$voucher['voucher_t_id']]['voucher_code'];
+                $input_voucher_list[$store_id]['voucher_type'] = $tmp[$voucher['voucher_t_id']]['voucher_t_price_type'];//相当于33hao_voucher_template里优惠券类型
                 $input_voucher_list[$store_id]['voucher_owner_id'] = $tmp[$voucher['voucher_t_id']]['voucher_owner_id'];
             } else {
                 unset($input_voucher_list[$store_id]);

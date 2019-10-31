@@ -114,8 +114,8 @@ class buyControl extends BaseBuyControl {
         Tpl::output('freight_hash', $result['freight_list']);
 
         //输出用户默认收货地址
-        // echo "<pre>";
-        // print_R($result);
+//         echo "<pre>";
+//         print_R($result);
         
         
         $address_list = $this->load_addrOp('1',0);
