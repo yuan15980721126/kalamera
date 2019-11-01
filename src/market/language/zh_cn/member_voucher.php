@@ -47,7 +47,7 @@ $lang['voucher_quota_residuetimes']    	= '剩余活动次数';
  */
 $lang['voucher_template_quotanull']			= '当前没有可用的套餐，请先申请套餐';
 $lang['voucher_template_noresidual']		= "当前套餐中活动已满%s条活动信息，不可再发布活动";
-    $lang['voucher_template_pricelisterror']	= '平台代金券面额设置出现问题，请联系客服帮助解决';
+$lang['voucher_template_pricelisterror']	= '平台代金券面额设置出现问题，请联系客服帮助解决';
 $lang['voucher_template_title_error'] 		= "模版名称不能为空且不能大于50个字符";
 $lang['voucher_template_total_error'] 		= "可发放数量不能为空且必须为大于1的整数";
 $lang['voucher_template_price_error']		= "模版面额不能为空且必须为整数，且面额不能大于限额";

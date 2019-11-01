@@ -38,6 +38,16 @@
                                 <div class="col-md-4">
                                     <p class="foot_ct_1"><?php echo $article_class['article_content']; ?>
                                     </p>
+                                    <div class="row">
+                                    <ul class="pay_logo">
+                                        <li class="col-md-4" ><img alt="" src="/data/upload/shop/editor/20190815151325_22597.jpg"></li>
+                                        <li  class="col-md-4"><img alt="" src="/data/upload/shop/editor/20190815151325_22597.jpg"></li>
+                                        <li class="col-md-4"><img alt="" src="/data/upload/shop/editor/20190815151325_22597.jpg"></li>
+                                        <li class="col-md-4"><img alt="" src="/data/upload/shop/editor/20190815151325_22597.jpg"></li>
+                                        <li class="col-md-4"><img alt="" src="/data/upload/shop/editor/20190815151325_22597.jpg"></li>
+                                        <li class="col-md-4"><img alt="" src="/data/upload/shop/editor/20190815151325_22597.jpg"></li>
+                                    </ul>
+                                    </div>
                                 </div>
 
                             <?php } ?>

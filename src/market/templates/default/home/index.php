@@ -82,7 +82,6 @@
             </div>
         </div>
     </div>
-    <dd>
 
         <div class="row index_product_list">
         <?php foreach($output['code_sale_list']['code_info'] as $key=>$val){?>
@@ -124,7 +123,7 @@
             <?php }?>
         <?php }?>
 
-    </dilogin_btnv>
+    </div>
 </div>
 <!--中间结束-->
 <script type="text/javascript" src="--><?php //echo RESOURCE_SITE_URL?><!--/js/jquery.js"></script>

@@ -87,7 +87,7 @@
 }
 
 .search_ {
-	width: 425px;
+	width: 350px;
 	height: 40px;
 	margin-top: 5px;
 	background-color: #fff;
@@ -104,6 +104,7 @@
 	box-sizing: border-box;
 	padding: 5px 20px;
 	font-size: 14px;
+	/*max-width: 260px;*/
 }
 
 #ser_btn {
@@ -744,6 +745,9 @@ img {
 	font-size: 14px;
 	color: #fff;
 	border: none;
+}
+.pay_logo img{
+	width: 100%;
 }
 #fx_ a {
 	margin: 0 5px;
