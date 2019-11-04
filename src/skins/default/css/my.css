@@ -746,8 +746,15 @@ img {
 	color: #fff;
 	border: none;
 }
+.pay_logo{
+	margin: 15px auto 15px;
+}
+.pay_logo div{
+	float:left;
+	padding-right: 5%;
+}
 .pay_logo img{
-	width: 100%;
+	/*width: 120px;*/
 }
 #fx_ a {
 	margin: 0 5px;

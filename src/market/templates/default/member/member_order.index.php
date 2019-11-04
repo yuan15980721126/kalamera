@@ -146,8 +146,10 @@
                                 </li>
                                 <?php if ($order['if_deliver']) { ?>
                                     <li>
-                                        <a href="<?php echo urlShop('member_order', 'search_deliver', ['order_id' => $order['order_id'], 'order_sn' => $order['order_sn']]); ?>"
-                                           target="_blank">View Logistics</a></li>
+                                        <a href="http://www.pilotdelivers.com/quicktrack.aspx?Pro=<?php echo $order['shipping_code'];?>" target="_blank">
+                                            Track package
+                                        </a>
+                                    </li>
                                 <?php } ?>
                                 <?php if ($order['if_receive']) { //收货?>
                                     <li>

@@ -54,7 +54,8 @@
                         <div class="addr_l">
                             <p class="addr_img">Shipping address :</p>
                             <p>
-                                <?php echo $output['order_info']['extend_order_common']['reciver_name']?><br>
+
+                                <?php echo  str_replace('---', '   ', $output['order_info']['extend_order_common']['reciver_name']);?><br>
                                 <?php echo $output['order_info']['extend_order_common']['reciver_info']['address'];?><br>
                                 <?php echo $output['order_info']['extend_order_common']['reciver_info']['phone'];?><br>
                             </p>

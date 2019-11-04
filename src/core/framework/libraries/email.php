@@ -15,7 +15,7 @@ final class Email{
 	/**
 	 * 端口
 	 */
-	private $email_port = 465;
+	private $email_port;
 	/**
 	 * 账号
 	 */

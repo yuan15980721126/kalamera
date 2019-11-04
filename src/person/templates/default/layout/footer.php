@@ -55,13 +55,13 @@
                             <input type="button" id="subscribe_add" class="in_sub" value="Subscribe">
                         </div>
                         </form>
-                        <div class="foot_share pro_share">
-                            Follow Us:
-                            <a target="_blank" href="https://www.facebook.com/kamamerainc" ></a>
-                            <a target="_blank" href="javascript:void(0);"></a>
-                            <a target="_blank" href="https://twitter.com/Kalamerainc1" ></a>
-                            <a target="_blank" href="javascript:void(0);" ></a>
-                        </div>
+<!--                        <div class="foot_share pro_share">-->
+<!--                            Follow Us:-->
+<!--                            <a target="_blank" href="https://www.facebook.com/kamamerainc" ></a>-->
+<!--                            <a target="_blank" href="javascript:void(0);"></a>-->
+<!--                            <a target="_blank" href="https://twitter.com/Kalamerainc1" ></a>-->
+<!--                            <a target="_blank" href="javascript:void(0);" ></a>-->
+<!--                        </div>-->
                     </div>
                 </div>
                 <div class="sponsor_list">

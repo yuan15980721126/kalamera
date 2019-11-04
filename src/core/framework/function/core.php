@@ -2558,3 +2558,70 @@ function is_https()
     $http_type = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')) ? true : false;
     return $http_type;
 }
+
+
+/**
+ * 替换名称中间的--
+ */
+function replace_text($search,$subject)
+{
+    str_replace($search, '   ',$subject);
+}
+
+
+/**
+ * @param string $url
+ * @return mixed
+ */
+function curl_get($url)
+{
+    //初始化
+    $ch = curl_init();
+//    notify_log('array' . json_encode($url));
+    curl_setopt($ch, CURLOPT_URL, $url);
+    // 执行后不直接打印出来
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HEADER, false);
+    // 跳过证书检查
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    // 不从证书中检查SSL加密算法是否存在
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+    //执行并获取HTML文档内容
+    $output = curl_exec($ch);
+    if (curl_errno($ch)) {
+        echo 'Errno' . curl_error($ch);
+        die;
+    }
+    curl_close($ch);
+    $arr = json_decode($output, true);
+
+//    notify_log('curl_close' . json_encode($arr));
+    //释放curl句柄
+
+    return $output;
+}
+
+
+function curl_post($url, array $params = array(), $headers, $timeout = 30)
+{
+//    notify_log('array'.json_encode($params));
+    $ch = curl_init();//初始化curl
+    curl_setopt($ch, CURLOPT_URL, $url);//抓取指定网页
+
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_HEADER, 0);//设置header
+    curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);//超时设置
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);    //禁止 cURL 验证对等证书
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);    //是否检测服务器的域名与证书上的是否一致
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);//要求结果为字符串且输出到屏幕上
+    curl_setopt($ch, CURLOPT_POST, 1);//post提交方式
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+    $data = curl_exec($ch);//运行curl
+
+
+//    notify_log('curl'.json_encode($data));
+    curl_close($ch);
+    return ($data);
+
+}

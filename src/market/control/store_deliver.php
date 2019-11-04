@@ -110,7 +110,7 @@ class store_deliverControl extends BaseSellerControl {
                     $model_express = Model('express');
                     $express_id = $_POST['shipping_express_id'];
                     $express_list = $model_express->getExpressInfo($express_id);
-//                print_r($order_info);
+//                print_r($order_info);die;
 
                     $model_tpl = Model('mail_templates');
                     $tpl_info = $model_tpl->getTplInfo(array('code'=>'send_ship_code'));

@@ -483,7 +483,11 @@
          display: none;
      }
      .foot .col-md-4{
-         padding-bottom:  15px;
+         padding-bottom:  25px;
+         margin-top: 12px;
+     }
+     .pay_logo{
+         margin: 15px auto 26px;
      }
      .more_btn a{margin: 25px 0;}
  }

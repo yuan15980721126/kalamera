@@ -93,4 +93,16 @@ class expressModel extends Model {
         }
         return $content['data'];
     }
+
+    /**
+     * 使用 Pilot Freight Services查询物流信息
+     * @param unknown $e_code
+     * @param unknown $shipping_code
+     * @return multitype:
+     */
+    function get_pilot_freight($e_code, $shipping_code) {
+        $url = 'http://www.pilotdelivers.com/quicktrack.aspx?Pro='.$shipping_code;
+
+        return $url;
+    }
 }
