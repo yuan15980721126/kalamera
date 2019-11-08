@@ -32,8 +32,15 @@
                 <span class="" onclick="defaultAddr(<?php echo $address['address_id'] ?>,<?php echo $address['city_id'] ?>,<?php echo $address['area_id']; ?>)">
                     Set default address</span>
 
-                <span class="edit_btn cancel_btn"
-                      onclick="edit_address(<?php echo $address['address_id'] ?>,'save',$(this))">Edit</span>
+
+
+                <a class="edit_btn edit_addr_btn" href="javascript:void(0);" class="btn-bluejeans"
+                   dialog_id="my_address_edit" dialog_width="550" dialog_title="Edit Address"
+                   nc_type="dialog"
+                   uri="<?php echo MEMBER_SITE_URL; ?>/index.php?model=member_address&fun=address&type=edit&layout=order&id=<?php echo $address['address_id']; ?>"><i
+                            class="icon-edit">Edit</i>
+                </a>
+
                 <span class="delete_btn"
                       onclick="if(confirm('Are you sure you want to delete it ?')){delAddr(<?php echo $address['address_id'] ?>)}else{return false;};">Delete</span>
             </div>
@@ -75,6 +82,14 @@
         }
 
         $(function () {
+            $('*[nc_type="dialog"]').click(function(){
+                var id = $(this).attr('dialog_id');
+                var title = $(this).attr('dialog_title') ? $(this).attr('dialog_title') : '';
+                var url = $(this).attr('uri');
+                var width = $(this).attr('dialog_width');
+                CUR_DIALOG = ajax_form(id, title, url, width,0);
+                return false;
+            });
             $('.hide_addr .item').slideDown();
             function addAddr() {
                 $('#add_addr_box').load(SITEURL + '/index.php?model=buy&fun=add_addr');

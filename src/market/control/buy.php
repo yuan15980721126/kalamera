@@ -180,15 +180,16 @@ class buyControl extends BaseBuyControl {
             showMessage($result['msg'], 'index.php?model=cart', 'html', 'error');
         }
 
+        $this->payOp($result['data']['pay_sn'],$_POST['payment_codeid']);
         //转向到商城支付页面
-        redirect('index.php?model=buy&fun=pay&pay_sn='.$result['data']['pay_sn'].'&payid='.$_POST['payment_codeid']);
+//        redirect('index.php?model=buy&fun=pay&pay_sn='.$result['data']['pay_sn'].'&payid='.$_POST['payment_codeid']);
     }
 
     /**
      * 下单时支付页面
      */
-    public function payOp() {
-        $pay_sn = $_GET['pay_sn'];
+    public function payOp($pay_sn,$payid) {
+//        $pay_sn = $_GET['pay_sn'];
         if (!preg_match('/^\d{18}$/',$pay_sn)){
             showMessage(Language::get('cart_order_pay_not_exists'),'index.php?model=member_order','html','error');
         }
@@ -222,7 +223,7 @@ class buyControl extends BaseBuyControl {
             showMessage(Language::get('cart_order_pay_not_exists'),'index.php?model=member_order','html','error');
         }
         Tpl::output('pay_info',$pay_info);
-        Tpl::output('payment_codeid',$_GET['payid']);
+        Tpl::output('payment_codeid',$payid);
         //取子订单列表
         $condition = array();
         $condition['pay_sn'] = $pay_sn;
@@ -352,6 +353,9 @@ class buyControl extends BaseBuyControl {
         }
 
         Tpl::output('pay',$pay);
+
+        //转向到直接支付
+        redirect('index.php?model=payment&fun=real_order&pay_sn='.$pay_sn.'&payment_code=amazonpay');
 
         //标识 购买流程执行第几步
         Tpl::output('buy_step','step3');

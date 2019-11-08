@@ -190,6 +190,8 @@
 
                                                     <span class="edit_btn cancel_btn"
                                                           onclick="edit_address(<?php echo $output['address_info']['address_id'] ?>,'save',$(this))">Edit</span>
+
+
                                                     <span class="delete_btn"
                                                           onclick="if(confirm('Are you sure you want to delete it ?')){delAddr(<?php echo $output['address_info']['address_id'] ?>)}else{return false;};">Delete</span>
 

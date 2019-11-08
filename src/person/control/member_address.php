@@ -72,7 +72,12 @@ class member_addressControl extends BaseMemberControl{
              * 增加/修改页面输出
              */
             Tpl::output('type',$_GET['type']);
-            Tpl::showpage('member_address.edit','null_layout');
+            if ($_GET['layout'] == 'order'){
+                Tpl::showpage('order_address.edit','null_layout');
+            }else{
+                Tpl::showpage('member_address.edit','null_layout');
+            }
+
             exit();
         }
         /**

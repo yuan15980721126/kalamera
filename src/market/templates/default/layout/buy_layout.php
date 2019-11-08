@@ -115,6 +115,8 @@
     <script src="<?php echo RESOURCE_SITE_URL;?>/js/html5shiv.js"></script>
     <script src="<?php echo RESOURCE_SITE_URL;?>/js/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="<?php echo RESOURCE_SITE_URL; ?>/js/member.js"></script>
+
 </head>
 <body>
 <div id="append_parent"></div>
