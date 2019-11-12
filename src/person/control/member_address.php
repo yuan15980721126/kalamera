@@ -73,8 +73,10 @@ class member_addressControl extends BaseMemberControl{
              */
             Tpl::output('type',$_GET['type']);
             if ($_GET['layout'] == 'order'){
+                //下单页面编辑收货地址
                 Tpl::showpage('order_address.edit','null_layout');
             }else{
+                //会员中心页面编辑收货地址
                 Tpl::showpage('member_address.edit','null_layout');
             }
 

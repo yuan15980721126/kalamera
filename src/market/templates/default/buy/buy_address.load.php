@@ -33,13 +33,12 @@
                     Set default address</span>
 
 
-
-                <a class="edit_btn edit_addr_btn" href="javascript:void(0);" class="btn-bluejeans"
+                <span class="edit_btn edit_addr_btn" href="javascript:void(0);" class="btn-bluejeans"
                    dialog_id="my_address_edit" dialog_width="550" dialog_title="Edit Address"
                    nc_type="dialog"
-                   uri="<?php echo MEMBER_SITE_URL; ?>/index.php?model=member_address&fun=address&type=edit&layout=order&id=<?php echo $address['address_id']; ?>"><i
-                            class="icon-edit">Edit</i>
-                </a>
+                   uri="<?php echo MEMBER_SITE_URL; ?>/index.php?model=member_address&fun=address&type=edit&layout=order&id=<?php echo $address['address_id']; ?>">
+                    Edit
+                </span>
 
                 <span class="delete_btn"
                       onclick="if(confirm('Are you sure you want to delete it ?')){delAddr(<?php echo $address['address_id'] ?>)}else{return false;};">Delete</span>

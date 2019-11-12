@@ -164,6 +164,21 @@ class buyControl extends BaseBuyControl {
         $current_goods_info = current($result['store_cart_list']);
         Tpl::output('current_goods_info',$current_goods_info[0]);
 
+        //显示支付接口列表
+        $model_payment = Model('payment');
+        $condition = array();
+        $payment_list = $model_payment->getPaymentOpenList($condition);
+        if (!empty($payment_list)) {
+            unset($payment_list['predeposit']);
+            unset($payment_list['offline']);
+        }
+        if (empty($payment_list)) {
+            showMessage('暂未找到合适的支付方式','index.php?model=member_order','html','error');
+        }
+        // echo "<pre>";
+        // print_R($payment_list);
+        Tpl::output('payment_list',$payment_list);
+
         Tpl::showpage('buy_step1');
     }
 
@@ -182,7 +197,7 @@ class buyControl extends BaseBuyControl {
 
         $this->payOp($result['data']['pay_sn'],$_POST['payment_codeid']);
         //转向到商城支付页面
-//        redirect('index.php?model=buy&fun=pay&pay_sn='.$result['data']['pay_sn'].'&payid='.$_POST['payment_codeid']);
+        redirect('index.php?model=buy&fun=pay&pay_sn='.$result['data']['pay_sn'].'&payid='.$_POST['payment_codeid']);
     }
 
     /**
@@ -756,7 +771,9 @@ class buyControl extends BaseBuyControl {
             $data['zipcode'] = $_POST['zipcode'];
 
 
-             //print_R($data);die;
+//             print_R($data);
+//            print_R($_POST);
+//             die;
             if ($data['is_default']) {
                 $res['is_default'] = 0;
                 $rls = $address_class->editAddress($res, array('member_id'=>$_SESSION['member_id'],'is_default'=>'1'));

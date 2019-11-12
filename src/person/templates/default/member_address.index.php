@@ -15,7 +15,7 @@
                         <div class="item show">
                             <div class="addr_brief">
                                 <div class="addr inline_b">
-                                    <?php echo $a['true_name']; ?><br>
+                                    <?php echo str_replace('---', '   ',$a['true_name']); ?><br>
                                     <?php echo $a['address'] . ' ' . $a['area_info']; ?><br>
                                     <?php echo $a['mob_phone'] ? $a['mob_phone'] : $a['tel_phone']; ?><br>
                                     <?php if ($a['is_default']) { ?>

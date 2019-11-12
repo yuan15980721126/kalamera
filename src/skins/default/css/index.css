@@ -8409,3 +8409,93 @@ input[type='checkbox'].preferred-addr {
 #_area_span{
     margin-right: 5px;
 }
+.pan-wrap{
+    border: solid 2px #000;
+}
+.pan_address{
+    padding: 10px;
+    border: none;
+    border-right: 1px solid #eee;
+    height: auto;
+}
+.pan_address .ul_three_col li{
+    width: 100%;
+
+}
+.pan_address .ul_three_col li select{
+    margin-bottom: 5px;
+}
+.addr_list .item .pan_address:hover{
+    background: #fff;
+}
+#save_address{
+    padding: 0;
+}
+.pan_paytype{
+    padding: 10px;
+    border-right: 1px solid #eee;
+}
+.pan_paytype .lc-title{
+    padding-top: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.pan_paytype .lc-item{
+    margin-bottom: 10px;
+}
+.pan_paytype .lc-item img{
+    width: 100px;
+    vertical-align: middle;
+}
+.pan_paytype .lc-item input{
+    vertical-align: middle;
+}
+.addr_list .item .pan_info{
+    position: static;
+    padding: 10px;
+}
+.addr_list .item .addr_brief{
+    padding: 10px;
+}
+.addr_list .item .btn_box span{
+    display: inline-block;
+}
+#orders .addr_list .item .btn_box{
+    position: static;
+    padding: 10px;
+    display: block;
+}
+#addr_brief .addr_brief{
+    height: auto;
+}
+.pan_info{
+    padding: 10px;
+}
+.pan_info .lc-title,.pan_address .lc-title{
+    padding-top: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.pan_info .lc-title{
+    margin-bottom: 12px;
+}
+.pan_info .table>tbody>tr>td{
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+.lc-youhui .list_t{
+    padding: 20px 0;
+}
+.lc-youhui .buy_list .price_box{
+    width: 50%!important;
+    float: right;
+}
+.lc-youhui .buy_list{
+    padding-top: 15px;
+}
+.lc-youhui .buy_list b{
+    font-weight: 700;
+    color: #950005;
+}

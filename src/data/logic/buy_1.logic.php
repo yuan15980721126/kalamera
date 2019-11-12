@@ -121,7 +121,10 @@ class buy_1Logic {
                     $repair_price = $goods_repair['repair_price'];
                 }
                 $store_cart[$key]['goods_repair'] = $goods_repair;
-                $store_cart[$key]['goods_total'] = ncPriceFormat(($cart_info['goods_price'] * $cart_info['goods_num'])+$goods_repair['repair_price']);
+                //商品价格累加保修价格
+                $store_cart[$key]['goods_repair_total'] = ncPriceFormat(($cart_info['goods_price'] * $cart_info['goods_num'])+$goods_repair['repair_price']);
+                //商品价格不累加保修价格
+                $store_cart[$key]['goods_total'] = ncPriceFormat(($cart_info['goods_price'] * $cart_info['goods_num']));
                 $store_cart[$key]['goods_image_url'] = cthumb($store_cart[$key]['goods_image']);
                 $tmp_amount += $store_cart[$key]['goods_total'];
             }
@@ -1332,6 +1335,7 @@ class buy_1Logic {
                 $goods_online_info = $goods_online_array[$cart_info['goods_id']];
                 $cart_list[$key]['goods_commonid'] = $goods_online_info['goods_commonid'];
                 $cart_list[$key]['goods_name'] = $goods_online_info['goods_name'];
+                $cart_list[$key]['goods_serial'] = $goods_online_info['goods_serial'];
                 $cart_list[$key]['gc_id'] = $goods_online_info['gc_id'];
                 $cart_list[$key]['goods_image'] = $goods_online_info['goods_image'];
                 $cart_list[$key]['goods_price'] = $goods_online_info['goods_price'];

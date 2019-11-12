@@ -140,7 +140,7 @@ function calcOrder() {
                 allTotal = parseFloat(allTotal * $('#eachStoreVoucher_'+store_id).html());
                 // console.log(allTotal)
             }
-
+            $('#goodsTotal').html(allTotal.toFixed(2));
             // console.log(allTotal)
         }
 
@@ -148,12 +148,12 @@ function calcOrder() {
         $('.repair_prices').each(function () {
             repair_price +=  parseFloat($(this).val())
         });
-        $('#repair_price_'+store_id).html(repair_price);
+        $('#goodsService').html(repair_price);
         if ($('#eachStoreFreight_'+store_id).length > 0) {
             allTotal += parseFloat($('#eachStoreFreight_'+store_id).html());
         }
-        if ($('#repair_price_'+store_id).length > 0) {
-            allTotal += parseFloat($('#repair_price_'+store_id).html());
+        if ($('#goodsService').length > 0) {
+            allTotal += parseFloat($('#goodsService').html());
         }
 
         if ($('#tax_price_'+store_id).length > 0) {

@@ -26,6 +26,8 @@
                 <input type="hidden" value="edit_addr" name="fun">
                 <input type="hidden" name="form_submit" value="ok"/>
                 <input type="hidden" name="id" value="<?php echo $output['address_info']['address_id']; ?>"/>
+                <input type="hidden" name="address_id" value="<?php echo $output['address_info']['address_id']; ?>"/>
+
                 <div class="black_wrap">
                     <div>
                         <span class="sec_t inline_b padding-right-7_5">Edit Shipping Address</span>
@@ -111,110 +113,10 @@
 
 
 <script type="text/javascript">
-    var address_id = '<?php echo $output["address_info"]["address_id"];?>'
-
-    $('#save_address_'+address_id).on('click', function () {
-        if ($("#sqs").is(":hidden")) {
-            $("#sqs").remove();
-            var status = 1;
-        }else{
-            var status = 0;
-        }
-        var li_id = $('#address_id1').val();
-        var cityid = $('#_area_2').val()
-        var areaid = $('#_area').val()
-
-        submitAddAddr(li_id, status,cityid,areaid);
-    })
-
-    function submitAddAddr(li_id, status,cityid='',areaid='') {
-        // $('#input_chain_id').val('');chain_id = '';
+    $(document).ready(function(){
         var address_id = '<?php echo $output["address_info"]["address_id"];?>'
-        if ($('#address_form_'+address_id).valid()) {
-
-
-            $('#buy_city_id').val($('#region').fetch('area_id_2'));
-            var datas = $('#address_form_'+address_id).serialize();
-
-            $('#address_form_'+address_id).remove();
-            // return false;
-
-            $.post('index.php', datas, function (data) {
-                if (data.state) {
-                    console.log(data);
-                    var parent = '#li_' + li_id;
-
-                    var true_name = data.data.true_name;
-                    var firstName = data.data.firstName;
-                    var lastName = data.data.lastName;
-                    var apartment = data.data.apartment;
-                    var company = data.data.company;
-                    var is_default = data.data.is_default;
-
-                    var info_address = data.data.address;
-                    var info_area_info = data.data.area_info;
-                    var info_phone = data.data.mob_phone;
-                    var addr_id = data.data.address_id;
-                    var city_id = data.data.city_id;
-                    var area_id = data.data.area_id;
-                    var zipcode = data.data.zipcode;
-
-
-                    // console.log(parent);
-                    // console.log($(parent).find('.cancel_btn'));
-                    $('#slideToggle_'+li_id).slideToggle();
-                    $(parent).find('.edit_btn').addClass('cancel_btn')
-                    $(parent).find('.edit_btn').text('Eidt');
-
-                    var new_address =  $(parent).find('.desc')
-                    new_address.empty();
-
-                    if (data.data.is_default == '1') {
-                        $('.address_li').removeClass('addli_active');
-
-                        $(this).addClass('addli_active').find('input[nc_type="addr"]').prop('checked', true);
-                        if ($(this).attr('id') == 'new') {
-                            $('#add_addr_box').load(SITEURL + '/index.php?model=buy&fun=add_addr');
-                            $('#hide_addr_list').hide();
-                        } else {
-                            $('#add_addr_box').html('');
-                            $('#hide_addr_list').show();
-                        }
-
-                    } else {
-                        // $(parent).removeClass('info_current');
-                    }
-
-
-                    $("#save_harvest").hide();
-                    // var area_id_2_val = $('#_area_2').val();
-                    // var area_id_val = $('#_area').val();
-                    // if (status == 1) {
-                    //     var area_id_2_val = $('._area_2').val();
-                    //     var area_id_val = $('._area').val();
-                    // } else {
-                    //     var area_id_2_val = $('#region_add').fetch('area_id_2');
-                    //     var area_id_val = $('#region_add').fetch('area_id');
-                    // }
-                    // console.log($('#_area_2').val());
-
-                    showShippingPrice(cityid, areaid);
-
-                    hideAddrList(addr_id, city_id, area_id, firstName, lastName, info_area_info, info_address,info_phone, zipcode,is_default);
-
-                } else {
-                    alert(data.msg);
-                }
-            }, 'json');
-        } else {
-            return false;
-        }
-    }
-
-    var SITEURL = "<?php echo SHOP_SITE_URL; ?>";
-    $(document).ready(function () {
         $("#region").nc_region();
-        $('#address_form').validate({
+        $('#address_form_'+address_id).validate({
             rules: {
                 firstName : {
                     required : true,
@@ -284,11 +186,113 @@
                 phone: 'mob_phone'
             }
         });
-        $('#zt').on('click', function () {
-            DialogManager.close('my_address_edit');
-            ajax_form('daisou', '使用代收货（自提）', '<?php echo MEMBER_SITE_URL;?>/index.php?model=member_address&fun=delivery_add', '900', 0);
-        });
+        $('#save_address_'+address_id).on('click', function () {
+            if ($("#sqs").is(":hidden")) {
+                $("#sqs").remove();
+                var status = 1;
+            }else{
+                var status = 0;
+            }
+            var li_id = $('#address_id1').val();
+            var cityid = $('#_area_2').val()
+            var areaid = $('#_area').val()
+
+
+            submitAddAddr(li_id, status,cityid,areaid);
+        })
     });
+
+
+
+
+    function submitAddAddr(li_id, status,cityid='',areaid='') {
+        // $('#input_chain_id').val('');chain_id = '';
+        var address_id = '<?php echo $output["address_info"]["address_id"];?>'
+        if ($('#address_form_'+address_id).valid()) {
+
+
+            $('#buy_city_id').val($('#region').fetch('area_id_2'));
+            var datas = $('#address_form_'+address_id).serialize();
+
+            $('#address_form_'+address_id).remove();
+            // return false;
+
+            $.post('index.php', datas, function (data) {
+                if (data.state) {
+                    console.log(data);
+                    var parent = '#li_' + li_id;
+
+                    var true_name = data.data.true_name;
+                    var firstName = data.data.firstName;
+                    var lastName = data.data.lastName;
+                    var apartment = data.data.apartment;
+                    var company = data.data.company;
+                    var is_default = data.data.is_default;
+
+                    var info_address = data.data.address;
+                    var info_area_info = data.data.area_info;
+                    var info_phone = data.data.mob_phone;
+                    var addr_id = data.data.address_id;
+                    var city_id = data.data.city_id;
+                    var area_id = data.data.area_id;
+                    var zipcode = data.data.zipcode;
+
+
+                    // console.log(parent);
+                    // console.log($(parent).find('.cancel_btn'));
+                    $('#slideToggle_'+li_id).slideToggle();
+                    $(parent).find('.edit_btn').addClass('cancel_btn')
+                    $(parent).find('.edit_btn').text('Eidt');
+
+                    var new_address =  $(parent).find('.desc')
+                    new_address.empty();
+
+                    if (data.data.is_default == '1') {
+                        $('.address_li').removeClass('addli_active');
+
+                        $(this).addClass('addli_active').find('input[nc_type="addr"]').prop('checked', true);
+                        if ($(this).attr('id') == 'new') {
+                            $('#add_addr_box').load(SITEURL + '/index.php?model=buy&fun=add_addr');
+                            $('#hide_addr_list').hide();
+                        } else {
+                            $('#add_addr_box').html('');
+                            $('#hide_addr_list').show();
+                        }
+
+                    } else {
+                        // $(parent).removeClass('info_current');
+                    }
+                    DialogManager.close('my_address_edit')
+
+                    $("#save_harvest").hide();
+                    // var area_id_2_val = $('#_area_2').val();
+                    // var area_id_val = $('#_area').val();
+                    // if (status == 1) {
+                    //     var area_id_2_val = $('._area_2').val();
+                    //     var area_id_val = $('._area').val();
+                    // } else {
+                    //     var area_id_2_val = $('#region_add').fetch('area_id_2');
+                    //     var area_id_val = $('#region_add').fetch('area_id');
+                    // }
+                    // console.log($('#_area_2').val());
+
+                    showShippingPrice(cityid, areaid);
+
+                    hideAddrList(addr_id, city_id, area_id, firstName, lastName, info_area_info, info_address,info_phone, zipcode,is_default);
+
+
+
+                } else {
+                    alert(data.msg);
+                }
+            }, 'json');
+        } else {
+            return false;
+        }
+    }
+
+    var SITEURL = "<?php echo SHOP_SITE_URL; ?>";
+
 
     function check_phone() {
         return ($('input[name="tel_phone"]').val() == '' && $('input[name="mob_phone"]').val() == '');

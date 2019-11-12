@@ -50,12 +50,16 @@
                 $('#eachStoreVoucher_' + items[1]).html('-0.00');
             } else {
                 var items = $(this).val().split('|');
-                // console.log(items)
-                if(type ==1){
-                    var vouvher_price =  '-' + number_format(items[2], 2);
-                }else if(type ==2){
-                    var vouvher_price =  (items[2]/100);
+                // console.log(type)
+                if (type == 1) {
+                    //立减金额
+                    var vouvher_price = '-' + number_format(items[2], 2);
+                } else if (type == 2) {
+                    //折扣换算
+                    var vouvher_price = (items[2] / 100);
                     // var vouvher_price =  '*' + number_format();
+                }else{
+                    var vouvher_price = '-' + number_format(items[2], 2);
                 }
                 // console.log(vouvher_price)
                 $('#eachStoreVoucher_' + items[1]).html(vouvher_price);
@@ -113,15 +117,15 @@
         $('#submitOrder').unbind('click').removeClass('ok');
     }
 
-    function submitNext(){
+    function submitNext() {
         if (!SUBMIT_FORM) return;
 
         if ($('input[name="cart_id[]"]').size() == 0) {
-            showDialog('The goods purchased are invalid', 'error','','','','','','','','',2);
+            showDialog('The goods purchased are invalid', 'error', '', '', '', '', '', '', '', '', 2);
             return;
         }
-        if ($('#address_id').val() == ''){
-            showDialog('Please set up the receiving address first', 'error','','','','','','','','',2);
+        if ($('#address_id').val() == '') {
+            showDialog('Please set up the receiving address first', 'error', '', '', '', '', '', '', '', '', 2);
             return;
         }
         SUBMIT_FORM = false;
@@ -137,7 +141,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="page-margin">
-                    <form method="post" class=" form_control" id="order_form" name="order_form" action="index.php?model=buy&fun=buy_step2">
+                    <form method="post" class=" form_control" id="order_form" name="order_form"
+                          action="index.php?model=buy&fun=buy_step2">
 
                         <div class="login_title first-hr">
                             Shipping Address
@@ -149,10 +154,12 @@
                             <div class="fr">Payment</div>
                         </div>
                         <div class="addr_wrap">
-                            <div class="black_wrap">
-                                <div class="addr_list">
-                                    <div class="show_addr">
-                                        <?php if (!empty($output['address_info']) && is_array($output['address_info'])) { ?>
+                            <div class=" pan-wrap row" id="orders">
+                                <div class="black_wrap col-md-4 pan_address">
+                                    <div class="lc-title"> BILLING ADDRESS</div>
+                                    <div class="addr_list">
+                                        <div class="show_addr">
+                                            <?php if (!empty($output['address_info']) && is_array($output['address_info'])) { ?>
                                             <div class="item" style="display:block;"
                                                  id="li_<?php echo $output['address_info']['address_id']; ?>">
                                                 <div>
@@ -168,12 +175,12 @@
                                                 </div>
                                                 <div class="addr_brief" id="addr_list">
                                                     <div class="addr dot_on inline_b desc">
-                                                        <?php if(strpos($output['address_info']['true_name'], "-")) {?>
+                                                        <?php if (strpos($output['address_info']['true_name'], "-")) { ?>
                                                             <?php echo substr($output['address_info']['true_name'], 0, strpos($output['address_info']['true_name'], "-")); ?>
                                                             <?php echo substr($output['address_info']['true_name'], strripos($output['address_info']['true_name'], "-") + 1); ?>
-                                                        <?php }else{?>
-                                                            <?php echo $output['address_info']['true_name'];?>
-                                                        <?php }?>
+                                                        <?php } else { ?>
+                                                            <?php echo $output['address_info']['true_name']; ?>
+                                                        <?php } ?>
 
                                                         <br>
                                                         <?php echo $output['address_info']['address'] ?> <br>
@@ -184,14 +191,18 @@
                                                     </div>
                                                 </div>
                                                 <div class="inline_b btn_box">
-                                                  <span class=""
-                                                        onclick="defaultAddr(<?php echo $output['address_info']['address_id'] ?>,<?php echo $output['address_info']['city_id'] ?>,<?php echo $output['address_info']['area_id']; ?>)">
-                                                            Set default address</span>
-
-                                                    <span class="edit_btn cancel_btn"
-                                                          onclick="edit_address(<?php echo $output['address_info']['address_id'] ?>,'save',$(this))">Edit</span>
+                                                                              <span class=""
+                                                                                    onclick="defaultAddr(<?php echo $output['address_info']['address_id'] ?>,<?php echo $output['address_info']['city_id'] ?>,<?php echo $output['address_info']['area_id']; ?>)">
+                                                                                        Set default address</span>
 
 
+
+                                                    <span class="edit_btn edit_addr_btn" href="javascript:void(0);" class="btn-bluejeans"
+                                                          dialog_id="my_address_edit" dialog_width="550" dialog_title="Edit Address"
+                                                          nc_type="dialog"
+                                                          uri="<?php echo MEMBER_SITE_URL; ?>/index.php?model=member_address&fun=address&type=edit&layout=order&id=<?php echo  $output['address_info']['address_id']; ?>">
+                    Edit
+                </span>
                                                     <span class="delete_btn"
                                                           onclick="if(confirm('Are you sure you want to delete it ?')){delAddr(<?php echo $output['address_info']['address_id'] ?>)}else{return false;};">Delete</span>
 
@@ -204,7 +215,6 @@
                                         <?php } else { ?>
 
 
-
                                             <tr>
                                                 <td colspan="20" class="norecord">
                                                     <div class="warning-option"><i
@@ -214,154 +224,183 @@
                                             </tr>
                                         <?php } ?>
 
-                                    <!--                                    加载更多地址-->
-                                    <div class="hide_addr">
+                                        <!--                                    加载更多地址-->
+                                        <div class="hide_addr">
+                                        </div>
+                                    </div>
+                                    <div class="more_addr_btn more_down">
+                                        <span class="txt">More addresses</span><br>
+                                        <span class="arrow"></span>
+                                    </div>
+                                    <div class="grey_border">
+                                        <div class="add_t grey_dot border"><p class="margin-0 pointer inline_b">+ Add
+                                                New
+                                                Shipping Address</p></div>
+                                        <div class="add_shipping_addr" id="add_addr_box">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="more_addr_btn more_down">
-                                    <span class="txt">More addresses</span><br>
-                                    <span class="arrow"></span>
-                                </div>
-                                <div class="grey_border">
-                                    <div class="add_t grey_dot border"><p class="margin-0 pointer inline_b">+ Add New
-                                            Shipping Address</p></div>
-                                    <div class="add_shipping_addr" id="add_addr_box">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="inner_ct">
-                                <?php if (!empty($output['store_cart_list'])){ ?>
-                                <?php foreach ($output['store_cart_list'] as $store_id => $cart_list) { ?>
-                                <p class="list_t">Shopping List</p>
-                                <div class="shoplist clearfix" nc_type="ncCartGoods" store_id="<?php echo $cart_list[0]['store_id'];?>">
-                                    <?php if (!empty($cart_list)) { $total_repair=0;?>
-                                        <?php foreach ($cart_list as $g) { ?>
-                                            <?php if ($g['state'] && $g['storage_state']) {?>
-                                                <input type="hidden" value="<?php echo $g['cart_id'].'|'.$g['goods_num'];?>" store_id="<?php echo $store_id?>" name="cart_id[]">
-                                                <input type="hidden" value="<?php echo $g['goods_id'].'|'.$g['goods_num'];?>" store_id="<?php echo $store_id?>" name="goods_id[]">
+                                <div class="col-md-4 pan_paytype">
+                                    <div class="lc-title"> PAYMENT METHOD</div>
+                                    <div class="lc-type">
+                                        <?php foreach ($output['payment_list'] as $val) { ?>
+                                            <?php if ($val['payment_state'] == '1') { ?>
+                                                <div class="lc-item">
+                                                    <input id="<?php echo $val['payment_code']; ?>" type="radio"
+                                                           class=""
+                                                           value="<?php echo $val['payment_code']; ?>"
+                                                           name="payment_code"   <?php if ($val['payment_code'] == 'paypal') { ?>checked="checked"<?php } ?>>
+                                                    <label for="<?php echo $val['payment_code']; ?>">
+                                                        <?php if ($val['payment_code'] == 'paypal') { ?>
+                                                            <img src="/skins/default/img/paypal.png" alt="">
+                                                        <?php } else { ?>
+                                                            <img src="/skins/default/img/amazonpay.png" alt="">
+                                                        <?php } ?>
+                                                    </label>
+                                                </div>
+
+
                                             <?php } ?>
-                                            <div class="item buy_list" id="<?php echo $g['goods_id'];?>" num="<?php echo $g['goods_num'];?>" goods_total="<?php echo $g['goods_total'];?>">
-                                                <div class="imgb">
-                                                    <a href="<?php echo urlShop('goods','index',array('goods_id'=>$g['goods_id']));?>" target="_blank">
-                                                        <img src="<?php echo cthumb($g['goods_image'],60);?>" />
-                                                    </a>
-                                                </div>
-                                                <p class="txt">
-                                                    <a href="<?php echo urlShop('goods','index',array('goods_id'=>$g['goods_id']));?>" target="_blank">
-                                                        <?php echo $g['goods_name'];?>
-                                                    </a>
-                                                </p>
-                                                <?php if ($g['goods_spec']) { ?>
-                                                    <p><?php echo $g['goods_spec'];?></p>
-                                                <?php }?>
-                                                <div class="price_box">
-                                                    <p class="padding-left-7_5"><span class="lb">Total:</span><span
-                                                                class="total_p">$<?php echo $g['goods_total']; ?></span></p>
-                                                </div>
-                                                <div class="price_box">
-                                                    <p class="padding-left-7_5"><span class="lb">Warranty Service:</span>
-                                                        <span class="total_p">
-                                                        <?php if (!empty($g['goods_repair']) && is_array($g['goods_repair'])) { ?>
-
-                                                        <?php echo $g['goods_repair']['description']; ?>（$<?php echo $g['goods_repair']['repair_price']; ?>）
-                                                           <input type="hidden" class="repair_prices" value="<?php echo $g['goods_repair']['repair_price']; ?>">
-                                                        <?php }?>
-                                                        </span>
-                                                    </p>
-                                                </div>
-                                                <div class="price_box">
-                                                    <p class="padding-left-7_5"><span class="lb">Quantity:</span><?php echo $g['goods_num']; ?></p>
-                                                </div>
-                                                <div class="price_box">
-                                                    <p class="padding-left-7_5"><span class="lb">Price:</span>$<?php echo $g['goods_price']; ?>
-                                                    </p>
-                                                </div>
-
-
-
-                                            </div>
                                         <?php } ?>
-                                    <?php } ?>
 
-                                    <!-- E voucher list -->
-                                    <?php if (!empty($output['store_voucher_list'][$store_id]) && is_array($output['store_voucher_list'][$store_id])) {?>
-                                        <!--    优惠券暂时注释-->
-                                       <p class="list_t">Coupon List</p>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4 pan_info">
+                                    <?php if (!empty($output['store_cart_list'])){ ?>
+                                    <?php foreach ($output['store_cart_list'] as $store_id => $cart_list) { ?>
+                                    <div class="shoplist clearfix" nc_type="ncCartGoods"
+                                         store_id="<?php echo $cart_list[0]['store_id']; ?>">
+                                    <div class="lc-title"> PAYMENT METHOD</div>
+                                    <table class="table" class="shoplist clearfix" >
+                                        <?php if (!empty($cart_list)) {
+                                        $total_repair = 0; ?>
+                                        <thead>
+                                        <tr>
+                                            <th>Model</th>
+                                            <th>Qty</th>
+                                            <th>Total</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php foreach ($cart_list as $g) { ?>
+                                            <?php if ($g['state'] && $g['storage_state']) { ?>
+                                                <input type="hidden"
+                                                       value="<?php echo $g['cart_id'] . '|' . $g['goods_num']; ?>"
+                                                       store_id="<?php echo $store_id ?>" name="cart_id[]">
+                                                <input type="hidden"
+                                                       value="<?php echo $g['goods_id'] . '|' . $g['goods_num']; ?>"
+                                                       store_id="<?php echo $store_id ?>" name="goods_id[]">
+                                            <?php } ?>
+                                        <tr class="item buy_list" id="<?php echo $g['goods_id']; ?>"
+                                             num="<?php echo $g['goods_num']; ?>"
+                                             goods_total="<?php echo $g['goods_total']; ?>">
+
+                                            <td>
+                                                <a href="<?php echo urlShop('goods', 'index', array('goods_id' => $g['goods_id'])); ?>"
+                                                    target="_blank">
+                                                <?php echo $g['goods_serial'];?>
+                                                </a>
+                                            </td>
+                                            <input type="hidden" class="repair_prices"
+                                                   value="<?php echo $g['goods_repair']['repair_price']; ?>">
+                                            <td><?php echo $g['goods_num']; ?></td>
+                                            <td>$<?php echo $g['goods_total']; ?></td>
+                                            <input type="hidden" class="goods_repair_total"
+                                                   value="<?php echo $g['goods_repair_total']; ?>">
+                                        </tr>
+                                        <?php } ?>
+                                        </tbody>
+                                        <?php } ?>
+                                    </table>
+
+
+                                    <div class="lc-youhui">
+                                        <!-- E voucher list -->
+                                        <p class="list_t">Coupon List</p>
                                         <p class="t coupons_desc">Available coupons</p>
+
                                         <div class="yhqbox">
                                             <div class="yhq">
 
-                                                <select nctype="voucher" name="voucher[<?php echo $store_id;?>]" class="select">
-                                                    <option value="<?php echo $voucher['voucher_t_id'];?>|<?php echo $store_id;?>|0.00">-Choose to use coupons -</option>
-                                                    <?php foreach ($output['store_voucher_list'][$store_id] as $voucher) {?>
-                                                        <option value="<?php echo $voucher['voucher_t_id'];?>|<?php echo $store_id;?>|<?php echo $voucher['voucher_price'];?>|<?php echo $voucher['voucher_t_price_type'];?>" data-type="<?php echo $voucher['voucher_t_price_type'];?>"><?php echo $voucher['desc'];?></option>
+                                                <select nctype="voucher" name="voucher[<?php echo $store_id; ?>]"
+                                                        class="select">
+                                                    <option value="<?php echo $voucher['voucher_t_id']; ?>|<?php echo $store_id; ?>|0.00"  data-type="0">
+                                                        -Choose to use coupons -
+                                                    </option>
+                                                    <?php foreach ($output['store_voucher_list'][$store_id] as $voucher) { ?>
+                                                        <option value="<?php echo $voucher['voucher_t_id']; ?>|<?php echo $store_id; ?>|<?php echo $voucher['voucher_price']; ?>|<?php echo $voucher['voucher_t_price_type']; ?>"
+                                                                data-type="<?php echo $voucher['voucher_t_price_type']; ?>"><?php echo $voucher['desc']; ?></option>
                                                     <?php } ?>
                                                 </select>
                                                 <div class="sum">
-                                                    <em id="eachStoreVoucher_<?php echo $store_id;?>" class="subtract hide">-0.00</em>
+                                                    <em id="eachStoreVoucher_<?php echo $store_id; ?>"
+                                                        class="subtract hide">-0.00</em>
                                                     <input type="hidden" id="voucher_fav_type" value=""/>
                                                 </div>
                                             </div>
-                                      </div>
-                                    <?php } ?>
-                                    <!-- E voucher list -->
-
-
-
-                                    <div class="item buy_list total_box">
-                                        <div class="price_box">
-                                            <p class="padding-left-7_5">
-                                                <b id="goodsCount"><?php echo $output['total_num'];?></b><br>
-                                                <span class="total_p" id="goodsTotal"></span><br>
-<!--                                                --<br>-->
-                                                <span class="total_p"><b nc_type="eachStoreFreight" id="eachStoreFreight_<?php echo $store_id;?>">0.00</b></span>
-<!--                                                <br>-->
-                                                <br>
-                                                <span class="total_p">
-                                                    <b nc_type="tax_price" id="tax_price_<?php echo $store_id;?>">
-                                                       0.00
-                                                    </b>
-                                                </span><br>
-                                                <br>
-                                            </p>
                                         </div>
-                                        <div class="price_box">
-                                            <p>
-                                                Number :<br>
-                                                Subtotal :<br>
-<!--                                                Discount :<br>-->
-                                                Shipping :<br>
-<!--                                                Warranty Price :<br>-->
-                                                Estimated Tax :<br>
-                                            </p>
+                                        <!-- E voucher list -->
+
+                                        <div class="item buy_list total_box">
+                                            <div class="price_box">
+                                                <p class="padding-left-7_5">
+                                                    <b id="goodsCount"><?php echo $output['total_num']; ?></b><br>
+                                                    <span class="total_p" id="goodsService"></span><br>
+                                                    <span class="total_p" id="goodsTotal"></span><br>
+                                                    <!--                                                --<br>-->
+                                                    <span class="total_p"><b nc_type="eachStoreFreight"
+                                                                             id="eachStoreFreight_<?php echo $store_id; ?>">0.00</b></span>
+                                                    <!--                                                <br>-->
+                                                    <br>
+                                                    <span class="total_p">
+                                                        <b nc_type="tax_price" id="tax_price_<?php echo $store_id; ?>">
+                                                           0.00
+                                                        </b>
+                                                    </span><br>
+                                                    <br>
+                                                </p>
+                                            </div>
+                                            <div class="price_box">
+                                                <p>
+                                                    Number :<br>
+                                                    Warranty Service :<br>
+                                                    Subtotal :<br>
+                                                    <!--                                                Discount :<br>-->
+                                                    Shipping :<br>
+                                                    <!--                                                Warranty Price :<br>-->
+                                                    Estimated Tax :<br>
+                                                </p>
+                                            </div>
                                         </div>
+
+
+                                        <div class="item buy_list total_box" style="border: none;">
+                                            <div class="price_box">
+                                                <p class="padding-left-7_5">
+                                                    <span class="total_p" style="font-size: 20px;"><b id="orderTotal"></b></span>
+
+
+                                                </p>
+                                            </div>
+                                            <div class="price_box">
+                                                <p style="font-weight: 700;font-size: 18px;">
+                                                    Grand Total:
+                                                </p>
+                                            </div>
+                                            <div class="text-center">
+                                                <input type="button" id="submitOrder" value="Continue to Payment"
+                                                       class="continue-pay">
+                                            </div>
+                                        </div>
+
+                                        <?php } ?>
+                                        <?php } ?>
                                     </div>
-                                    <div class="item buy_list total_box" style="border: none;">
-
-
-                                        <div class="price_box">
-                                            <p class="padding-left-7_5">
-                                                <span class="total_p" style="font-size: 20px;"><b id="orderTotal"></b></span>
-
-
-
-                                        </p>
-                                        </div>
-                                        <div class="price_box">
-                                            <p style="font-weight: 700;font-size: 18px;">
-                                                Grand Total:
-                                            </p>
-                                        </div>
-                                        <a class="fl go_ahead" href="<?php echo urlShop('cart', 'index'); ?>">Return to cart</a>
                                     </div>
-                                    <div class="text-center">
-                                        <input type="button" id="submitOrder" value="Continue to Payment" class="continue-pay">
-                                    </div>
-                                    <?php } ?>
-                                    <?php } ?>
                                 </div>
                             </div>
-                        </div>
 
 
 
@@ -389,8 +428,8 @@
                         <!--    <input value="buy" type="hidden" name="model">-->
                         <!--    <input value="buy_step2" type="hidden" name="fun">-->
 
-                        <input type="hidden" id="current" name="current" value="<?php echo $output['current'];?>" />
-                        <input type="hidden" name="express" value="" />
+                        <input type="hidden" id="current" name="current" value="<?php echo $output['current']; ?>"/>
+                        <input type="hidden" name="express" value=""/>
                         <!-- 来源于购物车标志 -->
                         <input value="<?php echo $output['ifcart']; ?>" type="hidden" name="ifcart">
 
@@ -401,7 +440,8 @@
                         <input value="<?php echo $output['vat_hash']; ?>" name="vat_hash" type="hidden">
 
                         <!-- 收货地址ID -->
-                        <input value="<?php echo $output['address_info']['address_id']; ?>" name="address_id" id="address_id" type="hidden">
+                        <input value="<?php echo $output['address_info']['address_id']; ?>" name="address_id"
+                               id="address_id" type="hidden">
 
                         <!-- 城市ID(运费) -->
                         <input value="" name="buy_city_id" id="buy_city_id" type="hidden">
@@ -419,16 +459,14 @@
                         <input value="" id="offpay_hash_batch" name="offpay_hash_batch" type="hidden">
 
                         <!-- 默认使用的发票 -->
-                        <input value="<?php echo $output['inv_info']['inv_id']; ?>" name="invoice_id" id="invoice_id" type="hidden">
+                        <input value="<?php echo $output['inv_info']['inv_id']; ?>" name="invoice_id" id="invoice_id"
+                               type="hidden">
                         <input value="<?php echo getReferer(); ?>" name="ref_url" type="hidden">
                         <!-- </div> -->
 
                         <!-- 税金额 -->
                         <input value="" id="offpay_tax" name="offpay_tax" type="hidden">
                         <input value="" id="offpay_tax_payment" name="offpay_tax_payment" type="hidden">
-
-
-
 
 
                     </form>
@@ -508,17 +546,17 @@
     })
 
 
-    function delAddr(id){
-        $.get(SITEURL + '/index.php?model=buy&fun=load_addr', {'id':id,'status':'3'}, function(data){
-            if(data.state == 'success') {
-                var child = '#li_'+id;
+    function delAddr(id) {
+        $.get(SITEURL + '/index.php?model=buy&fun=load_addr', {'id': id, 'status': '3'}, function (data) {
+            if (data.state == 'success') {
+                var child = '#li_' + id;
                 console.log(child);
                 $(child).remove();
             } else {
-                showDialog('系统出现异常', 'error','','','','','','','','',2);
+                showDialog('系统出现异常', 'error', '', '', '', '', '', '', '', '', 2);
             }
 
-        },'json');
+        }, 'json');
 
     }
 
@@ -578,7 +616,7 @@
     }
 
     //隐藏收货地址列表
-    function hideAddrList(addr_id, city_id, area_id, firstName, lastName, area_info, address, phone, zipcode,is_default) {
+    function hideAddrList(addr_id, city_id, area_id, firstName, lastName, area_info, address, phone, zipcode, is_default) {
         var r = 0;
         r += 180;
         $('.hide_addr .item').slideUp();
@@ -592,7 +630,7 @@
         }
 
         var html = ''
-        if($(".warning-option").length>0){
+        if ($(".warning-option").length > 0) {
             $(".warning-option").remove();
         }
 
@@ -610,7 +648,7 @@
 
         // console.log(is_default);
 
-        if(is_default == 1){
+        if (is_default == 1) {
 
             $(".addr_list").html(html);
         }
@@ -657,17 +695,24 @@
                 for (var i in tpl_ids) {
                     no_send_tpl_ids[tpl_ids[i]] = true;
                 }
+
+                var repair_price = 0;
+                $.each($(".repair_prices"),function(i,v){
+                    repair_price += parseFloat($(this).val())
+                    //查找保修商品价格
+                });
+                $('#goodsService').html(repair_price);
                 if (data.tax) {
                     $('#offpay_tax').val(data.tax)//税百分比
-                    var taxs = data.tax/100
+                    var taxs = data.tax / 100
                     var total = $('#goodsTotal').html();
 
-                    new_total = total*(taxs)//税金额
+                    new_total = total * (taxs)//税金额
                     // console.log(new_total)
                     $('#tax_price_1').html(new_total.toFixed(2));
 
                     $('#offpay_tax_payment').val(new_total.toFixed(2))
-                }else{
+                } else {
                     $('#offpay_tax').val(data.tax)
                     $('#offpay_tax_payment').val(data.tax)
                     $('#tax_price_1').html('0.00');

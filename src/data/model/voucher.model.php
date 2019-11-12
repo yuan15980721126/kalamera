@@ -72,14 +72,17 @@ class voucherModel extends Model {
                unset($voucher_list[$key]);
            } else {
                if($voucher['voucher_t_price_type'] == 1){
-                    $desc =  sprintf('Denomination%s dollars Valid until %s ',$voucher['voucher_price'],date('Y-m-d',$voucher['voucher_end_date']));
+//                    $desc =  sprintf('Denomination%s dollars Valid until %s ',$voucher['voucher_price'],date('Y-m-d',$voucher['voucher_end_date']));
+                   $desc =  sprintf('Denomination%s dollars ',$voucher['voucher_price']);
                }else{
                     $dis = 100-$voucher['voucher_price'];
-                   $desc = $dis.' percent off Valid until '.date('Y-m-d',$voucher['voucher_end_date']);
+//                   $desc = $dis.' percent off Valid until '.date('Y-m-d',$voucher['voucher_end_date']);
+                   $desc = $dis.' percent off Valid ';
                }
                $voucher_list[$key]['desc'] = $desc;
                if ($voucher['voucher_limit'] > 0) {
-                   $voucher_list[$key]['desc'] .= sprintf(' Consumption up to %s dollars  available',$voucher['voucher_limit']);
+//                   $voucher_list[$key]['desc'] .= sprintf(' Consumption up to %s dollars  available',$voucher['voucher_limit']);
+                   $voucher_list[$key]['desc'] = $desc;
                }
            }
        }
