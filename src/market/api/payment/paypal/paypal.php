@@ -68,38 +68,22 @@ class paypal{
 
         // ### Itemized information
         $items = array();
-        echo '<pre>';
+//        echo '<pre>';
 
 
-        $voucher_price = $this->order_info['shipping']['voucher_price'];
-        $voucher_type= $this->order_info['shipping']['voucher_type'];
+//        $voucher_price = $this->order_info['shipping']['voucher_price'];
+//        $voucher_type= $this->order_info['shipping']['voucher_type'];
 
         $goods_list = $this->order_info['goods_list'];
-        $goods_count = count($goods_list);
 
-        $goods_num = 0;
-        foreach ($goods_list as $k => $g) {
-            $goods_num +=$g['goods_num'];
-        }
 //        print_R($goods_list);
-        print_R($voucher_type);
+//        print_R( $this->order_info);
         foreach ($goods_list as $k => $g) {
             $goods_repair = $g['goods_repair'] ? unserialize($g['goods_repair']) : '';
             if(!empty($goods_repair) && is_array($goods_repair)){//获取每件商品的单独保修价格
                 $original_price = $goods_repair['original_price'];
             }
             $goods_price = $g['goods_price'];
-            if($voucher_type ==1 && !empty($voucher_price)){//优惠券立减商品直接立减
-//                $goods_price = ($g['goods_price'] - ($voucher_price / $goods_num));//优惠金额/商品数量
-//                print_R($goods_price);echo '<br>';
-
-
-
-
-            }
-            if($voucher_type == 2  && !empty($voucher_price)){//优惠券折扣换算则第一个商品直接立减
-                $goods_price = ncPriceFormat($g['goods_price'] * ($voucher_price/100));
-            }
             $item[$k] = new Item();
             $item[$k]->setName($g['goods_name'])
                 ->setCurrency('USD')
@@ -107,7 +91,6 @@ class paypal{
                 ->setSku(mb_substr($g['goods_name'],0,60))
                 ->setPrice($goods_price+$original_price);//最后价格再加上单独保修价格
             $items[] = $item[$k];
-
         }
 //        print_R($item);
 //        die;
@@ -141,8 +124,8 @@ class paypal{
         $details = new Details();
         $details->setShipping($this->order_info['order_list'][0]['shipping_fee'])
             ->setTax($this->order_info['order_list'][0]['tax_payment'])
-            ->setSubtotal($this->order_info['order_list'][0]['goods_amount']+20)
-            ->setShippingDiscount(20);
+            ->setSubtotal($this->order_info['order_list'][0]['goods_amount']+$this->order_info['order_list'][0]['discount_payment'])
+            ->setShippingDiscount($this->order_info['order_list'][0]['discount_payment']);//优惠券优惠金额
         // ### Amount
     //        echo '<pre>';
     //        print_R($this->order_info['order_list']);die;

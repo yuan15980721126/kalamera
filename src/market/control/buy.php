@@ -188,10 +188,14 @@ class buyControl extends BaseBuyControl {
      */
     public function buy_step2Op() {
         $logic_buy = logic('buy');
+        if(!$_POST['payment_code']) {
+            showMessage('Please select payment method', 'index.php?model=buy_step1&fun=buy_step1', 'html', 'error');
+        }
 //         echo "<pre>";
 //         print_R($_POST);die;
         $result = $logic_buy->buyStep2($_POST, $_SESSION['member_id'], $_SESSION['member_name'], $_SESSION['member_email'],$this->member_info['orderdiscount'],$this->member_info['level']);
 //        print_R($result);die;
+
         if(!$result['state']) {
             showMessage($result['msg'], 'index.php?model=cart', 'html', 'error');
         }
@@ -373,7 +377,7 @@ class buyControl extends BaseBuyControl {
 
         Tpl::output('pay',$pay);
 
-        if($pay_type ==1){
+        if($pay_type ==1 && $payment_code == 'paypal'){
             //下单页面直接转向到直接支付
             redirect('index.php?model=payment&fun=real_order&pay_sn='.$pay_sn.'&payment_code='.$payment_code);
         }
@@ -381,7 +385,12 @@ class buyControl extends BaseBuyControl {
 
         //标识 购买流程执行第几步
         Tpl::output('buy_step','step3');
-        Tpl::showpage('buy_step2');
+        if($pay_type == 2){
+            Tpl::showpage('buy_step2');
+        }else{
+            Tpl::showpage('amazonpay_step2');
+        }
+
     }
 
     /**

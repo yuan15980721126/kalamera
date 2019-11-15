@@ -1047,7 +1047,7 @@ class buyLogic {
             }
         }
 //        echo "<pre>";
-//             print_R($store_cart_list);die;
+//             print_R($this->_post_data);die;
         foreach ($store_cart_list as $store_id => $goods_list) {
             //取得本店优惠额度(后面用来计算每件商品实际支付金额，结算需要)
             $promotion_total = !empty($store_promotion_total[$store_id]) ? $store_promotion_total[$store_id] : 0;
@@ -1089,17 +1089,14 @@ class buyLogic {
             $order['order_amount'] = $store_final_order_total[$store_id];
             $order['shipping_fee'] = $store_freight_total[$store_id];
             $order['goods_amount'] = $order['order_amount'] - $order['shipping_fee'] - $input_tax_payment + $store_rpt_total[$store_id];//新增减去税额
-//            print_r($order);
-//            print_r($input_tax_payment);
-//            die;
             $order['order_from'] = $order_from;
             $order['order_type'] = $input_chain_id ? 3 : ($goods_list[0]['is_book'] ? 2 : 1);
             $order['chain_id'] = $input_chain_id ? $input_chain_id : 0;
             $order['rpt_amount'] = empty($store_rpt_total[$store_id]) ? 0 : $store_rpt_total[$store_id] ;
-            Log::record('税额'.json_encode($input_tax),Log::ERR);
-
+//            Log::record('税额'.json_encode($input_tax),Log::ERR);
             $order['tax'] = $input_tax ? $input_tax : 0;
             $order['tax_payment'] = $input_tax_payment ? $input_tax_payment : 0;
+            $order['discount_payment'] = $this->_post_data['discount_payment'] ? $this->_post_data['discount_payment'] : 0;
 
 
 

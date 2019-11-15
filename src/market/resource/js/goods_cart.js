@@ -133,15 +133,23 @@ function calcOrder() {
 
         if ($('#eachStoreVoucher_'+store_id).length > 0 && $('#eachStoreVoucher_'+store_id).html() !=='-0.00' ) {
             var voucher_fav_type = $('#voucher_fav_type').val();
+            var goodsTotals =   $('#goodsTotal').html();
             // console.log(voucher_fav_type)
             if(voucher_fav_type == 1){
                 allTotal += parseFloat($('#eachStoreVoucher_'+store_id).html());
+
             }else{
                 allTotal = parseFloat(allTotal * $('#eachStoreVoucher_'+store_id).html());
-                // console.log(allTotal)
             }
+            var discounts =goodsTotals - allTotal;
+
+            $('#discount_payment').val(discounts.toFixed(2));
+            // console.log(goodsTotals)
+            // console.log(allTotal)
             $('#goodsTotal').html(allTotal.toFixed(2));
             // console.log(allTotal)
+        }else{
+            $('#discount_payment').val('0.00');
         }
 
 

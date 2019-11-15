@@ -1,4 +1,5 @@
 <?php defined('interMarket') or exit('Access Invalid!'); ?>
+
 <script type="text/javascript">
     //是否允许表单提交
     var SUBMIT_FORM = true;
@@ -118,6 +119,7 @@
     }
 
     function submitNext() {
+        var payment_code = $('input[name="payment_code"]:checked').val();
         if (!SUBMIT_FORM) return;
 
         if ($('input[name="cart_id[]"]').size() == 0) {
@@ -472,8 +474,12 @@
                             <input value="" id="offpay_tax" name="offpay_tax" type="hidden">
                             <input value="" id="offpay_tax_payment" name="offpay_tax_payment" type="hidden">
 
+                            <!-- 优惠金额 -->
+                            <input value="0.00" id="discount_payment" name="discount_payment" type="hidden">
+
 
                     </form>
+
                     <div class="inner_ct">
                         <a class="fl go_ahead" href="<?php echo urlShop('cart', 'index'); ?>">Return to cart</a>
 
@@ -758,5 +764,8 @@
         CUR_DIALOG = ajax_form(id, title, url, width,0);
         return false;
     });
+
 </script>
+
+
 
