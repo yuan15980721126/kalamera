@@ -1,5 +1,5 @@
 .container {
-    max-width: 1260px;
+    max-width: 1230px;
     width: 100%;
 }
 
@@ -6181,7 +6181,7 @@ table.subTable tr:last-child td {
 .inner_ct .shoplist .imgb {
     display: inline-block;
     width: 110px;
-    height: 110px;
+    height: 130px;
     border: solid 1px #ddd;
     vertical-align: middle;
 }
@@ -7238,7 +7238,7 @@ input[type='checkbox'].preferred-addr {
     background: #008be7;
     color: #fff;
     border-radius: 3px;
-    padding: 5px 15px;
+    padding: 5px 10px;
 }
 .addr_brief{
     height: 125px;

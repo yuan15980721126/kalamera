@@ -158,7 +158,7 @@
                         <div class="addr_wrap">
                             <div class=" pan-wrap row" id="orders">
                                 <div class="black_wrap col-md-4 pan_address">
-                                    <div class="lc-title"> BILLING ADDRESS</div>
+                                    <div class="lc-title"> Shipping Address</div>
                                     <div class="addr_list">
                                         <div class="show_addr">
                                             <?php if (!empty($output['address_info']) && is_array($output['address_info'])) { ?>
@@ -276,7 +276,7 @@
                                     <?php foreach ($output['store_cart_list'] as $store_id => $cart_list) { ?>
                                     <div class="shoplist clearfix" nc_type="ncCartGoods"
                                          store_id="<?php echo $cart_list[0]['store_id']; ?>">
-                                        <div class="lc-title"> PAYMENT METHOD</div>
+                                        <div class="lc-title"> Order Info</div>
                                         <table class="table" class="shoplist clearfix">
                                             <?php if (!empty($cart_list)) {
                                                 $total_repair = 0; ?>
