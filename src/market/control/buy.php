@@ -191,20 +191,24 @@ class buyControl extends BaseBuyControl {
 //         echo "<pre>";
 //         print_R($_POST);die;
         $result = $logic_buy->buyStep2($_POST, $_SESSION['member_id'], $_SESSION['member_name'], $_SESSION['member_email'],$this->member_info['orderdiscount'],$this->member_info['level']);
+//        print_R($result);die;
         if(!$result['state']) {
             showMessage($result['msg'], 'index.php?model=cart', 'html', 'error');
         }
 
-        $this->payOp($result['data']['pay_sn'],$_POST['payment_codeid']);
+//        $this->payOp($result['data']['pay_sn'],$_POST['payment_codeid'],$_POST['payment_code']);
         //转向到商城支付页面
-        redirect('index.php?model=buy&fun=pay&pay_sn='.$result['data']['pay_sn'].'&payid='.$_POST['payment_codeid']);
+        redirect('index.php?model=buy&fun=pay&pay_sn='.$result['data']['pay_sn'].'&payid='.$_POST['payment_codeid'].'&payment_code='.$_POST['payment_code'].'&pay_type=1');
     }
 
     /**
      * 下单时支付页面
      */
-    public function payOp($pay_sn,$payid) {
-//        $pay_sn = $_GET['pay_sn'];
+    public function payOp() {
+        $pay_sn = $_GET['pay_sn'];
+        $payid = $_GET['payid'];
+        $payment_code = $_GET['payment_code'];
+        $pay_type = $_GET['pay_type'];
         if (!preg_match('/^\d{18}$/',$pay_sn)){
             showMessage(Language::get('cart_order_pay_not_exists'),'index.php?model=member_order','html','error');
         }
@@ -369,8 +373,11 @@ class buyControl extends BaseBuyControl {
 
         Tpl::output('pay',$pay);
 
-        //转向到直接支付
-        redirect('index.php?model=payment&fun=real_order&pay_sn='.$pay_sn.'&payment_code=amazonpay');
+        if($pay_type ==1){
+            //下单页面直接转向到直接支付
+            redirect('index.php?model=payment&fun=real_order&pay_sn='.$pay_sn.'&payment_code='.$payment_code);
+        }
+
 
         //标识 购买流程执行第几步
         Tpl::output('buy_step','step3');

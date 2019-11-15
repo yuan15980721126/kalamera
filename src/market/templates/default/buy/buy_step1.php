@@ -58,7 +58,7 @@
                     //折扣换算
                     var vouvher_price = (items[2] / 100);
                     // var vouvher_price =  '*' + number_format();
-                }else{
+                } else {
                     var vouvher_price = '-' + number_format(items[2], 2);
                 }
                 // console.log(vouvher_price)
@@ -196,11 +196,12 @@
                                                                                         Set default address</span>
 
 
-
-                                                    <span class="edit_btn edit_addr_btn" href="javascript:void(0);" class="btn-bluejeans"
-                                                          dialog_id="my_address_edit" dialog_width="550" dialog_title="Edit Address"
+                                                    <span class="edit_btn edit_addr_btn" href="javascript:void(0);"
+                                                          class="btn-bluejeans"
+                                                          dialog_id="my_address_edit" dialog_width="550"
+                                                          dialog_title="Edit Address"
                                                           nc_type="dialog"
-                                                          uri="<?php echo MEMBER_SITE_URL; ?>/index.php?model=member_address&fun=address&type=edit&layout=order&id=<?php echo  $output['address_info']['address_id']; ?>">
+                                                          uri="<?php echo MEMBER_SITE_URL; ?>/index.php?model=member_address&fun=address&type=edit&layout=order&id=<?php echo $output['address_info']['address_id']; ?>">
                     Edit
                 </span>
                                                     <span class="delete_btn"
@@ -249,7 +250,8 @@
                                                     <input id="<?php echo $val['payment_code']; ?>" type="radio"
                                                            class=""
                                                            value="<?php echo $val['payment_code']; ?>"
-                                                           name="payment_code"   <?php if ($val['payment_code'] == 'paypal') { ?>checked="checked"<?php } ?>>
+                                                           name="payment_code"
+                                                           <?php if ($val['payment_code'] == 'paypal') { ?>checked="checked"<?php } ?>>
                                                     <label for="<?php echo $val['payment_code']; ?>">
                                                         <?php if ($val['payment_code'] == 'paypal') { ?>
                                                             <img src="/skins/default/img/paypal.png" alt="">
@@ -272,204 +274,211 @@
                                     <?php foreach ($output['store_cart_list'] as $store_id => $cart_list) { ?>
                                     <div class="shoplist clearfix" nc_type="ncCartGoods"
                                          store_id="<?php echo $cart_list[0]['store_id']; ?>">
-                                    <div class="lc-title"> PAYMENT METHOD</div>
-                                    <table class="table" class="shoplist clearfix" >
-                                        <?php if (!empty($cart_list)) {
-                                        $total_repair = 0; ?>
-                                        <thead>
-                                        <tr>
-                                            <th>Model</th>
-                                            <th>Qty</th>
-                                            <th>Total</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php foreach ($cart_list as $g) { ?>
-                                            <?php if ($g['state'] && $g['storage_state']) { ?>
-                                                <input type="hidden"
-                                                       value="<?php echo $g['cart_id'] . '|' . $g['goods_num']; ?>"
-                                                       store_id="<?php echo $store_id ?>" name="cart_id[]">
-                                                <input type="hidden"
-                                                       value="<?php echo $g['goods_id'] . '|' . $g['goods_num']; ?>"
-                                                       store_id="<?php echo $store_id ?>" name="goods_id[]">
-                                            <?php } ?>
-                                        <tr class="item buy_list" id="<?php echo $g['goods_id']; ?>"
-                                             num="<?php echo $g['goods_num']; ?>"
-                                             goods_total="<?php echo $g['goods_total']; ?>">
-
-                                            <td>
-                                                <a href="<?php echo urlShop('goods', 'index', array('goods_id' => $g['goods_id'])); ?>"
-                                                    target="_blank">
-                                                <?php echo $g['goods_serial'];?>
-                                                </a>
-                                            </td>
-                                            <input type="hidden" class="repair_prices"
-                                                   value="<?php echo $g['goods_repair']['repair_price']; ?>">
-                                            <td><?php echo $g['goods_num']; ?></td>
-                                            <td>$<?php echo $g['goods_total']; ?></td>
-                                            <input type="hidden" class="goods_repair_total"
-                                                   value="<?php echo $g['goods_repair_total']; ?>">
-                                        </tr>
-                                        <?php } ?>
-                                        </tbody>
-                                        <?php } ?>
-                                    </table>
-
-
-                                    <div class="lc-youhui">
-                                        <!-- E voucher list -->
-                                        <p class="list_t">Coupon List</p>
-                                        <p class="t coupons_desc">Available coupons</p>
-
-                                        <div class="yhqbox">
-                                            <div class="yhq">
-
-                                                <select nctype="voucher" name="voucher[<?php echo $store_id; ?>]"
-                                                        class="select">
-                                                    <option value="<?php echo $voucher['voucher_t_id']; ?>|<?php echo $store_id; ?>|0.00"  data-type="0">
-                                                        -Choose to use coupons -
-                                                    </option>
-                                                    <?php foreach ($output['store_voucher_list'][$store_id] as $voucher) { ?>
-                                                        <option value="<?php echo $voucher['voucher_t_id']; ?>|<?php echo $store_id; ?>|<?php echo $voucher['voucher_price']; ?>|<?php echo $voucher['voucher_t_price_type']; ?>"
-                                                                data-type="<?php echo $voucher['voucher_t_price_type']; ?>"><?php echo $voucher['desc']; ?></option>
+                                        <div class="lc-title"> PAYMENT METHOD</div>
+                                        <table class="table" class="shoplist clearfix">
+                                            <?php if (!empty($cart_list)) {
+                                                $total_repair = 0; ?>
+                                                <thead>
+                                                <tr>
+                                                    <th>Model</th>
+                                                    <th>Qty</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <?php foreach ($cart_list as $g) { ?>
+                                                    <?php if ($g['state'] && $g['storage_state']) { ?>
+                                                        <input type="hidden"
+                                                               value="<?php echo $g['cart_id'] . '|' . $g['goods_num']; ?>"
+                                                               store_id="<?php echo $store_id ?>" name="cart_id[]">
+                                                        <input type="hidden"
+                                                               value="<?php echo $g['goods_id'] . '|' . $g['goods_num']; ?>"
+                                                               store_id="<?php echo $store_id ?>" name="goods_id[]">
                                                     <?php } ?>
-                                                </select>
-                                                <div class="sum">
-                                                    <em id="eachStoreVoucher_<?php echo $store_id; ?>"
-                                                        class="subtract hide">-0.00</em>
-                                                    <input type="hidden" id="voucher_fav_type" value=""/>
+                                                    <tr class="item buy_list" id="<?php echo $g['goods_id']; ?>"
+                                                        num="<?php echo $g['goods_num']; ?>"
+                                                        goods_total="<?php echo $g['goods_total']; ?>">
+
+                                                        <td>
+                                                            <a href="<?php echo urlShop('goods', 'index', array('goods_id' => $g['goods_id'])); ?>"
+                                                               target="_blank">
+                                                                <?php echo $g['goods_serial']; ?>
+                                                            </a>
+                                                        </td>
+                                                        <input type="hidden" class="repair_prices"
+                                                               value="<?php echo $g['goods_repair']['repair_price']; ?>">
+                                                        <td><?php echo $g['goods_num']; ?></td>
+                                                        <td>$<?php echo $g['goods_total']; ?></td>
+                                                        <input type="hidden" class="goods_repair_total"
+                                                               value="<?php echo $g['goods_repair_total']; ?>">
+                                                    </tr>
+                                                <?php } ?>
+                                                </tbody>
+                                            <?php } ?>
+                                        </table>
+
+
+                                        <div class="lc-youhui">
+                                            <!-- E voucher list -->
+                                            <p class="list_t">Coupon List</p>
+                                            <p class="t coupons_desc">Available coupons</p>
+
+                                            <div class="yhqbox">
+                                                <div class="yhq">
+
+                                                    <select nctype="voucher" name="voucher[<?php echo $store_id; ?>]"
+                                                            class="select">
+                                                        <option value="<?php echo $voucher['voucher_t_id']; ?>|<?php echo $store_id; ?>|0.00"
+                                                                data-type="0">
+                                                            -Choose to use coupons -
+                                                        </option>
+                                                        <?php foreach ($output['store_voucher_list'][$store_id] as $voucher) { ?>
+                                                            <option value="<?php echo $voucher['voucher_t_id']; ?>|<?php echo $store_id; ?>|<?php echo $voucher['voucher_price']; ?>|<?php echo $voucher['voucher_t_price_type']; ?>"
+                                                                    data-type="<?php echo $voucher['voucher_t_price_type']; ?>"><?php echo $voucher['desc']; ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                    <div class="sum">
+                                                        <em id="eachStoreVoucher_<?php echo $store_id; ?>"
+                                                            class="subtract hide">-0.00</em>
+                                                        <input type="hidden" id="voucher_fav_type" value=""/>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!-- E voucher list -->
+                                            <!-- E voucher list -->
 
-                                        <div class="item buy_list total_box">
-                                            <div class="price_box">
-                                                <p class="padding-left-7_5">
-                                                    <b id="goodsCount"><?php echo $output['total_num']; ?></b><br>
-                                                    <span class="total_p" id="goodsService"></span><br>
-                                                    <span class="total_p" id="goodsTotal"></span><br>
-                                                    <!--                                                --<br>-->
-                                                    <span class="total_p"><b nc_type="eachStoreFreight"
-                                                                             id="eachStoreFreight_<?php echo $store_id; ?>">0.00</b></span>
-                                                    <!--                                                <br>-->
-                                                    <br>
-                                                    <span class="total_p">
+                                            <div class="item buy_list total_box">
+                                                <div class="price_box">
+                                                    <p class="padding-left-7_5">
+                                                        <b id="goodsCount"><?php echo $output['total_num']; ?></b><br>
+                                                        <span class="total_p" id="goodsService"></span><br>
+                                                        <span class="total_p" id="goodsTotal"></span><br>
+                                                        <!--                                                --<br>-->
+                                                        <span class="total_p"><b nc_type="eachStoreFreight"
+                                                                                 id="eachStoreFreight_<?php echo $store_id; ?>">0.00</b></span>
+                                                        <!--                                                <br>-->
+                                                        <br>
+                                                        <span class="total_p">
                                                         <b nc_type="tax_price" id="tax_price_<?php echo $store_id; ?>">
                                                            0.00
                                                         </b>
                                                     </span><br>
-                                                    <br>
-                                                </p>
+                                                        <br>
+                                                    </p>
+                                                </div>
+                                                <div class="price_box">
+                                                    <p>
+                                                        Number :<br>
+                                                        Warranty Service :<br>
+                                                        Subtotal :<br>
+                                                        <!--                                                Discount :<br>-->
+                                                        Shipping :<br>
+                                                        <!--                                                Warranty Price :<br>-->
+                                                        Estimated Tax :<br>
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <div class="price_box">
-                                                <p>
-                                                    Number :<br>
-                                                    Warranty Service :<br>
-                                                    Subtotal :<br>
-                                                    <!--                                                Discount :<br>-->
-                                                    Shipping :<br>
-                                                    <!--                                                Warranty Price :<br>-->
-                                                    Estimated Tax :<br>
-                                                </p>
+
+
+                                            <div class="item buy_list total_box" style="border: none;">
+                                                <div class="price_box">
+                                                    <p class="padding-left-7_5">
+                                                        <span class="total_p" style="font-size: 20px;"><b
+                                                                    id="orderTotal"></b></span>
+
+
+                                                    </p>
+                                                </div>
+                                                <div class="price_box">
+                                                    <p style="font-weight: 700;font-size: 18px;">
+                                                        Grand Total:
+                                                    </p>
+                                                </div>
+                                                <div class="text-center">
+                                                    <input type="button" id="submitOrder" value="Continue to Payment"
+                                                           class="continue-pay">
+                                                </div>
                                             </div>
+
+                                            <?php } ?>
+                                            <?php } ?>
                                         </div>
-
-
-                                        <div class="item buy_list total_box" style="border: none;">
-                                            <div class="price_box">
-                                                <p class="padding-left-7_5">
-                                                    <span class="total_p" style="font-size: 20px;"><b id="orderTotal"></b></span>
-
-
-                                                </p>
-                                            </div>
-                                            <div class="price_box">
-                                                <p style="font-weight: 700;font-size: 18px;">
-                                                    Grand Total:
-                                                </p>
-                                            </div>
-                                            <div class="text-center">
-                                                <input type="button" id="submitOrder" value="Continue to Payment"
-                                                       class="continue-pay">
-                                            </div>
-                                        </div>
-
-                                        <?php } ?>
-                                        <?php } ?>
-                                    </div>
                                     </div>
                                 </div>
                             </div>
 
 
+                            <!-- S fcode -->
+                            <?php //if ($output['current_goods_info']['is_fcode']) { ?>
+                            <!--    --><?php //include template('buy/buy_fcode'); ?>
+                            <?php //} ?>
 
-                        <!-- S fcode -->
-                        <?php //if ($output['current_goods_info']['is_fcode']) { ?>
-                        <!--    --><?php //include template('buy/buy_fcode'); ?>
-                        <?php //} ?>
 
-
-                        <!-- <div class="ncc-main">
+                            <!-- <div class="ncc-main">
                           <div class="ncc-title">
                             <h3><?php echo $lang['cart_index_ensure_info']; ?></h3>
                             <h5>请仔细核对填写收货、发票等信息，以确保物流快递及时准确投递。</h5>
                           </div> -->
-                        <?php //include template('buy/buy_address'); ?>
-                        <?php //include template('buy/buy_payment'); ?>
+                            <?php //include template('buy/buy_address'); ?>
+                            <?php //include template('buy/buy_payment'); ?>
 
 
-                        <?php //if ($output['current_goods_info']['is_book']) { ?>
-                        <!--    --><?php //include template('buy/buy_book_goods'); ?>
-                        <?php //} else { ?>
-                        <!--    --><?php //include template('buy/buy_goods_list'); ?>
-                        <?php //} ?>
+                            <?php //if ($output['current_goods_info']['is_book']) { ?>
+                            <!--    --><?php //include template('buy/buy_book_goods'); ?>
+                            <?php //} else { ?>
+                            <!--    --><?php //include template('buy/buy_goods_list'); ?>
+                            <?php //} ?>
 
-                        <!--    <input value="buy" type="hidden" name="model">-->
-                        <!--    <input value="buy_step2" type="hidden" name="fun">-->
+                            <!--    <input value="buy" type="hidden" name="model">-->
+                            <!--    <input value="buy_step2" type="hidden" name="fun">-->
 
-                        <input type="hidden" id="current" name="current" value="<?php echo $output['current']; ?>"/>
-                        <input type="hidden" name="express" value=""/>
-                        <!-- 来源于购物车标志 -->
-                        <input value="<?php echo $output['ifcart']; ?>" type="hidden" name="ifcart">
+                            <input type="hidden" id="current" name="current" value="<?php echo $output['current']; ?>"/>
+                            <input type="hidden" name="express" value=""/>
+                            <!-- 来源于购物车标志 -->
+                            <input value="<?php echo $output['ifcart']; ?>" type="hidden" name="ifcart">
 
-                        <!-- offline/online -->
-                        <input value="online" name="pay_name" id="pay_name" type="hidden">
+                            <!-- offline/online -->
+                            <input value="online" name="pay_name" id="pay_name" type="hidden">
 
-                        <!-- 是否保存增值税发票判断标志 -->
-                        <input value="<?php echo $output['vat_hash']; ?>" name="vat_hash" type="hidden">
+                            <!-- 是否保存增值税发票判断标志 -->
+                            <input value="<?php echo $output['vat_hash']; ?>" name="vat_hash" type="hidden">
 
-                        <!-- 收货地址ID -->
-                        <input value="<?php echo $output['address_info']['address_id']; ?>" name="address_id"
-                               id="address_id" type="hidden">
+                            <!-- 收货地址ID -->
+                            <input value="<?php echo $output['address_info']['address_id']; ?>" name="address_id"
+                                   id="address_id" type="hidden">
 
-                        <!-- 城市ID(运费) -->
-                        <input value="" name="buy_city_id" id="buy_city_id" type="hidden">
+                            <!-- 城市ID(运费) -->
+                            <input value="" name="buy_city_id" id="buy_city_id" type="hidden">
 
-                        <!-- 自提门店 -->
-                        <input value="" name="chain[id]" id="input_chain_id" type="hidden">
-                        <input value="" name="chain[buyer_name]" id="input_chain_buyer_name" type="hidden">
-                        <input value="" name="chain[tel_phone]" id="input_chain_tel_phone" type="hidden">
-                        <input value="" name="chain[mob_phone]" id="input_chain_mob_phone" type="hidden">
+                            <!-- 自提门店 -->
+                            <input value="" name="chain[id]" id="input_chain_id" type="hidden">
+                            <input value="" name="chain[buyer_name]" id="input_chain_buyer_name" type="hidden">
+                            <input value="" name="chain[tel_phone]" id="input_chain_tel_phone" type="hidden">
+                            <input value="" name="chain[mob_phone]" id="input_chain_mob_phone" type="hidden">
 
-                        <!-- 记录所选地区是否支持货到付款 第一个前端JS判断 第二个后端PHP判断 -->
-                        <input value="" id="allow_offpay" name="allow_offpay" type="hidden">
-                        <input value="" id="allow_offpay_batch" name="allow_offpay_batch" type="hidden">
-                        <input value="" id="offpay_hash" name="offpay_hash" type="hidden">
-                        <input value="" id="offpay_hash_batch" name="offpay_hash_batch" type="hidden">
+                            <!-- 记录所选地区是否支持货到付款 第一个前端JS判断 第二个后端PHP判断 -->
+                            <input value="" id="allow_offpay" name="allow_offpay" type="hidden">
+                            <input value="" id="allow_offpay_batch" name="allow_offpay_batch" type="hidden">
+                            <input value="" id="offpay_hash" name="offpay_hash" type="hidden">
+                            <input value="" id="offpay_hash_batch" name="offpay_hash_batch" type="hidden">
 
-                        <!-- 默认使用的发票 -->
-                        <input value="<?php echo $output['inv_info']['inv_id']; ?>" name="invoice_id" id="invoice_id"
-                               type="hidden">
-                        <input value="<?php echo getReferer(); ?>" name="ref_url" type="hidden">
-                        <!-- </div> -->
+                            <!-- 默认使用的发票 -->
+                            <input value="<?php echo $output['inv_info']['inv_id']; ?>" name="invoice_id"
+                                   id="invoice_id"
+                                   type="hidden">
+                            <input value="<?php echo getReferer(); ?>" name="ref_url" type="hidden">
+                            <!-- </div> -->
 
-                        <!-- 税金额 -->
-                        <input value="" id="offpay_tax" name="offpay_tax" type="hidden">
-                        <input value="" id="offpay_tax_payment" name="offpay_tax_payment" type="hidden">
+                            <!-- 税金额 -->
+                            <input value="" id="offpay_tax" name="offpay_tax" type="hidden">
+                            <input value="" id="offpay_tax_payment" name="offpay_tax_payment" type="hidden">
 
 
                     </form>
+                    <div class="inner_ct">
+                        <a class="fl go_ahead" href="<?php echo urlShop('cart', 'index'); ?>">Return to cart</a>
+
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -478,11 +487,13 @@
 <!--中间内容结束-->
 
 
+
+
+
 <script type="text/javascript">
 
 
     $(function () {
-
         //加载收货地址列表
         $('#edit_reciver').click(function () {
             $(this).hide();
@@ -617,6 +628,9 @@
 
     //隐藏收货地址列表
     function hideAddrList(addr_id, city_id, area_id, firstName, lastName, area_info, address, phone, zipcode, is_default) {
+        location.reload();//直接刷新页面
+        return true;
+
         var r = 0;
         r += 180;
         $('.hide_addr .item').slideUp();
@@ -635,8 +649,8 @@
         }
 
         html += '<div class="show_addr">'
-        html += '<div class="item" style="display:block;">'
-        html += '<div></div>'
+        html += '<div class="item" style="display:block;" id="li_' + addr_id + '">'
+        html += '<div><input type="radio" class="hide addr" nc_type="addr" name="addr" id="addr_' + addr_id + '" value="' + addr_id + '" address="' + address + '" true_name="' + firstName + '&nbsp;&nbsp;' + lastName + '" city_id="1290" area_id="1462" phone="' + phone + '" zipcode="' + zipcode + '" checked=""></div>'
         html += '<div class="addr_brief"><div class="addr dot_on inline_b desc">'
         html += firstName + '&nbsp;&nbsp;' + lastName + '<br>'
         html += area_info + '<br>'
@@ -644,7 +658,18 @@
         html += phone + '<br>'
         html += '<b class="defaults">Default address</b>'
         html += '</div></div>'
+        html += ' <div class="inline_b btn_box">'
+        html += '<span class="" onclick="defaultAddr('+addr_id+','+city_id+','+area_id+')"> Set default address</span>'
+        html += '<span class="edit_btn edit_addr_btn" href="javascript:void(0);" dialog_id="my_address_editss" dialog_width="550" dialog_title="Edit Address"' +
+            ' nc_type="dialog" uri="http://www.kalamera.cn/person/index.php?model=member_address&fun=address&type=edit&layout=order&id='+addr_id+'"> Edit </span>'
+
+        html += '<span class="delete_btn" onclick="if(confirm('+"'Are you sure you want to delete it ?'"+')){delAddr('+addr_id+')}else{return false;};">Delete</span>'
+
+        html += '</div>'
+
         html += '<div class="hide_addr"></div>'
+
+
 
         // console.log(is_default);
 
@@ -697,7 +722,7 @@
                 }
 
                 var repair_price = 0;
-                $.each($(".repair_prices"),function(i,v){
+                $.each($(".repair_prices"), function (i, v) {
                     repair_price += parseFloat($(this).val())
                     //查找保修商品价格
                 });
@@ -725,6 +750,13 @@
         }, 'json');
     }
 
-
+    $('*[nc_type="dialog"]').click(function(){
+        var id = $(this).attr('dialog_id');
+        var title = $(this).attr('dialog_title') ? $(this).attr('dialog_title') : '';
+        var url = $(this).attr('uri');
+        var width = $(this).attr('dialog_width');
+        CUR_DIALOG = ajax_form(id, title, url, width,0);
+        return false;
+    });
 </script>
 

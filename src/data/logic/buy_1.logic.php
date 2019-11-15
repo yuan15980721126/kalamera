@@ -115,6 +115,7 @@ class buy_1Logic {
         foreach ($store_cart_list as $store_id => $store_cart) {
             $tmp_amount = 0;
             $repair_price = 0;
+            $repair_amount = 0;
             foreach ($store_cart as $key => $cart_info) {
                 $goods_repair = $cart_info['goods_repair'] ? unserialize($cart_info['goods_repair']) : '';
                 if(!empty($goods_repair) && is_array($goods_repair)){
@@ -127,11 +128,16 @@ class buy_1Logic {
                 $store_cart[$key]['goods_total'] = ncPriceFormat(($cart_info['goods_price'] * $cart_info['goods_num']));
                 $store_cart[$key]['goods_image_url'] = cthumb($store_cart[$key]['goods_image']);
                 $tmp_amount += $store_cart[$key]['goods_total'];
+
+                $repair_amount += $repair_price;
+
             }
+
             $store_cart_list[$store_id] = $store_cart;
             $store_goods_total[$store_id] = ncPriceFormat($tmp_amount);
+            $store_repair_amount[$store_id] = ncPriceFormat($repair_amount);//新增返回保修总价格
         }
-        return array($store_cart_list,$store_goods_total);
+        return array($store_cart_list,$store_goods_total,$store_repair_amount);
     }
 
     /**

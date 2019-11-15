@@ -159,7 +159,7 @@
                                 <?php } ?>
                                 <?php if ($group['pay_amount'] > 0) { //支付?>
                                     <li>
-                                        <a href="<?php echo urlShop('buy', 'pay', ['pay_sn' => $order['pay_sn']]); ?>">
+                                        <a href="<?php echo urlShop('buy', 'pay', ['pay_sn' => $order['pay_sn'],'pay_type' => '2']); ?>">
                                             Complete payment
                                         </a>
                                     </li>

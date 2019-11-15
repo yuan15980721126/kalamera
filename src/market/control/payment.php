@@ -276,9 +276,13 @@ class paymentControl extends BaseHomeControl{
      *
      */
     private function _api_pay($order_info, $payment_info) {
-        Log::record('支付信息'.json_encode($payment_info),Log::ERR);
+//        Log::record('支付信息'.json_encode($payment_info),Log::ERR);
+
         if(in_array($payment_info['payment_code'], array('paypal','credit_card'))){
             $payment_api = new paypal($payment_info,$order_info);
+//            Log::record('paypal初始化支付参数'.json_encode($payment_info),Log::ERR);
+//            Log::record('paypal初始化支付商品参数'.json_encode($order_info),Log::ERR);
+
         }
         if($payment_info['payment_code'] == 'chinabank') {
             $payment_api->submit();exit(0);

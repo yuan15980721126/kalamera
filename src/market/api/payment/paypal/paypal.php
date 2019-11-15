@@ -68,21 +68,51 @@ class paypal{
 
         // ### Itemized information
         $items = array();
+        echo '<pre>';
 
-        foreach ($this->order_info['goods_list'] as $k => $g) {
+
+        $voucher_price = $this->order_info['shipping']['voucher_price'];
+        $voucher_type= $this->order_info['shipping']['voucher_type'];
+
+        $goods_list = $this->order_info['goods_list'];
+        $goods_count = count($goods_list);
+
+        $goods_num = 0;
+        foreach ($goods_list as $k => $g) {
+            $goods_num +=$g['goods_num'];
+        }
+//        print_R($goods_list);
+        print_R($voucher_type);
+        foreach ($goods_list as $k => $g) {
+            $goods_repair = $g['goods_repair'] ? unserialize($g['goods_repair']) : '';
+            if(!empty($goods_repair) && is_array($goods_repair)){//获取每件商品的单独保修价格
+                $original_price = $goods_repair['original_price'];
+            }
+            $goods_price = $g['goods_price'];
+            if($voucher_type ==1 && !empty($voucher_price)){//优惠券立减商品直接立减
+//                $goods_price = ($g['goods_price'] - ($voucher_price / $goods_num));//优惠金额/商品数量
+//                print_R($goods_price);echo '<br>';
+
+
+
+
+            }
+            if($voucher_type == 2  && !empty($voucher_price)){//优惠券折扣换算则第一个商品直接立减
+                $goods_price = ncPriceFormat($g['goods_price'] * ($voucher_price/100));
+            }
             $item[$k] = new Item();
             $item[$k]->setName($g['goods_name'])
                 ->setCurrency('USD')
                 ->setQuantity($g['goods_num'])
                 ->setSku(mb_substr($g['goods_name'],0,60))
-                ->setPrice($g['goods_price']);
+                ->setPrice($goods_price+$original_price);//最后价格再加上单独保修价格
             $items[] = $item[$k];
+
         }
-//        echo '<pre>';
-//        print_R($items);die;
+//        print_R($item);
+//        die;
         Log::record('paypal商品详情'.json_encode($items),Log::ERR);
         $itemList = new ItemList();
-        //$itemList->setItems(array($item1, $item2));
         $itemList->setItems($items);
 
         // 自定义用户收货地址，避免用户在paypal上账单的收货地址和销售方收货地址有出入
@@ -111,8 +141,8 @@ class paypal{
         $details = new Details();
         $details->setShipping($this->order_info['order_list'][0]['shipping_fee'])
             ->setTax($this->order_info['order_list'][0]['tax_payment'])
-            ->setSubtotal($this->order_info['order_list'][0]['goods_amount']-$this->order_info['order_list'][0]['tax_payment']);
-
+            ->setSubtotal($this->order_info['order_list'][0]['goods_amount']+20)
+            ->setShippingDiscount(20);
         // ### Amount
     //        echo '<pre>';
     //        print_R($this->order_info['order_list']);die;

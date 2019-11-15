@@ -232,7 +232,7 @@
                 if (data.state) {
 
                     var parent = '#li_' + li_id;
-                    console.log(data.data);
+                    // console.log(data.data);
                     var true_name = data.data.true_name;
                     var firstName = data.data.firstName;
                     var lastName = data.data.lastName;

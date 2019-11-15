@@ -148,7 +148,7 @@ function calcOrder() {
         $('.repair_prices').each(function () {
             repair_price +=  parseFloat($(this).val())
         });
-        $('#goodsService').html(repair_price);
+        $('#goodsService').html(repair_price.toFixed(2));
         if ($('#eachStoreFreight_'+store_id).length > 0) {
             allTotal += parseFloat($('#eachStoreFreight_'+store_id).html());
         }

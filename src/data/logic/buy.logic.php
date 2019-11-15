@@ -275,7 +275,7 @@ class buyLogic {
 //         echo "<pre>";
 //         print_R($store_cart_list);
         //商品金额计算(分别对每个商品/优惠套装小计、每个店铺小计)
-        list($store_cart_list,$store_goods_total) = $this->_logic_buy_1->calcCartList($store_cart_list);
+        list($store_cart_list,$store_goods_total,$store_repair_amount) = $this->_logic_buy_1->calcCartList($store_cart_list);
 //        echo "<pre>";
 //        print_R($store_cart_list);
         // 加价购
@@ -886,7 +886,9 @@ class buyLogic {
         $input_is_book = $this->_order_data['input_is_book'];
 
         //商品金额计算(分别对每个商品/优惠套装小计、每个店铺小计)
-        list($store_cart_list,$store_goods_total) = $this->_logic_buy_1->calcCartList($store_cart_list);
+        list($store_cart_list,$store_goods_total,$store_repair_amount) = $this->_logic_buy_1->calcCartList($store_cart_list);
+//        echo '<pre>';
+//        print_r($store_cart_list);
 
         //加价购 增加订单总额
         foreach ((array) $store_goods_total as $k => $v) {
@@ -927,8 +929,11 @@ class buyLogic {
             //计算店铺最终订单实际支付金额(加上运费)
             $store_final_order_total = $this->_logic_buy_1->reCalcGoodsTotal($store_final_goods_total,$store_freight_total,'freight');
 
+
+
             //计算每个店铺(所有店铺级优惠活动，代金券，满减)总共优惠多少
             $store_promotion_total = $this->_logic_buy_1->getStorePromotionTotal($store_goods_total,$store_freight_total, $store_final_order_total);
+
 
             //得到有效平台红包
             $input_rpt_info = $this->_logic_buy_1->reParseRptInfo($input_rpt_info,array_sum($store_final_order_total),$this->_member_info['member_id']);
@@ -937,6 +942,8 @@ class buyLogic {
             list($store_final_order_total,$store_rpt_total) = $this->_logic_buy_1->parseOrderRpt($store_final_order_total,$input_rpt_info['rpacket_price']);
             //重新计算优惠金额,将店铺红包减去运费的余额追加到店铺总优惠里
             $store_promotion_total = $this->_logic_buy_1->reCalcStorePromotionTotal($store_promotion_total,$store_freight_total,$store_rpt_total);
+
+
 
             //将赠品追加到购买列表(如果库存0，则不送赠品)
             $append_premiums_to_cart_list = $this->_logic_buy_1->appendPremiumsToCartList($store_cart_list,$store_premiums_list,$store_mansong_rule_list,$this->_member_info['member_id']);
@@ -966,7 +973,7 @@ class buyLogic {
         }
 
         if (is_array($no_send_tpl_ids) && !empty($no_send_tpl_ids)) {
-            throw new Exception('抱歉，您购买的部分商品无货，请重购买');
+            throw new Exception('Sorry, some of the items you bought are not available, please buy again');
         }
 
         //保存数据
@@ -980,7 +987,7 @@ class buyLogic {
         $this->_order_data['input_voucher_list'] = $input_voucher_list;
         $this->_order_data['input_rpt_info'] = $input_rpt_info;
         $this->_order_data['store_rpt_total'] = $store_rpt_total;
-
+        $this->_order_data['store_repair_amount'] = $store_repair_amount;
     }
 
     /**
@@ -997,8 +1004,10 @@ class buyLogic {
         $member_email = $this->_member_info['member_email'];
         $member_level = $this->_member_info['member_level'];
 
-        $input_tax = $this->_order_data['input_tax'];
+        $input_tax = $this->_order_data['input_tax'];//税费
         $input_tax_payment = $this->_order_data['input_tax_payment'];
+        $store_repair_amount = $this->_order_data['store_repair_amount'];//保修总价格
+
 
         $model_order = Model('order');
 
@@ -1038,7 +1047,7 @@ class buyLogic {
             }
         }
 //        echo "<pre>";
-//             print_R($input_address_info);die;
+//             print_R($store_cart_list);die;
         foreach ($store_cart_list as $store_id => $goods_list) {
             //取得本店优惠额度(后面用来计算每件商品实际支付金额，结算需要)
             $promotion_total = !empty($store_promotion_total[$store_id]) ? $store_promotion_total[$store_id] : 0;
@@ -1061,6 +1070,11 @@ class buyLogic {
             if($input_tax_payment){//新增税费计算到总金额
                 $store_final_order_total[$store_id] += $input_tax_payment;
             }
+            if($store_repair_amount[$store_id]){//新增保修价格计算到总金额
+                $store_final_order_total[$store_id] += $store_repair_amount[$store_id];
+            }
+
+
             $order['order_sn'] = $this->_logic_buy_1->makeOrderSn($order_pay_id);
             $order['pay_sn'] = $pay_sn;
             $order['store_id'] = $store_id;
@@ -1074,7 +1088,10 @@ class buyLogic {
             $order['order_state'] = $store_pay_type_list[$store_id] == 'offline' ? ORDER_STATE_PAY : ORDER_STATE_NEW;
             $order['order_amount'] = $store_final_order_total[$store_id];
             $order['shipping_fee'] = $store_freight_total[$store_id];
-            $order['goods_amount'] = $order['order_amount'] - $order['shipping_fee'] + $store_rpt_total[$store_id];
+            $order['goods_amount'] = $order['order_amount'] - $order['shipping_fee'] - $input_tax_payment + $store_rpt_total[$store_id];//新增减去税额
+//            print_r($order);
+//            print_r($input_tax_payment);
+//            die;
             $order['order_from'] = $order_from;
             $order['order_type'] = $input_chain_id ? 3 : ($goods_list[0]['is_book'] ? 2 : 1);
             $order['chain_id'] = $input_chain_id ? $input_chain_id : 0;

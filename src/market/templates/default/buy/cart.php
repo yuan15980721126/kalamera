@@ -43,6 +43,11 @@
                                            target="_blank" class="dot-ellipsis dot-height-40">
                                             <?php echo $g['goods_name']; ?>
                                         </a><br>
+                                        <a href="<?php echo urlShop('goods', 'index', array('goods_id' => $g['goods_id'])); ?>"
+                                           target="_blank">
+                                        <?php echo $g['goods_serial']; ?>
+                                        </a>
+
                                     </p>
                                     <p class="txt">
                                         <a href="" >
