@@ -474,8 +474,6 @@
                             <input value="" id="offpay_tax" name="offpay_tax" type="hidden">
                             <input value="" id="offpay_tax_payment" name="offpay_tax_payment" type="hidden">
 
-                            <!-- 优惠金额 -->
-                            <input value="0.00" id="discount_payment" name="discount_payment" type="hidden">
 
 
                     </form>

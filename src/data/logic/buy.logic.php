@@ -897,7 +897,8 @@ class buyLogic {
                 $store_goods_total[$k] = ncPriceFormat($v);
             }
         }
-
+//        echo '<pre>';
+//        print_r($store_goods_total);die;
         //预定不享受任何优惠
         if (!$input_is_book) {
             //取得店铺优惠 - 满即送(赠品列表，店铺满送规则列表)
@@ -920,9 +921,15 @@ class buyLogic {
 //            Log::record('优惠券初始信息'.json_encode($input_voucher_list),Log::ERR);
 
             $input_voucher_list = $this->_logic_buy_1->reParseVoucherList($input_voucher_list,$store_final_goods_total,$this->_member_info['member_id']);
+//            echo '<pre>';
 
+            $start_goods_total = $store_final_goods_total;//未使用代金券前的商品金额
+//            print_r($start_goods_total);
             //重新计算店铺扣除优惠券送商品实际支付金额
             $store_final_goods_total = $this->_logic_buy_1->reCalcGoodsTotal($store_final_goods_total,$input_voucher_list,'voucher');
+            foreach ($start_goods_total as $store_id => $goods_total) {
+                $discount = $goods_total - $store_final_goods_total[$store_id];
+            }
 
 //            Log::record('重新计算店铺扣除优惠券送商品实际支付金额'.json_encode($store_final_goods_total),Log::ERR);
 
@@ -987,7 +994,9 @@ class buyLogic {
         $this->_order_data['input_voucher_list'] = $input_voucher_list;
         $this->_order_data['input_rpt_info'] = $input_rpt_info;
         $this->_order_data['store_rpt_total'] = $store_rpt_total;
-        $this->_order_data['store_repair_amount'] = $store_repair_amount;
+        $this->_order_data['store_repair_amount'] = $store_repair_amount;;//保修总价格
+        $this->_order_data['discount_payment'] = $discount;
+
     }
 
     /**
@@ -1096,7 +1105,7 @@ class buyLogic {
 //            Log::record('税额'.json_encode($input_tax),Log::ERR);
             $order['tax'] = $input_tax ? $input_tax : 0;
             $order['tax_payment'] = $input_tax_payment ? $input_tax_payment : 0;
-            $order['discount_payment'] = $this->_post_data['discount_payment'] ? $this->_post_data['discount_payment'] : 0;
+            $order['discount_payment'] = $this->_order_data['discount_payment'] ? $this->_order_data['discount_payment'] : 0;
 
 
 

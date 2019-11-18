@@ -143,13 +143,13 @@ function calcOrder() {
             }
             var discounts =goodsTotals - allTotal;
 
-            $('#discount_payment').val(discounts.toFixed(2));
+            // $('#discount_payment').val(discounts.toFixed(2));
             // console.log(goodsTotals)
             // console.log(allTotal)
             $('#goodsTotal').html(allTotal.toFixed(2));
             // console.log(allTotal)
         }else{
-            $('#discount_payment').val('0.00');
+            // $('#discount_payment').val('0.00');
         }
 
 
