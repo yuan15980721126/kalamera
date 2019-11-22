@@ -254,3 +254,7 @@ if(function_exists('spl_autoload_register')) {
 		return Base::autoload($class);
 	}
 }
+//设置手机端跳转红酒外贸手机端
+if(isMobile()){
+    header("Location:https://kalamerainc.myshopify.com/");
+}
